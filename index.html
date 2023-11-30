@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>firebase file upload</title>
+</head>
+<body>
+
+    <button><a href="account.html">accounts</a></button><br><br><br>
+    <div>
+        <input type="file" id="fileIn"> <br>
+        <div>
+            <button type="button" id="uploadBtn">Upload</button>
+        </div>
+    </div>
+
+    <div id="progressContainer">
+        <div id="progressWidth">
+            <p id="progressDigit"></p>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="account.css">
+    <title>account</title>
+</head>
+<body>
+    <div class="header">
+        <h1>WELCOME TO THIS CHANNEL</h1>
+    </div>
+
+    <div id="signUpForm">
+        <h3>Dont have an account? Sign Up</h3>
+        <label for="firstName">Firstname : </label>
+        <input type="text" id="firstName" required>
+
+        <label for="lastName">LastName : </label>
+        <input type="text" id="lastName" required>
+
+        <label for="username">Username : </label>
+        <input type="text" id="username" required>
+
+        <label for="email">Email : </label>
+        <input type="email" id="email" required>
+
+        <label for="dateOfBirth">Date Of Birth : </label>
+        <input type="date" id="dateOfBirth" required>
+
+        <label for="gender">Gender : </label>
+        <select id="gender">
+            <option >Male</option>
+            <option >Female</option>
+        </select> 
+
+        <label for="password">Password : </label>
+        <input type="password" id="password" required>
+        <img src="images/crossed eye icon.jpg" width="25px
+        " id="crossedEye">
+        <img src="images/eye-icon-symbol-sign-vector.jpg" width="25px
+        " id="openedEye">
+
+        <label for="conPassword">Confirm Password : </label>
+        <input type="password" id="conPassword" required>
+
+        <div>
+            <button id="signUpBtn">Sign Up</button>
+        </div>
+    </div>
+
+    <div class="alreadySocial">
+        <p>already have an account? <a href="signIn.html">Sign in</a> Or sign Up with</p>
+        <button id="signWithGoogle">Google</button>
+        <button id="signWithFacebook">Facebook</button>
+        <button id="signWithTwitter">Twitter</button>
+    </div>
+
+
+
+    <script type="module" src="account.js"></script>
+</body>
+</html>
