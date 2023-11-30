@@ -8,10 +8,10 @@ let openedEye = document.getElementById('openedEye')
 let firstName = document.getElementById('firstName') 
 let lastName = document.getElementById('lastName') 
 let username = document.getElementById('username') 
-let email = document.getElementById('email') 
+let emailIn = document.getElementById('email') 
 let dateOfBirth = document.getElementById('dateOfBirth') 
 let gender = document.getElementById('gender') 
-let password = document.getElementById('password') 
+let passwordIn = document.getElementById('password') 
 let conPassword = document.getElementById('conPassword') 
 let signUpBtn = document.getElementById('signUpBtn') 
 
@@ -19,24 +19,24 @@ let signUpBtn = document.getElementById('signUpBtn')
 // CODE TO REVEAL OR HIDE PASSWORD
 
 function revealPassword(){
-    if(password.type == 'password' || conPassword.type == 'password'){
-        password.type = 'text'
+    if(passwordIn.type == 'password' || conPassword.type == 'password'){
+        passwordIn.type = 'text'
         conPassword.type = 'text'
         openedEye.style.display = 'none'
         crossedEye.style.display = 'block'
     }else{
-        password.type = 'password'
+        passwordIn.type = 'password'
 
     }
 }
 function hidePassword(){
-    if(password.type == 'text' || conPassword.type == 'text'){
-        password.type = 'password'
+    if(passwordIn.type == 'text' || conPassword.type == 'text'){
+        passwordIn.type = 'password'
         conPassword.type = 'password'
         openedEye.style.display = 'block'
         crossedEye.style.display = 'none'
     }else{
-        password.type = 'password'
+        passwordIn.type = 'password'
     }
 }
 
@@ -46,8 +46,7 @@ openedEye.addEventListener('click', revealPassword)
 
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -62,8 +61,12 @@ openedEye.addEventListener('click', revealPassword)
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
+    // IMPORTING THE NEEDED FIREBASE FUNCTION
   import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+  import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+  
   const auth = getAuth()
+  const db = getDatabase()
 
 //   FUNCTION TO VALIDATE USER INPUT
   function validationUser(){
@@ -79,7 +82,7 @@ openedEye.addEventListener('click', revealPassword)
         alert('Lastname should contain only Alphabets')
         return false
     }
-    if(!emailregex.test(email.value)){
+    if(!emailregex.test(emailIn.value)){
         alert('Please Enter correct Email address')
         return false
     }
@@ -87,11 +90,11 @@ openedEye.addEventListener('click', revealPassword)
         alert('Username should be at least 5 characters')
         return false
     }
-    if(firstName.value == '' || conPassword.value == '' || password.value == '' || dateOfBirth.value == '' || lastName.value == '' || username.value == '' || email.value == ''){
+    if(firstName.value == '' || conPassword.value == '' || passwordIn.value == '' || dateOfBirth.value == '' || lastName.value == '' || username.value == '' || emailIn.value == ''){
         alert('Please fill every details')
         return false
     }
-    if(password.value !== conPassword.value){
+    if(passwordIn.value !== conPassword.value){
         alert('password do not match')
         return false
     }
@@ -99,34 +102,52 @@ openedEye.addEventListener('click', revealPassword)
   }
 
 
+    //   FUNCION TO REGISTER USER/CREATE USER
+    function createUser(){
+        if(!validationUser()){
+            return
+        }
+        let firstNameInput = firstName.value
+        let lastNameInput = lastName.value
+        let usernameInput = username.value
+        let email = emailIn.value
+        let dateOfBirthInput = dateOfBirth.value
+        let genderInput = gender.value
+        let password = passwordIn.value
 
-  function createUser(){
-    if(!validationUser()){
-        return
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(credentials => {
+            alert('User Created. Waiting for Redirect')
+            let userId = credentials.user.uid
+
+            // SAVING THE USER CREDENTIALS TO FIREBASE
+            set(ref(db, 'newUser/' + userId), {
+                FirstName : firstNameInput,
+                LastName : lastNameInput,
+                Username : usernameInput,
+                Email : email,
+                Date_Of_Birth : dateOfBirthInput,
+                Gender : genderInput,
+            })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+            // REDIRECTING THE NEW USER TO THE PROFILE
+            setTimeout(() => {
+                window.location.href =  'newprofile.html'
+            }, 3000);
+
+            console.log(userId)
+            // console.log(credentials);
+        })
+        .catch(error => {
+            console.error('The error is ' + error.message);
+        })
     }
-    let firstNameInput = firstName.value
-    console.log(firstNameInput)
 
-    let lastNameInput = lastName.value
-    console.log(lastNameInput)
-
-    let usernameInput = username.value
-    console.log(usernameInput)
-
-    let emailInput = email.value
-    console.log(emailInput)
-
-    let dateOfBirthInput = dateOfBirth.value
-    console.log(dateOfBirthInput)
-
-    let genderInput = gender.value
-    console.log(genderInput)
-
-    let passwordInput = password.value
-    console.log(passwordInput)
-
-    let conPasswordInput = conPassword.value
-    console.log(conPasswordInput)
-
-  }
-  signUpBtn.addEventListener('click', createUser)
+    // ADDING THE EVENT TO THE BUTTON
+    signUpBtn.addEventListener('click', createUser)
