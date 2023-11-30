@@ -1,0 +1,104 @@
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+.navigation{
+    display: flex;
+}
+.navigation ul {
+    display: flex;
+    margin: 10px 10px 0 0;
+}
+.navigation ul li{
+    padding: 10px;
+    list-style-type: none;
+}
+.navigation ul li a{
+    text-decoration: none;
+    color: white;
+}
+.userImageAndName{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* faculty select */
+
+.overall-select{
+    margin-top: 10px;
+}
+.facultySelect{
+    display: flex;
+    justify-content: center;
+}
+#slct1{
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.departmentSelect{
+    display: flex;
+    justify-content: center; 
+}
+#slct2{
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.selectSubmitDiv{
+    margin-top: -10px;
+    display: flex;
+    justify-content: center; 
+}
+.selectSubmitDiv button{
+    padding: 5px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.sectionHead{
+    display: flex;
+    justify-content: center;
+}
+
+/* SCHOOL PORRTALS LINK */
+.fpaQuick p{
+    display: flex;
+    justify-content: center;
+}
+.fpaQuick a{
+    text-decoration: none;
+    color: black;
+}
+
+/* OFFCE OF THE STUDENT UNION */
+.fpasu p {
+    display: flex;
+    justify-content: center;
+}
+.fpasu a{
+    text-decoration: none;
+    color: black;
+}
+
+/* ALL NEWS BUTTON */
+#seeMoreBtn{
+    padding: 5px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

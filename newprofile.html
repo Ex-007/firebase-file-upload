@@ -3,9 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newprofile.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to this page</h1>
+    <!-- THE NAVIGATION BAR -->
+   <div class="header">
+        <div class="logo">
+            <h4>School</h4>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Chat</a></li>
+                <li><a href="#">Catalogue</a></li>
+                <li><a href="#">Note</a></li>
+                <li><a href="#">Market Place</a></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+            <div class="userImageAndName">
+                <img src="images/profile image.png" alt="profile picture" width="50px">
+                <h3>John Doe</h3>
+            </div>
+        </div>
+   </div>
+
+   <!-- CHOOSE SCHOOL AND DEPARTMENT -->
+    <div class="overall-select">
+        <div class="sectionHead">
+            <h1>Select School and Department</h1>
+        </div>
+        <hr>
+        <div class="facultySelect">
+            <select id="slct1" class="selectOne">
+                <option value="">Choose a School</option>
+            </select>
+        </div>
+
+        <div class="departmentSelect">
+            <select name="" id="slct2" class="selectTwo">
+                <option value="">Choose Department</option>
+            </select>
+        </div>
+        <br>
+
+        <div class="selectSubmitDiv">
+            <button type="submit" class="selectBtn" id="selectSubmitBtn">Visit</button>
+        </div>
+    </div>
+
+    <!-- SCHOOL PORTALS QUICK LINK -->
+    <div class="fpaQuick">
+        <div class="sectionHead">
+            <h1>School Portal's Quick Links</h1>
+        </div>
+        <hr>
+        <p>
+            <a href="#">Check Admission Status</a>
+        </p>
+        <p>
+            <a href="#">Student's Login</a>
+        </p>
+        <p>
+            <a href="#">FPASU payments</a>
+        </p>
+        <p>
+            <a href="#">Online polls</a>
+        </p>
+    </div>
+
+    <!-- STUDENT UNION GOVERNMENT -->
+    <div class="fpasu">
+        <div class="sectionHead">
+            <h1>Office of the Student Union Government</h1>
+        </div>
+        <hr>
+        <p>
+            <a href="#">FPASU President</a>
+        </p>
+        <p>
+            <a href="#">The P.R.O</a>
+        </p>
+        <p>
+            <a href="#">The General Secretary</a>
+        </p>
+    </div>
+
+    <!-- NEWS SECTION -->
+
+    <div class="news-div">
+        <div class="sectionHead">
+            <h1 class="news-head">News Updates</h1>
+        </div>
+        <hr>
+        <p>Federal Polytechnic Ado-Ekiti Elected new SUG after years of ban.</p>
+        <p>Federal Polytechnic Ado-Ekiti set to hold her 2022/2023 new Students Matriculation on 28th of April 2023.</p>
+        <p>Federal Polytechnic Ado-Ekiti School of Engineering (SOE) fresher's cup final between the defending champion and EEE.</p>
+        <p>FG declares Friday 21st & Monday 24th April Public Holiday to mark Eid-Fitr Celebration</p>
+        <p>Call for Application: CORAF Food System Resilience Scholarship for African Students - 2023</p>
+        <p>Fire guts UNIBEN female hostel</p>
+        <p>Suspected assassins kill FUWUKARI Student on his farm</p>
+        <hr>
+    </div>
+    <div class="sectionHead">
+        <button id="seeMoreBtn">All News</button>
+    </div>
+
+
+
+    <p class="postP">Anything happening around you within the school campus that you would like the school campus and students to know About? <a href="#">Send us a message now</a>.</p>
+    <div class="quickLinks">
+
+    <!-- SEND US A MESSAGE -->
+        <!-- <div class="sendUsTextDiv">
+            <h1>Send Us a Message</h1>
+            <input type="text" id="sendUsText" class="sendUsText" placeholder="write your Message">
+            <br>
+            <input type="email" id="sendUsTextEmail" class="sendUsTextEmail" placeholder="Your email">
+            <br>
+            <button type="submit" class="sendUsTextButton" class="sendUsTextButton">Submit</button>
+
+        </div> -->
+
+
+
+
+
+
+
+
+    <button id="signOut">sign out</button>
+
+    <script type="module" src="newprofile.js"></script>
 </body>
 </html>
