@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="newprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
     <!-- THE NAVIGATION BAR -->
    <div class="header">
         <div class="logo">
-            <h4>School</h4>
+            <h3>STUDENT SUPPORT</h3>
         </div>
         <div class="navigation">
             <ul>
@@ -20,6 +21,7 @@
                 <li><a href="#">Note</a></li>
                 <li><a href="#">Market Place</a></li>
                 <li><a href="#">About us</a></li>
+                <li id="signOut">Sign Out</li>
             </ul>
             <div class="userImageAndName">
                 <img src="images/profile image.png" alt="profile picture" width="50px">
@@ -105,34 +107,116 @@
         <p>Suspected assassins kill FUWUKARI Student on his farm</p>
         <hr>
     </div>
+    <div>
+        <p class="postP">Anything happening around you within the school campus that you would like the school campus and students to know About? <a href="#">Send us a message Now</a>
+    </div>
     <div class="sectionHead">
         <button id="seeMoreBtn">All News</button>
     </div>
 
-
-
-    <p class="postP">Anything happening around you within the school campus that you would like the school campus and students to know About? <a href="#">Send us a message now</a>.</p>
+    <!-- QUICK LINKS -->
     <div class="quickLinks">
+        <div class="sectionHead">
+            <h1>Quick Links</h1>
+        </div>
+        <hr>
+        <ul>
+            <li>
+                <a href="#">Top</a>
+            </li>
+            <li>
+                <a href="#">Connect to a Faculty President</a>
+            </li>
+            <li>
+                <a href="#">Connect to a Department Governor</a>
+            </li>
+            <li>
+                <a href="#">Admission Requirements</a>
+            </li>
+            <li>
+                <a href="#">Calculate G.P and C.G.P</a>
+            </li>
+            <!-- <li>
+                <a href="#">Locate</a>
+            </li> -->
+            <li>
+                <a href="#">Marketplace</a>
+            </li>
+            <li>
+                <a href="#">Project Topics</a>
+            </li>
+            <li>
+                <a href="#">SIWES</a>
+            </li>
+            <li>
+                <a href="#">Advertise with Us</a>
+            </li>
+            <li>
+                <a href="#">Connect to a Security Personnel</a>
+            </li>
+            <li>
+                <a href="#">Ask a Question</a>
+            </li>
+            <li>
+                <a href="#">Upcoming Events</a>
+            </li>
+            <li>
+                <a href="#">Scholarship</a>
+            </li>
+            <li>
+                <a href="#">Tutorials</a>
+            </li>
+            <!-- <li>
+                <a href="#">Departments</a>
+            </li> -->
+            <li>
+                <a href="#">Groups</a>
+            </li>
+            <li>
+                <a href="#">Contact us</a>
+            </li>
+        </ul>
+    </div>
 
     <!-- SEND US A MESSAGE -->
-        <!-- <div class="sendUsTextDiv">
+    <div class="sendUsTextDiv">
+        <div class="sectionHead">
             <h1>Send Us a Message</h1>
-            <input type="text" id="sendUsText" class="sendUsText" placeholder="write your Message">
-            <br>
-            <input type="email" id="sendUsTextEmail" class="sendUsTextEmail" placeholder="Your email">
-            <br>
+        </div>
+        <hr>
+        <div class="inputArea">
+            <textarea id="sendAmessageText" placeholder="Please Type Your Message"></textarea>
+            <input type="email" id="sendUsTextEmail" placeholder="Your email">
+        </div>
+        <div class="sencMessageBtn">
             <button type="submit" class="sendUsTextButton" class="sendUsTextButton">Submit</button>
+        </div>
 
-        </div> -->
+    </div>
+
+    <!-- THE FOOTER -->
+
+    <footer class="footerEmmet">
+        <div class="copyrightAnd">
+            <p>&#169; ABTech <span>2023</span></p>
+        </div>
+        <div class="footerMiddle">
+            <h3>STUDENT SUPPORT</h3>
+        </div>
+        <div class="iconDiv">
+            <i class="fa-brands fa-facebook" id="facebook"></i>
+            <i class="fa-brands fa-twitter" id="twitter"></i>
+            <i class="fa-brands fa-instagram" id="instagram"></i>
+            <i class="fa-brands fa-whatsapp" id="whatsapp"></i>
+            <i class="fa-brands fa-telegram" id="telegram"></i>
+           </div>
+    </footer>
 
 
 
 
 
-
-
-
-    <button id="signOut">sign out</button>
+    <!-- <button id="signOut">sign out</button> -->
 
     <script type="module" src="newprofile.js"></script>
 </body>

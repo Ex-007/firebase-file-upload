@@ -102,3 +102,89 @@
     color: white;
     cursor: pointer;
 }
+
+/* THE QUICK LINKS */
+
+.quickLinks ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quickLinks ul li{
+    list-style-type: none;
+    padding: 5px;
+}
+
+.quickLinks ul li a{
+    text-decoration: none;
+    color: black;
+
+}
+
+/* SEND US A MESSAGE */
+.inputArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#sendAmessageText{
+    margin-bottom: 10px;
+    width: 200px;
+    height: 100px;
+    padding: 5px;
+    border-radius: 10px;
+}
+#sendUsTextEmail{
+    width: 200px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.sencMessageBtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.sencMessageBtn button{
+    padding: 5px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+/* THE FOOTER */
+.footerEmmet{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+.iconDiv{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    font-size: 30px;
+}
+.iconDiv i{
+   
+    padding: 10px;
+    margin-right: 5px;
+}
+.copyrightAnd{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+/* SIGN OUT BTN */
+#signOut{
+    cursor: pointer;
+    color: red;
+}
