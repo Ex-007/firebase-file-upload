@@ -133,6 +133,7 @@ openedEye.addEventListener('click', revealPassword)
                 console.log(response);
             })
             .catch(error => {
+                alert(error)
                 console.error(error);
             })
 
@@ -145,6 +146,7 @@ openedEye.addEventListener('click', revealPassword)
             // console.log(credentials);
         })
         .catch(error => {
+            alert(error)
             console.error('The error is ' + error.message);
         })
     }

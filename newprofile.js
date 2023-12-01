@@ -17,7 +17,8 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
-  import {getAuth, signOut} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+  import {getAuth, signOut, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+  import {child, ref, get, getDatabase} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
 
   let auth = getAuth()
   let signOutBtn = document.getElementById('signOut')
@@ -33,6 +34,63 @@
         console.error(error);
     })
   }
+
+  const db = getDatabase()
+  const dbRef = ref(db)
+
+//   FUNCTION TO GET DATA FROM DATABASE AND DISPLAY IT
+  function logUserDetails(userId){
+    get(child(dbRef, 'newUser/' + userId))
+    .then(snapshot => {
+        if(snapshot.exists()){
+            let usernamed = document.getElementById('usernamed')
+            let Firstname = snapshot.val().FirstName
+            let Lastname = snapshot.val().LastName
+
+            usernamed.textContent = Firstname + " " + Lastname
+            console.log(snapshot.val())
+        }else{
+            alert('Please update your profile')
+        }
+    })
+  }
+
+
+
+
+
+
+
+
+//   FUNTION TO CHECK IF USER IS LOGGED IN OR OUT
+  function stateChanged(){
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            let userId = user.uid
+            logUserDetails(userId)
+            console.log(userId)
+        }else{
+            window.location.href = 'signIn.html'
+        }
+    })
+  }
+  stateChanged()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   signOutBtn.addEventListener('click', signOutUser)
 
