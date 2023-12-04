@@ -76,22 +76,6 @@
   }
   stateChanged()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   signOutBtn.addEventListener('click', signOutUser)
 
 

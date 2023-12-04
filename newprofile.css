@@ -30,6 +30,115 @@
     justify-content: center;
     align-items: center;
 }
+/* SEARCH IN */
+
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+    height: 50px;
+    padding-bottom: 25px;
+    width: 500px;
+    z-index: 5;
+    position: relative;
+}
+
+.searchInput{
+    display: flex;
+    justify-content: end;
+    width: 200px;
+    height: 20px;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 17px;
+}
+  
+  .searchInput:focus {
+    outline: none;
+  }
+  
+  .results {
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  .results ul {
+    margin: 0; 
+    padding: 0;
+    height: 200px;
+    width: auto;
+    z-index: 2;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+
+.results ul::-webkit-scrollbar{
+    display: none;
+}
+
+  .results ul li {
+    list-style: none;
+    opacity: 20;
+    display: none;
+    padding: 8px 12px;
+    transition: all 0.5s linear;
+    background-color: rgb(220, 216, 216);
+    z-index: 5;
+  }
+  
+  .show .results ul li {
+    opacity: 2;
+    display: block;
+    font-size: 20px;
+    font-family: cursive;
+    border: none;
+  }
+  
+  .show .results {
+    padding: 10px;
+  }
+  
+  .results ul li:hover {
+    background: #84737300;
+    color: green;
+  }
+  .show .results ul li:hover{
+    background-color: rgb(164, 122, 164);
+    color: white;
+  }
+
+  .show .results ul li a{
+    color: black;
+  }
+  .show .results ul li a:hover{
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* faculty select */
 
 .overall-select{
