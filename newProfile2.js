@@ -1,50 +1,44 @@
 
 let searchable = [
-    '<a href="search.html" target = "_blank" style="text-decoration: none">Elastic</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">PHP</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">Something about CSS</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">How to code</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">Javascript</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">Coding</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">Check Admission Status</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">Students Login</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">FPASU payments</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">Online polls</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">FPASU President</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">FPASU General Secretary</a>',
-    '<a href="search.html" target = "_blank" style="text-decoration: none">FPASU P.R.O</a>',
-    '<a href="agric-tech.html" target = "_blank" style="text-decoration: none">Agricultural Technology</a>',
-    '<a href="Abesta.html" target = "_blank" style="text-decoration: none">Agricultural and Bio-Enviromental Engineering</a>',
-    '<a href="accountancy.html" target = "_blank" style="text-decoration: none">accountancy</a>',
-    '<a href="EEE.html" target = "_blank" style="text-decoration: none">Electrical Electronic Engineering</a>',
-    '<a href="glass-ceramic.html" target = "_blank" style="text-decoration: none">Glass and Ceramic</a>',
-    '<a href="Architectural.html" target = "_blank" style="text-decoration: none">Architectural</a>',
-    '<a href="art-industrial.html" target = "_blank" style="text-decoration: none">Art and Industrial design</a>',
-    '<a href="banking-finance.html" target = "_blank" style="text-decoration: none">Banking and Finance</a>',
-    '<a href="building-tech.html" target = "_blank" style="text-decoration: none">Building Technology</a>',
-    '<a href="business-admin.html" target = "_blank" style="text-decoration: none">Business Administration</a>',
-    '<a href="civil.html" target = "_blank" style="text-decoration: none">Civil Engineering</a>',
-    '<a href="computer-studies.html" target = "_blank" style="text-decoration: none">Computer Studies</a>',
-    '<a href="estate-management.html" target = "_blank" style="text-decoration: none">Estate Management</a>',
-    '<a href="fish-tech.html" target = "_blank" style="text-decoration: none">Fisheries Technology</a>',
-    '<a href="food-tech.html" target = "_blank" style="text-decoration: none">Food Technology</a>',
-    '<a href="glass-ceramic.html" target = "_blank" style="text-decoration: none">Glass and Ceramics</a>',
-    '<a href="horticulture.html" target = "_blank" style="text-decoration: none">Horticulture</a>',
-    '<a href="marketing.html" target = "_blank" style="text-decoration: none">Marketing</a>',
-    '<a href="mass-com.html" target = "_blank" style="text-decoration: none">Mass Communication</a>',
-    '<a href="math-statistics.html" target = "_blank" style="text-decoration: none">Math and Statistics</a>',
-    '<a href="mpret.html" target = "_blank" style="text-decoration: none">Mineral and Pretroleum Technology</a>',
-    '<a href="OTM.html" target = "_blank" style="text-decoration: none">Office Technology Management</a>',
-    '<a href="purchasing.html" target = "_blank" style="text-decoration: none">Purchasing and Supply</a>',
-    '<a href="quantity-surveying.html" target = "_blank" style="text-decoration: none">Quantity Surveying</a>',
-    '<a href="science-technology.html" target = "_blank" style="text-decoration: none">Science Lab Technology</a>',
-    '<a href="surveyi-gioinformat.html" target = "_blank" style="text-decoration: none">Surveying and Geo-Informatics</a>',
-    '<a href="taxation.html" target = "_blank" style="text-decoration: none">Taxation</a>',
-    '<a href="Urban-region.html" target = "_blank" style="text-decoration: none">Urban and Regional Planning</a>',
-    '<a href="mechanical.html" target = "_blank" style="text-decoration: none">Mechanical Engineering</a>',
-    '<a href="#.html" target = "_blank" style="text-decoration: none">The Rector</a>',
-    '<a href="the-citadel.html" target = "_blank" style="text-decoration: none">The Citadel</a>',
-    '<a href="marketPlace.html" target = "_blank" style="text-decoration: none">Market Place</a>',
+    '<a href="search.html">Check Admission Status</a>',
+    '<a href="search.html">Students Login</a>',
+    '<a href="search.html">FPASU payments</a>',
+    '<a href="search.html">Online polls</a>',
+    '<a href="search.html">FPASU President</a>',
+    '<a href="search.html">FPASU General Secretary</a>',
+    '<a href="search.html">FPASU P.R.O</a>',
+    '<a href="../departments/agric-tech.html">Agricultural Technology</a>',
+    '<a href="../departments/abesta.html">Agricultural and Bio-Enviromental Engineering</a>',
+    '<a href="../departments/accountancy.html">accountancy</a>',
+    '<a href="../departments/EEE.html">Electrical Electronic Engineering</a>',
+    '<a href="../departments/glass-ceramic.html">Glass and Ceramic</a>',
+    '<a href="../departments/Architectural.html">Architectural</a>',
+    '<a href="../departments/art-industrial.html">Art and Industrial design</a>',
+    '<a href="../departments/banking-finance.html">Banking and Finance</a>',
+    '<a href="../departments/building-tech.html">Building Technology</a>',
+    '<a href="../departments/business-admin.html">Business Administration</a>',
+    '<a href="../departments/civil.html">Civil Engineering</a>',
+    '<a href="../departments/computer-studies.html">Computer Studies</a>',
+    '<a href="../departments/estate-management.html">Estate Management</a>',
+    '<a href="../departments/fish-tech.html">Fisheries Technology</a>',
+    '<a href="../departments/food-tech.html">Food Technology</a>',
+    '<a href="../departments/glass-ceramic.html">Glass and Ceramics</a>',
+    '<a href="../departments/horticulture.html">Horticulture</a>',
+    '<a href="../departments/marketing.html">Marketing</a>',
+    '<a href="../departments/mass-com.html">Mass Communication</a>',
+    '<a href="../departments/math-statistics.html">Math and Statistics</a>',
+    '<a href="../departments/mpret.html">Mineral and Pretroleum Technology</a>',
+    '<a href="../departments/OTM.html">Office Technology Management</a>',
+    '<a href="../departments/purchasing.html">Purchasing and Supply</a>',
+    '<a href="../departments/quantity-surveying.html">Quantity Surveying</a>',
+    '<a href="../departments/science-technology.html">Science Lab Technology</a>',
+    '<a href="../departments/surveyi-gioinformat.html">Surveying and Geo-Informatics</a>',
+    '<a href="../departments/taxation.html">Taxation</a>',
+    '<a href="../departments/Urban-region.html">Urban and Regional Planning</a>',
+    '<a href="../departments/mechanical.html">Mechanical Engineering</a>',
+    '<a href="#.html">The Rector</a>',
+    '<a href="the-citadel.html">The Citadel</a>',
+    '<a href="marketPlace.html">Market Place</a>',
     'Some other item',
     `Agbebi`
   ];
@@ -184,85 +178,85 @@ selectSubmitBtn.addEventListener("click", function(){
     let selectOption2 = slct2.value;
 
     if (selectOption1 === "Business" && selectOption2 === "Accountancy") {
-        window.location.href = "accountancy.html"
+        window.location.href = "../departments/accountancy.html"
     }
     else if (selectOption1 === "Business" && selectOption2 === "Banking and Finance") {
-        window.location.href = "banking-finance.html"
+        window.location.href = "../departments/banking-finance.html"
     }
     else if (selectOption1 === "Business" && selectOption2 === "Business Administration and Management") {
-        window.location.href = "business-admin.html"
+        window.location.href = "../departments/business-admin.html"
     }
     else if (selectOption1 === "Business" && selectOption2 === "Marketing") {
-        window.location.href = "Marketing.html"
+        window.location.href = "../departments/Marketing.html"
     }
     else if (selectOption1 === "Business" && selectOption2 === "Mass Communcation") {
-        window.location.href = "mass-com.html"
+        window.location.href = "../departments/mass-com.html"
     }
     else if (selectOption1 === "Business" && selectOption2 === "Office Technology and Management") {
-        window.location.href = "OTM.html"
+        window.location.href = "../departments/OTM.html"
     }
     else if (selectOption1 === "Business" && selectOption2 === "Purchasing and Supply") {
-        window.location.href = "Purchasing.html"
+        window.location.href = "../departments/Purchasing.html"
     }
     else if (selectOption1 === "Business" && selectOption2 === "Taxation") {
-        window.location.href = "taxation.html"
+        window.location.href = "../departments/taxation.html"
     }
     else if (selectOption1 === "Agriculture" && selectOption2 === "Agricultural Technology") {
-        window.location.href = "agric-tech.html"
+        window.location.href = "../departments/agric-tech.html"
     }
     else if (selectOption1 === "Agriculture" && selectOption2 === "Fisheries Technology") {
-        window.location.href = "fish-tech.html"
+        window.location.href = "../departments/fish-tech.html"
     }
     else if (selectOption1 === "Agriculture" && selectOption2 === "Horticultural Technology") {
-        window.location.href = "horticulture.html"
+        window.location.href = "../departments/horticulture.html"
     }
     else if (selectOption1 === "Enviromental" && selectOption2 === "Architectural Technology") {
-        window.location.href = "Architectural.html"
+        window.location.href = "../departments/Architectural.html"
     }
     else if (selectOption1 === "Enviromental" && selectOption2 === "Building Technology") {
-        window.location.href = "building-tech.html"
+        window.location.href = "../departments/building-tech.html"
     }
     else if (selectOption1 === "Enviromental" && selectOption2 === "Estate Management") {
-        window.location.href = "estate-management.html"
+        window.location.href = "../departments/estate-management.html"
     }
     else if (selectOption1 === "Enviromental" && selectOption2 === "Quantity Surveying") {
-        window.location.href = "quantity-surveying.html"
+        window.location.href = "../departments/quantity-surveying.html"
     }
     else if (selectOption1 === "Enviromental" && selectOption2 === "Surveying and Geoinformatics") {
-        window.location.href = "surveyi-gioinformat.html"
+        window.location.href = "../departments/surveyi-gioinformat.html"
     }
     else if (selectOption1 === "Enviromental" && selectOption2 === "Urban and regional planning") {
-        window.location.href = "Urban-region.html"
+        window.location.href = "../departments/Urban-region.html"
     }
     else if (selectOption1 === "Engineering" && selectOption2 === "Agricultural and Bio-Enviromental Engineering") {
-        window.location.href = "Abesta.html"
+        window.location.href = "../departments/abesta.html"
     }
     else if (selectOption1 === "Engineering" && selectOption2 === "Civil Engineering Technology") {
-        window.location.href = "civil.html"
+        window.location.href = "../departments/civil.html"
     }
     else if (selectOption1 === "Engineering" && selectOption2 === "Electrical Elecctronic Engineering") {
-        window.location.href = "EEE.html"
+        window.location.href = "../departments/EEE.html"
     }
     else if (selectOption1 === "Engineering" && selectOption2 === "Mechanical Engineering Technology") {
-        window.location.href = "Mechanical.html"
+        window.location.href = "../departments/Mechanical.html"
     }
     else if (selectOption1 === "Engineering" && selectOption2 === "Mineral and Petroleum Resources Engineering Technology") {
-        window.location.href = "mpret.html"
+        window.location.href = "../departments/mpret.html"
     }
     else if (selectOption1 === "Science" && selectOption2 === "Arts and Industrial Design") {
-        window.location.href = "art-industrial.html"
+        window.location.href = "../departments/art-industrial.html"
     }
     else if (selectOption1 === "Science" && selectOption2 === "Computer Science") {
-        window.location.href = "computer-studies.html"
+        window.location.href = "../departments/computer-studies.html"
     }
     else if (selectOption1 === "Science" && selectOption2 === "Food Technology") {
-        window.location.href = "food-tech.html"
+        window.location.href = "../departments/food-tech.html"
     }
     else if (selectOption1 === "Science" && selectOption2 === "Glass and Ceramic Technology") {
-        window.location.href = "glass-ceramic.html"
+        window.location.href = "../departments/glass-ceramic.html"
     }
     else if (selectOption1 === "Science" && selectOption2 === "Science Technology") {
-        window.location.href = "science-technology.html"
+        window.location.href = "../departments/science-technology.html"
     }else{
         console.log("it's not done")
     }
