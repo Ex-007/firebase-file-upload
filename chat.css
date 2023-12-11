@@ -1,0 +1,185 @@
+
+/* body{
+    background-color: black;
+    color: white;
+} */
+
+
+@media only screen and (max-width: 767px) {
+    .inputAndButtom{
+        background-color: black;
+        position: fixed;
+        bottom: 1px;
+        border: 2px solid white;
+        outline: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        width: 89vw;
+    }
+    #textArea{
+        width: 83vw;
+        border: 2px solid white;
+        outline: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 20px;
+        color: black;
+    }
+    
+    .buttonDiv{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    #Send{
+        background-color: black;
+        padding: 10px;
+        border: 2px solid white;
+        outline: 2px solid black;
+        color: white;
+        border-radius: 10px;
+        width: 100px;
+        margin: 10px 0;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    #Send:hover{
+        background-color: green;
+    }
+    
+    #incoming{
+        margin-bottom: 250px;
+    }
+    
+    .incomingMessages{
+        margin: 10px 0;
+        max-width: 230px;
+        list-style-type: none;
+        padding: 10px;
+        background-color: white;
+        color: black;
+        border: 2px solid rgb(0, 0, 0);
+        outline: 2px solid white;
+        border-radius: 10px 10px 10px 0;
+        font-size: 20px;
+    }
+    
+    .newDiv{
+        display: flex;
+        justify-content: end;
+    }
+    
+    .deleteBtn{
+        color: red;
+        margin: 0 5px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+    
+    #outgoingMessages{
+        display: flex;
+        justify-content: space-between;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding-left: 0;
+        padding: 7px;
+        max-width: 230px;
+        font-size: 20px;
+        background-color: white;
+        color: black;
+        border: 2px solid rgb(0, 0, 0);
+        outline: 2px solid white;
+        border-radius: 10px 10px 0 10px;
+    }
+}
+
+
+@media only screen and (min-width: 475px){
+    .inputAndButtom{
+        background-color: black;
+        position: fixed;
+        bottom: 1px;
+        border: 2px solid white;
+        outline: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        width: 95vw;
+    }
+    #textArea{
+        width: 92vw;
+        border: 2px solid white;
+        outline: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 20px;
+        color: black;
+    }
+    
+    .buttonDiv{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    #Send{
+        background-color: black;
+        padding: 10px;
+        border: 2px solid white;
+        outline: 2px solid black;
+        color: white;
+        border-radius: 10px;
+        width: 100px;
+        margin: 10px 0;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    #Send:hover{
+        background-color: green;
+    }
+    
+    #incoming{
+        margin-bottom: 250px;
+    }
+    
+    .incomingMessages{
+        margin: 10px 0;
+        max-width: 300px;
+        list-style-type: none;
+        padding: 10px;
+        background-color: white;
+        color: black;
+        border: 2px solid rgb(0, 0, 0);
+        outline: 2px solid white;
+        border-radius: 10px 10px 10px 0;
+        font-size: 20px;
+    }
+    
+    .newDiv{
+        display: flex;
+        justify-content: end;
+    }
+    
+    .deleteBtn{
+        color: red;
+        margin: 0 5px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+    
+    #outgoingMessages{
+        display: flex;
+        justify-content: space-between;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding-left: 0;
+        padding: 7px;
+        max-width: 320px;
+        font-size: 20px;
+        background-color: white;
+        color: black;
+        border: 2px solid rgb(0, 0, 0);
+        outline: 2px solid white;
+        border-radius: 10px 10px 0 10px;
+    }
+}
