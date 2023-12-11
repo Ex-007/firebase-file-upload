@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="chat.css">
-    <link rel="stylesheet" href="newprofile.css">
+    <!-- <link rel="stylesheet" href="newprofile.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Chat</title>
 </head>
 <body>
      <!-- THE NAVIGATION BAR -->
-    <div class="headngg">
-        
+    
+     <div class="heading">
+        <div class="leftSide">
+            <a href="newprofile.html"><i class="fa fa-arrow-left" style="font-size: 30px; color: white;" id="goBack"></i></a>
+            <img src="images/profile image.png" alt="profile pic" id="profileImage">
+            <h3 id="chatOwner">Crown</h3>
+        </div>
+        <div id="deleteEdit">
+            <i class="fa fa-trash" style="font-size: 30px; color: red; margin-right: 15px; cursor: pointer;" id="deleteBtn"></i>
+            <i class="fa fa-star" style="font-size: 30px; color: red;" id="starBtn"></i>
+        </div>
+        <div class="rightSide">
+            <i class="fa fa-bars" id="menuPop"></i>
+        </div>
     </div>
     
     <div class="inputAndButtom">

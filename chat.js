@@ -2,19 +2,18 @@
 
 
 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyD_BrdVjXD1kBoFXxKpbtM97TpcNCyd-1A",
-    authDomain: "chatapp-31d9a.firebaseapp.com",
-    databaseURL: "https://chatapp-31d9a-default-rtdb.firebaseio.com",
-    projectId: "chatapp-31d9a",
-    storageBucket: "chatapp-31d9a.appspot.com",
-    messagingSenderId: "33659136759",
-    appId: "1:33659136759:web:086f498d5a9933576f81f2"
+    apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+    authDomain: "school-newusersign.firebaseapp.com",
+    projectId: "school-newusersign",
+    storageBucket: "school-newusersign.appspot.com",
+    messagingSenderId: "382800829354",
+    appId: "1:382800829354:web:145aeb3f8e346c016129d3"
   };
 
   // Initialize Firebase
@@ -22,24 +21,46 @@
 
 
 //   IMPORTING THE REQUIRED FUNCTIONS
-  import {getDatabase, ref, set, onChildAdded, onChildRemoved, remove} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-
+  import {getDatabase, ref, set, onChildAdded, onChildRemoved, remove} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+  import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+  import{getFirestore, doc, getDoc, getDocs, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, query, where} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+  const firedb = getFirestore()
   const db = getDatabase()
-        
+  const auth = getAuth()
+
+  //   FUNCTION TO GET DATA FROM DATABASE AND DISPLAY IT
+
+  var sender;
+  async function logUserDetails(userId){
+    var ref = doc(firedb, "Registered_Users", userId)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+      sender = docSnap.data().Username
+      let chatOwner = document.getElementById('chatOwner')
+      chatOwner.textContent = sender
+        console.log(docSnap.data())
+    }else{
+        alert('data does not exist')
+    }
+}
+
+  //   FUNTION TO CHECK IF USER IS LOGGED IN OR OUT
+  function stateChanged(){
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            let userId = user.uid
+            logUserDetails(userId)
+            console.log(userId)
+        }else{
+            window.location.href = 'signIn.html'
+        }
+    })
+  }
+  stateChanged()
 
   var sender;
 
-  if (localStorage.getItem("sender")) {
-      sender = localStorage.getItem("sender");
-  } else if (sessionStorage.getItem("sender")) {
-      // If the name is found in sessionStorage, move it to localStorage
-      sender = sessionStorage.getItem("sender");
-      localStorage.setItem("sender", sender);
-  } else {
-      // If the name is not found in either localStorage or sessionStorage, prompt for it
-      sender = prompt("Please Enter Your Preferred Name");
-      localStorage.setItem("sender", sender);
-  }
+
 
         let textArea = document.getElementById('textArea')
         let sendBtn = document.getElementById('Send')
@@ -67,12 +88,12 @@
     // FUNTION TO RECEIVE NOTIFICATION
     let WebName = "Student's Support"
 
-    function notificationIn(){
+    function notificationIn(messageOut){
             Notification.requestPermission()
             .then(permission => {
                 if(permission == 'granted'){
                     var notificationNow = new Notification(WebName, {
-                         body: Math.round(Math.random() * 25),
+                         body: messageOut,
                          icon: "images/profile image.png",
                          tag: 'same text'
                     })
@@ -84,7 +105,7 @@
                 }
             })
     }
-notificationIn()
+// notificationIn()
 
 
 
@@ -111,6 +132,9 @@ onChildAdded(ref(db, 'newMessage'), snapshot => {
         newDiv.appendChild(outgoingText);
         incoming.appendChild(newDiv);
 
+        let messageOut = snapshot.val().message
+        notificationIn(messageOut)
+
         deleteBtn.addEventListener('click', () => {
             remove(ref(db, 'newMessage/' + deleteKey));
         });
@@ -118,6 +142,8 @@ onChildAdded(ref(db, 'newMessage'), snapshot => {
         let incomingText = document.createElement('li');
         incomingText.setAttribute('class', 'incomingMessages');
         incomingText.textContent = snapshot.val().sender + ' : ' + snapshot.val().message;
+        let messageOut = snapshot.val().message
+        notificationIn(messageOut)
         incoming.appendChild(incomingText);
     }
 });

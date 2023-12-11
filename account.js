@@ -90,7 +90,7 @@ openedEye.addEventListener('click', revealPassword)
         alert('Username should be at least 5 characters')
         return false
     }
-    if(firstName.value == '' || conPassword.value == '' || passwordIn.value == '' || dateOfBirth.value == '' || lastName.value == '' || username.value == '' || emailIn.value == ''){
+    if(firstNameIn.value == '' || conPassword.value == '' || passwordIn.value == '' || dateOfBirth.value == '' || lastNameIn.value == '' || usernameIn.value == '' || emailIn.value == ''){
         alert('Please fill every details')
         return false
     }
