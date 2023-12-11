@@ -5,12 +5,13 @@ let openedEye = document.getElementById('openedEye')
 
 
 // REFERENCE TO THE INPUT ELEMENTS
-let firstName = document.getElementById('firstName') 
-let lastName = document.getElementById('lastName') 
-let username = document.getElementById('username') 
+let firstNameIn = document.getElementById('firstName') 
+let lastNameIn = document.getElementById('lastName') 
+let usernameIn = document.getElementById('username') 
+let PhoneNumberIn = document.getElementById('phoneNumber') 
 let emailIn = document.getElementById('email') 
 let dateOfBirth = document.getElementById('dateOfBirth') 
-let gender = document.getElementById('gender') 
+let genderIn = document.getElementById('gender') 
 let passwordIn = document.getElementById('password') 
 let conPassword = document.getElementById('conPassword') 
 let signUpBtn = document.getElementById('signUpBtn') 
@@ -63,10 +64,9 @@ openedEye.addEventListener('click', revealPassword)
 
     // IMPORTING THE NEEDED FIREBASE FUNCTION
   import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-  import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
-  
+  import{getFirestore, doc, getDoc, getDocs, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, query, where} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+  const db = getFirestore()
   const auth = getAuth()
-  const db = getDatabase()
 
 //   FUNCTION TO VALIDATE USER INPUT
   function validationUser(){
@@ -103,53 +103,81 @@ openedEye.addEventListener('click', revealPassword)
 
 
     //   FUNCION TO REGISTER USER/CREATE USER
-    function createUser(){
+
+    async function signUpUser() {
         if(!validationUser()){
             return
         }
-        let firstNameInput = firstName.value
-        let lastNameInput = lastName.value
-        let usernameInput = username.value
-        let email = emailIn.value
+
+
         let dateOfBirthInput = dateOfBirth.value
-        let genderInput = gender.value
+        let email = emailIn.value
+        let gender = genderIn.value
+        let username =  usernameIn.value
+        let Firstname = firstNameIn.value;
+        let Lastname = lastNameIn.value;
+        let PhoneNumber = PhoneNumberIn.value;
         let password = passwordIn.value
-
-        createUserWithEmailAndPassword(auth, email, password)
-        .then(credentials => {
-            alert('User Created. Waiting for Redirect')
-            let userId = credentials.user.uid
-
-            // SAVING THE USER CREDENTIALS TO FIREBASE
-            set(ref(db, 'newUser/' + userId), {
-                FirstName : firstNameInput,
-                LastName : lastNameInput,
-                Username : usernameInput,
-                Email : email,
-                Date_Of_Birth : dateOfBirthInput,
-                Gender : genderInput,
-            })
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                alert(error)
-                console.error(error);
-            })
-
-            // REDIRECTING THE NEW USER TO THE PROFILE
-            setTimeout(() => {
-                window.location.href =  'newprofile.html'
-            }, 3000);
-
-            console.log(userId)
-            // console.log(credentials);
-        })
-        .catch(error => {
-            alert(error)
-            console.error('The error is ' + error.message);
-        })
+    
+        const collectionRef = collection(db, "Registered_Users");
+        const querySnapshot = await getDocs(query(collectionRef, where("PhoneNumber", "==", PhoneNumber)));
+    
+        if (!querySnapshot.empty) {
+            // User with the same phone number already exists
+            console.log(querySnapshot)
+            alert("User with the same phone number already exists. Please use a different phone number.");
+        } else {
+            // Creating the new user
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((credentials) => {
+                    alert('User Created. Waiting for Redirect');
+                    let userId = credentials.user.uid;
+    
+                    // Saving the user credentials to the Firestore database
+                    var ref = doc(db, "Registered_Users", userId);
+    
+                    setDoc(ref, {
+                        Firstname: Firstname,
+                        Lastname: Lastname,
+                        Username: username,
+                        PhoneNumber: PhoneNumber,
+                        Gender: gender,
+                        Email: email,
+                        DateOfBirth : dateOfBirthInput
+                    })
+                        .then((response) => {
+                            console.log(response);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+    
+                    // Redirecting the new user to the profile
+                    setTimeout(() => {
+                        window.location.href =  'newprofile.html'
+                    }, 3000);
+    
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // ADDING THE EVENT TO THE BUTTON
-    signUpBtn.addEventListener('click', createUser)
+    signUpBtn.addEventListener('click', signUpUser)

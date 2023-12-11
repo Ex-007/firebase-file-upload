@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>account</title>
 </head>
 <body>
     <div class="header">
-        <h1>WELCOME TO THIS CHANNEL</h1>
+        <h1>WELCOME TO STUDENT SUPPORT</h1>
     </div>
 
     <div id="signUpForm">
@@ -21,6 +23,9 @@
 
         <label for="username">Username : </label>
         <input type="text" id="username" required>
+
+        <label for="phoneNumber">Phone Number : </label>
+        <input type="number" id="phoneNumber" required>
 
         <label for="email">Email : </label>
         <input type="email" id="email" required>
@@ -35,11 +40,13 @@
         </select> 
 
         <label for="password">Password : </label>
+        <div class="passwordEye">
         <input type="password" id="password" required>
-        <img src="images/crossed eye icon.jpg" width="25px
-        " id="crossedEye">
-        <img src="images/eye-icon-symbol-sign-vector.jpg" width="25px
-        " id="openedEye">
+        <i class="fa fa-eye" style="font-size: 25px;" id="openedEye"></i>
+        <i class="fa fa-eye-slash" style="font-size: 25px;" id="crossedEye"></i>
+        </div>
+        
+    
 
         <label for="conPassword">Confirm Password : </label>
         <input type="password" id="conPassword" required>

@@ -1,4 +1,15 @@
 
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8F758E;
+    color: white;
+}
 
 #signUpForm{
     border: 2px solid black;
@@ -32,33 +43,6 @@
     color: white;
     border-radius: 10px;
     padding: 5px;
-}
-#crossedEye{
-    display: none;
-    position: absolute;
-    top: 486px;
-    right: 250px;
-    cursor: pointer;
-}
-#openedEye{
-    position: absolute;
-    top: 486px;
-    right: 250px;
-    cursor: pointer;
-}
-#crossedEye2{
-    display: none;
-    position: absolute;
-    top: 538px;
-    right: 250px;
-    cursor: pointer;
-}
-#openedEye2{
-    display: none;
-    position: absolute;
-    top: 538px;
-    right: 250px;
-    cursor: pointer;
 }
 .alreadySocial{
     margin-top: 5px;
@@ -137,4 +121,19 @@
     color: white;
     border-radius: 10px;
     padding: 5px;
+}
+.passwordEye{
+    display: flex;
+}
+.passwordEye #openedEye{
+    display: flex;
+    margin-left: -35px;
+    justify-content: center;
+    align-items: center;
+}
+.passwordEye #crossedEye{
+    display: none;
+    margin-left: -35px;
+    justify-content: center;
+    align-items: center;
 }

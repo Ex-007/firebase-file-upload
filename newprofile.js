@@ -1,5 +1,6 @@
+let signOutBtn = document.getElementById('signOut')
 
-
+  // Import the functions you need from the SDKs you need
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
@@ -18,10 +19,12 @@
   const app = initializeApp(firebaseConfig);
 
   import {getAuth, signOut, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-  import {child, ref, get, getDatabase} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
-
+  import{getFirestore, doc, getDoc, getDocs, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, query, where} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+  const db = getFirestore()
   let auth = getAuth()
-  let signOutBtn = document.getElementById('signOut')
+
+
+  // FUNTION TO SIGNOUT USER
 
   function signOutUser(){
     signOut(auth)
@@ -35,28 +38,25 @@
     })
   }
 
-  const db = getDatabase()
-  const dbRef = ref(db)
+  
 
 //   FUNCTION TO GET DATA FROM DATABASE AND DISPLAY IT
-  function logUserDetails(userId){
-    get(child(dbRef, 'newUser/' + userId))
-    .then(snapshot => {
-        if(snapshot.exists()){
-            let usernamed = document.getElementById('usernamed')
-            let Firstname = snapshot.val().FirstName
-            let Lastname = snapshot.val().LastName
 
-            usernamed.textContent = Firstname + " " + Lastname
-            console.log(snapshot.val())
-        }else{
-            alert('Please update your profile')
-        }
-    })
-  }
+  async function logUserDetails(userId){
+    var ref = doc(db, "Registered_Users", userId)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+      let usernamed = document.getElementById('usernamed')
+      let FirstName = docSnap.data().Firstname
+      let Lastname = docSnap.data().Lastname
 
+      usernamed.textContent = FirstName + " " + Lastname
 
-
+        console.log(docSnap.data())
+    }else{
+        alert('data does not exist')
+    }
+}
 
 
 
