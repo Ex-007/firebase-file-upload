@@ -39,6 +39,7 @@ let searchable = [
     '<a href="#.html">The Rector</a>',
     '<a href="the-citadel.html">The Citadel</a>',
     '<a href="facultyPresident.html">President</a>',
+    '<a href="departmentGovernor.html">Governor</a>',
     '<a href="catalogue.html">Catalogue</a>',
     '<a href="marketPlace.html">Market Place</a>',
     'Some other item',
