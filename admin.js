@@ -167,7 +167,8 @@ async function updateForSug(){
         Nickname : Nickname,
         Phone : Phone,
         Whatsapp : Whatsapp,
-        Facebook : Facebook
+        Facebook : Facebook,
+        PhotoURL : PhotoURL
     })
     .then(() => {
         alert('Updated Successfully')
@@ -202,6 +203,9 @@ async function readForSug(){
         sugPhone.value = docSnap.data().Phone
         sugWhatsapp.value = docSnap.data().Whatsapp
         sugFacebook.value = docSnap.data().Facebook
+        let photoSee = docSnap.data().downloadURL
+
+        console.log(photoSee)
     }else{
         alert('data does not exist')
     }
@@ -241,9 +245,12 @@ let genwrite = document.getElementById('genwrite')
 let genUpdate = document.getElementById('genUpdate')
 let genRead = document.getElementById('genRead')
 let genDelete = document.getElementById('genDelete')
+let genphotoImage = document.getElementById('genphotoImage')
 
 // WRITE FOR SUG SECRETARY
-async function writeForGen(){
+
+
+async function writeForGen() {
     let Deparment = genDeparment.value
     let firstname = genfirstname.value
     let Lastname = genLastname.value
@@ -251,32 +258,44 @@ async function writeForGen(){
     let Phone = genPhone.value
     let Whatsapp = genWhatsapp.value
     let Facebook = genFacebook.value
-    if(Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == ''){
-        alert('please fill all empty spaces')
-    }else{
-        var ref = doc(db, "SUG-GEN-SEC", Deparment)
-        const docRef = await setDoc(ref, {
-            Deparment : Deparment,
-            Firstname : firstname,
-            Lastname : Lastname,
-            Nickname : Nickname,
-            Phone : Phone,
-            Whatsapp : Whatsapp,
-            Facebook : Facebook
-        })
-        .then(() => {
-            alert("Uploading Successful")
-        })
-        .catch(error => {
-            console.error(error);
-        })
-        genDeparment.value = ''
-        genfirstname.value = ''
-        genLastname.value = ''
-        genNickname.value = ''
-        genPhone.value = ''
-        genWhatsapp.value = ''
-        genFacebook.value = ''
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = genphotoImage.files[0];
+        const fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "SUG-GEN-SEC", Deparment);
+            await setDoc(ref, {
+                Deparment : Deparment,
+                Firstname : firstname,
+                Lastname : Lastname,
+                Nickname : Nickname,
+                Phone : Phone,
+                Whatsapp : Whatsapp,
+                Facebook : Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            genDeparment.value = ''
+            genfirstname.value = ''
+            genLastname.value = ''
+            genNickname.value = ''
+            genPhone.value = ''
+            genWhatsapp.value = ''
+            genFacebook.value = ''
+        });
     }
 }
 genwrite.addEventListener('click', writeForGen)
@@ -384,10 +403,13 @@ let prowrite = document.getElementById('prowrite')
 let proUpdate = document.getElementById('proUpdate')
 let proRead = document.getElementById('proRead')
 let proDelete = document.getElementById('proDelete')
+let prophotoImage = document.getElementById('prophotoImage')
 
 
 // WRITE FOR SUG PRO
-async function writeForPro(){
+
+
+async function writeForPro() {
     let Deparment = proDeparment.value
     let firstname = profirstname.value
     let Lastname = proLastname.value
@@ -395,32 +417,44 @@ async function writeForPro(){
     let Phone = proPhone.value
     let Whatsapp = proWhatsapp.value
     let Facebook = proFacebook.value
-    if(Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == ''){
-        alert('please fill all empty spaces')
-    }else{
-        var ref = doc(db, "SUG-PRO", Deparment)
-        const docRef = await setDoc(ref, {
-            Deparment : Deparment,
-            Firstname : firstname,
-            Lastname : Lastname,
-            Nickname : Nickname,
-            Phone : Phone,
-            Whatsapp : Whatsapp,
-            Facebook : Facebook
-        })
-        .then(() => {
-            alert("Uploading Successful")
-        })
-        .catch(error => {
-            console.error(error);
-        })
-        proDeparment.value = ''
-        profirstname.value = ''
-        proLastname.value = ''
-        proNickname.value = ''
-        proPhone.value = ''
-        proWhatsapp.value = ''
-        proFacebook.value = ''
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = prophotoImage.files[0];
+        const fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "SUG-PRO", Deparment);
+            await setDoc(ref, {
+                Deparment : Deparment,
+                Firstname : firstname,
+                Lastname : Lastname,
+                Nickname : Nickname,
+                Phone : Phone,
+                Whatsapp : Whatsapp,
+                Facebook : Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            proDeparment.value = ''
+            profirstname.value = ''
+            proLastname.value = ''
+            proNickname.value = ''
+            proPhone.value = ''
+            proWhatsapp.value = ''
+            proFacebook.value = ''
+        });
     }
 }
 prowrite.addEventListener('click', writeForPro)
@@ -522,11 +556,14 @@ let schoolwrite = document.getElementById('schoolwrite')
 let schoolUpdate = document.getElementById('schoolUpdate')
 let schoolRead = document.getElementById('schoolRead')
 let schoolDelete = document.getElementById('schoolDelete')
+let schoolphotoImage = document.getElementById('schoolphotoImage')
 
 
 
 // WRITE FOR SCHOOL PRESIDENT
-async function writeForSchool(){
+
+
+async function writeForSchool() {
     let Deparment = schoolDeparment.value
     let firstname = schoolfirstname.value
     let Lastname = schoolLastname.value
@@ -534,32 +571,44 @@ async function writeForSchool(){
     let Phone = schoolPhone.value
     let Whatsapp = schoolWhatsapp.value
     let Facebook = schoolFacebook.value
-    if(Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == ''){
-        alert('please fill all empty spaces')
-    }else{
-        var ref = doc(db, "SCHOOL-PRESIDENT", Deparment)
-        const docRef = await setDoc(ref, {
-            Deparment : Deparment,
-            Firstname : firstname,
-            Lastname : Lastname,
-            Nickname : Nickname,
-            Phone : Phone,
-            Whatsapp : Whatsapp,
-            Facebook : Facebook
-        })
-        .then(() => {
-            alert("Uploading Successful")
-        })
-        .catch(error => {
-            console.error(error);
-        })
-        schoolDeparment.value = ''
-        schoolfirstname.value = ''
-        schoolLastname.value = ''
-        schoolNickname.value = ''
-        schoolPhone.value = ''
-        schoolWhatsapp.value = ''
-        schoolFacebook.value = ''
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = schoolphotoImage.files[0];
+        const fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "SCHOOL-PRESIDENT", Deparment);
+            await setDoc(ref, {
+                Deparment : Deparment,
+                Firstname : firstname,
+                Lastname : Lastname,
+                Nickname : Nickname,
+                Phone : Phone,
+                Whatsapp : Whatsapp,
+                Facebook : Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            schoolDeparment.value = ''
+            schoolfirstname.value = ''
+            schoolLastname.value = ''
+            schoolNickname.value = ''
+            schoolPhone.value = ''
+            schoolWhatsapp.value = ''
+            schoolFacebook.value = ''
+        });
     }
 }
 schoolwrite.addEventListener('click', writeForSchool)
@@ -657,10 +706,15 @@ let departmentwrite = document.getElementById('departmentwrite')
 let departmentUpdate = document.getElementById('departmentUpdate')
 let departmentRead = document.getElementById('departmentRead')
 let departmentDelete = document.getElementById('departmentDelete')
+let departmentphotoImage = document.getElementById('departmentphotoImage')
+
+
 
 
 // WRITE FOR DEPARTMENTAL PRESIDENT
-async function writeForDepartment(){
+
+
+async function writeForDepartment() {
     let Deparment = departmentDeparment.value
     let firstname = departmentfirstname.value
     let Lastname = departmentLastname.value
@@ -668,32 +722,44 @@ async function writeForDepartment(){
     let Phone = departmentPhone.value
     let Whatsapp = departmentWhatsapp.value
     let Facebook = departmentFacebook.value
-    if(Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == ''){
-        alert('please fill all empty spaces')
-    }else{
-        var ref = doc(db, "DEPARTMENT-PRESIDENT", Deparment)
-        const docRef = await setDoc(ref, {
-            Deparment : Deparment,
-            Firstname : firstname,
-            Lastname : Lastname,
-            Nickname : Nickname,
-            Phone : Phone,
-            Whatsapp : Whatsapp,
-            Facebook : Facebook
-        })
-        .then(() => {
-            alert("Uploading Successful")
-        })
-        .catch(error => {
-            console.error(error);
-        })
-        departmentDeparment.value = ''
-        departmentfirstname.value = ''
-        departmentLastname.value = ''
-        departmentNickname.value = ''
-        departmentPhone.value = ''
-        departmentWhatsapp.value = ''
-        departmentFacebook.value = ''
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = departmentphotoImage.files[0];
+        const fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "DEPARTMENT-PRESIDENT", Deparment);
+            await setDoc(ref, {
+                Deparment : Deparment,
+                Firstname : firstname,
+                Lastname : Lastname,
+                Nickname : Nickname,
+                Phone : Phone,
+                Whatsapp : Whatsapp,
+                Facebook : Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            departmentDeparment.value = ''
+            departmentfirstname.value = ''
+            departmentLastname.value = ''
+            departmentNickname.value = ''
+            departmentPhone.value = ''
+            departmentWhatsapp.value = ''
+            departmentFacebook.value = ''
+        });
     }
 }
 departmentwrite.addEventListener('click', writeForDepartment)
@@ -791,10 +857,14 @@ let govwrite = document.getElementById('govwrite')
 let govUpdate = document.getElementById('govUpdate')
 let govRead = document.getElementById('govRead')
 let govDelete = document.getElementById('govDelete')
+let govphotoImage = document.getElementById('govphotoImage')
+
 
 
 // WRITE FOR DEPARTMENTAL GOVERNOR
-async function writeForGov(){
+
+
+async function writeForGov() {
     let Deparment = govDeparment.value
     let firstname = govfirstname.value
     let Lastname = govLastname.value
@@ -802,32 +872,44 @@ async function writeForGov(){
     let Phone = govPhone.value
     let Whatsapp = govWhatsapp.value
     let Facebook = govFacebook.value
-    if(Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == ''){
-        alert('please fill all empty spaces')
-    }else{
-        var ref = doc(db, "GOVERNORS", Deparment)
-        const docRef = await setDoc(ref, {
-            Deparment : Deparment,
-            Firstname : firstname,
-            Lastname : Lastname,
-            Nickname : Nickname,
-            Phone : Phone,
-            Whatsapp : Whatsapp,
-            Facebook : Facebook
-        })
-        .then(() => {
-            alert("Uploading Successful")
-        })
-        .catch(error => {
-            console.error(error);
-        })
-        govDeparment.value = ''
-        govfirstname.value = ''
-        govLastname.value = ''
-        govNickname.value = ''
-        govPhone.value = ''
-        govWhatsapp.value = ''
-        govFacebook.value = ''
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = govphotoImage.files[0];
+        const fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "DEPARTMENT-PRESIDENT", Deparment);
+            await setDoc(ref, {
+                Deparment : Deparment,
+                Firstname : firstname,
+                Lastname : Lastname,
+                Nickname : Nickname,
+                Phone : Phone,
+                Whatsapp : Whatsapp,
+                Facebook : Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            govDeparment.value = ''
+            govfirstname.value = ''
+            govLastname.value = ''
+            govNickname.value = ''
+            govPhone.value = ''
+            govWhatsapp.value = ''
+            govFacebook.value = ''
+        });
     }
 }
 govwrite.addEventListener('click', writeForGov)
