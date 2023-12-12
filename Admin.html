@@ -4,40 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Admin</title>
 </head>
 <body>
     <div class="header">
         <h3>POLY SUPPORT ADMIN DASHBOARD</h3>
         <h3 id="adminName"></h3>
+        <button id="signOut">Log Out</button>
     </div>
     <div class="generalContainer">
         <!-- THE FIRST ROW -->
         <div class="firstRow">
             <ul>
                 <li>
-                    <a href="">SUG President</a>
+                    <a href="#sugPresident">SUG President</a>
                 </li>
                 <li>
-                    <a href="">School President</a>
+                    <a href="#genSec">SUG GEN. SEC</a>
                 </li>
                 <li>
-                    <a href="">Departmental President</a>
+                    <a href="#pro">SUG PRO</a>
                 </li>
                 <li>
-                    <a href="">Governors</a>
+                    <a href="#departmentalGovernor">Governors</a>
                 </li>
                 <li>
-                    <a href="">School President</a>
+                    <a href="#schoolPresident">School President</a>
                 </li>
                 <li>
-                    <a href="">School President</a>
+                    <a href="#departmentPresident">Departmental President</a>
                 </li>
                 <li>
-                    <a href="">School President</a>
+                    <a href="#catalogue">Catalogue</a>
                 </li>
                 <li>
-                    <a href="">School President</a>
+                    <a href="#">School President</a>
                 </li>
                 <li>
                     <a href="">School President</a>
@@ -89,7 +91,16 @@
 
         <!-- THE SECOND ROW -->
         <div class="secondRow">
+            <div class="searchBox">
+                <input type="text" id="searchInput" placeholder="Type here...">
+                <i class="fa fa-search" id="searchThrough"></i>
+            </div>
 
+            <!-- BACK TO TOP -->
+            <div class="toTop">
+                <a href="#"><i class="fa fa-arrow-up-from-bracket" style="font-size: 25px; color: white ;"></i></a>
+                
+            </div>
              <!-- SUG PRESIDENT -->
             <section id="sugPresident">
                 <div class="sectionName">
@@ -109,6 +120,9 @@
                         <!--Nickname -->
                         <label for="sugNickname">Nickname:</label>
                         <input type="text" id="sugNickname" placeholder="Nickname..">
+                        <!--Image -->
+                        <label for="photoImage"><i class="fa-regular fa-image" style="font-size: 40px; cursor: pointer;"></i></label>
+                        <input type="file" id="photoImage" placeholder="photoImage.." style="display: none;">
                         <!-- PHONE NUMBER -->
                         <label for="sugPhone">Phone:</label>
                         <input type="text" id="sugPhone" placeholder="Phone..">
@@ -120,7 +134,7 @@
                         <input type="text" id="sugFacebook" placeholder="Facebook..">
                     </div>
                     <div class="buttonDiv">
-                        <button id="sugwrite" disabled>Write</button>
+                        <button id="sugwrite">Write</button>
                         <button id="sugUpdate">Update</button>
                         <button id="sugRead">Read</button>
                         <button id="sugDelete">Delete</button>
@@ -128,7 +142,7 @@
             </section>
 
             <!-- SUG GENERAL SECRETARY -->
-            <section id="genPresident">
+            <section id="genSec">
                 <div class="sectionName">
                     <h3>SUG GENERAL SECRETARY</h3>
                 </div>
@@ -146,6 +160,9 @@
                         <!--Nickname -->
                         <label for="genNickname">Nickname:</label>
                         <input type="text" id="genNickname" placeholder="Nickname..">
+                        <!--Image -->
+                        <label for="photoImage"><i class="fa-regular fa-image" style="font-size: 40px; cursor: pointer;"></i></label>
+                        <input type="file" id="photoImage" placeholder="photoImage.." style="display: none;">
                         <!-- PHONE NUMBER -->
                         <label for="genPhone">Phone:</label>
                         <input type="text" id="genPhone" placeholder="Phone..">
@@ -165,7 +182,7 @@
             </section>
 
             <!-- SUG PUBLIC RELATION OFFICER -->
-            <section id="proPresident">
+            <section id="pro">
                 <div class="sectionName">
                     <h3>SUG PUBLIC RELATION OFFICER</h3>
                 </div>
@@ -183,6 +200,9 @@
                         <!--Nickname -->
                         <label for="proNickname">Nickname:</label>
                         <input type="text" id="proNickname" placeholder="Nickname..">
+                        <!--Image -->
+                        <label for="photoImage"><i class="fa-regular fa-image" style="font-size: 40px; cursor: pointer;"></i></label>
+                        <input type="file" id="photoImage" placeholder="photoImage.." style="display: none;">
                         <!-- PHONE NUMBER -->
                         <label for="proPhone">Phone:</label>
                         <input type="text" id="proPhone" placeholder="Phone..">
@@ -221,6 +241,9 @@
                         <!--Nickname -->
                         <label for="schoolNickname">Nickname:</label>
                         <input type="text" id="schoolNickname" placeholder="Nickname..">
+                        <!--Image -->
+                        <label for="photoImage"><i class="fa-regular fa-image" style="font-size: 40px; cursor: pointer;"></i></label>
+                        <input type="file" id="photoImage" placeholder="photoImage.." style="display: none;">
                         <!-- PHONE NUMBER -->
                         <label for="schoolPhone">Phone:</label>
                         <input type="text" id="schoolPhone" placeholder="Phone..">
@@ -258,6 +281,9 @@
                         <!--Nickname -->
                         <label for="departmentNickname">Nickname:</label>
                         <input type="text" id="departmentNickname" placeholder="Nickname..">
+                        <!--Image -->
+                        <label for="photoImage"><i class="fa-regular fa-image" style="font-size: 40px; cursor: pointer;"></i></label>
+                        <input type="file" id="photoImage" placeholder="photoImage.." style="display: none;">
                         <!-- PHONE NUMBER -->
                         <label for="departmentPhone">Phone:</label>
                         <input type="text" id="departmentPhone" placeholder="Phone..">
@@ -295,6 +321,9 @@
                         <!--Nickname -->
                         <label for="govNickname">Nickname:</label>
                         <input type="text" id="govNickname" placeholder="Nickname..">
+                        <!--Image -->
+                        <label for="photoImage"><i class="fa-regular fa-image" style="font-size: 40px; cursor: pointer;"></i></label>
+                        <input type="file" id="photoImage" placeholder="photoImage.." style="display: none;">
                         <!-- PHONE NUMBER -->
                         <label for="govPhone">Phone:</label>
                         <input type="text" id="govPhone" placeholder="Phone..">
@@ -310,6 +339,38 @@
                         <button id="govUpdate">Update</button>
                         <button id="govRead">Read</button>
                         <button id="govDelete">Delete</button>
+                    </div>  
+            </section>
+
+            <!-- CATALOGUE -->
+            <section id="catalogue">
+                <div class="sectionName">
+                    <h3>CATALOGUE</h3>
+                </div>
+                <hr>
+                    <div class="InputDiv">
+                        <!-- PROJECT ID -->
+                        <label for="projectId">Project ID:</label>
+                        <input type="text" id="projectId" placeholder="Project ID..">
+                        <!-- PROJECT NAME -->
+                        <label for="projectName">Name:</label>
+                        <input type="text" id="projectName" placeholder="Project Name..">
+                        <!-- PROJECT ABSTRACT -->
+                        <label for="projectAbstract">Abstract:</label>
+                        <textarea id="projectAbstract" placeholder="Abstract........." cols="30" rows="10"></textarea>
+
+                        <!-- PROJECT PHONE -->
+                        <label for="projectPhone">Phone:</label>
+                        <input type="text" id="projectPhone" placeholder="Phone..">
+                        <!--PROJECT ADDRESS -->
+                        <label for="projectAddress">Address:</label>
+                        <input type="text" id="projectAddress" placeholder="Address..">
+                    </div>
+                    <div class="buttonDiv">
+                        <button id="projectWrite">Write</button>
+                        <button id="projectUpdate">Update</button>
+                        <button id="projectRead">Read</button>
+                        <button id="projectDelete">Delete</button>
                     </div>
             </section>
 

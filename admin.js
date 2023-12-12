@@ -21,8 +21,10 @@ let signOutBtn = document.getElementById('signOut')
 
   import {getAuth, signOut, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
   import{getFirestore, doc, getDoc, getDocs, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, query, where} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+  import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
   const db = getFirestore()
   let auth = getAuth()
+  const storage = getStorage()
 
 
   // FUNTION TO SIGNOUT USER
@@ -74,7 +76,6 @@ function stateChanged(){
   stateChanged()
 
 //   GETTING THE BUTTONS AND INPUT
-// ALL INPUTS
 
 // FOR SUG PPRESIDENT
 let sugDeparment = document.getElementById('sugDeparment')
@@ -88,9 +89,9 @@ let sugwrite = document.getElementById('sugwrite')
 let sugUpdate = document.getElementById('sugUpdate')
 let sugRead = document.getElementById('sugRead')
 let sugDelete = document.getElementById('sugDelete')
+let photoImage = document.getElementById('photoImage')
 
-// WRITE FOR SUG
-  async function writeForSug(){
+async function writeForSug() {
     let Deparment = sugDeparment.value
     let firstname = sugfirstname.value
     let Lastname = sugLastname.value
@@ -98,35 +99,53 @@ let sugDelete = document.getElementById('sugDelete')
     let Phone = sugPhone.value
     let Whatsapp = sugWhatsapp.value
     let Facebook = sugFacebook.value
-    if(Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == ''){
-        alert('please fill all empty spaces')
-    }else{
-        var ref = doc(db, "SUGPRESIDENT", Deparment)
-        const docRef = await setDoc(ref, {
-            Deparment : Deparment,
-            Firstname : firstname,
-            Lastname : Lastname,
-            Nickname : Nickname,
-            Phone : Phone,
-            Whatsapp : Whatsapp,
-            Facebook : Facebook
-        })
-        .then(() => {
-            alert("Uploading Successful")
-        })
-        .catch(error => {
-            console.error(error);
-        })
-        sugDeparment.value = ''
-        sugfirstname.value = ''
-        sugLastname.value = ''
-        sugNickname.value = ''
-        sugPhone.value = ''
-        sugWhatsapp.value = ''
-        sugFacebook.value = ''
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = photoImage.files[0];
+        const fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "SUGPRESIDENT", Deparment);
+            await setDoc(ref, {
+                Department: Deparment,
+                FirstName: firstname,
+                LastName: Lastname,
+                Nickname: Nickname,
+                Phone: Phone,
+                Whatsapp: Whatsapp,
+                Facebook: Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            clearForm();
+        });
     }
 }
-sugwrite.addEventListener('click', writeForSug)
+
+function clearForm() {
+    // Clear form fields after successful upload
+    sugDeparment.value = ''
+    sugfirstname.value = ''
+    sugLastname.value = ''
+    sugNickname.value = ''
+    sugPhone.value = ''
+    sugWhatsapp.value = ''
+    sugFacebook.value = ''
+}
+
+sugwrite.addEventListener('click', writeForSug);
 
 
 // UPDATE FOR SUG
@@ -175,7 +194,7 @@ async function readForSug(){
     var ref = doc(db, "SUGPRESIDENT", Deparment)
     const docSnap = await getDoc(ref)
     if(docSnap.exists()){
-        console.log(docSnap.data())
+        // console.log(docSnap.data())
         sugDeparment.value = docSnap.data().Deparment
         sugfirstname.value = docSnap.data().Firstname
         sugLastname.value = docSnap.data().Lastname
@@ -309,7 +328,7 @@ async function readForGen(){
     var ref = doc(db, "SUG-GEN-SEC", Deparment)
     const docSnap = await getDoc(ref)
     if(docSnap.exists()){
-        console.log(docSnap.data())
+        // console.log(docSnap.data())
         genDeparment.value = docSnap.data().Deparment
         genfirstname.value = docSnap.data().Firstname
         genLastname.value = docSnap.data().Lastname
@@ -453,7 +472,7 @@ async function readForPro(){
     var ref = doc(db, "SUG-PRO", Deparment)
     const docSnap = await getDoc(ref)
     if(docSnap.exists()){
-        console.log(docSnap.data())
+        // console.log(docSnap.data())
         proDeparment.value = docSnap.data().Deparment
         profirstname.value = docSnap.data().Firstname
         proLastname.value = docSnap.data().Lastname
@@ -592,7 +611,7 @@ async function readForSchool(){
     var ref = doc(db, "SCHOOL-PRESIDENT", Deparment)
     const docSnap = await getDoc(ref)
     if(docSnap.exists()){
-        console.log(docSnap.data())
+        // console.log(docSnap.data())
         schoolDeparment.value = docSnap.data().Deparment
         schoolfirstname.value = docSnap.data().Firstname
         schoolLastname.value = docSnap.data().Lastname
@@ -640,19 +659,19 @@ let departmentRead = document.getElementById('departmentRead')
 let departmentDelete = document.getElementById('departmentDelete')
 
 
-// WRITE FOR SCHOOL PRESIDENT
-async function writeForSchool(){
-    let Deparment = schoolDeparment.value
-    let firstname = schoolfirstname.value
-    let Lastname = schoolLastname.value
-    let Nickname = schoolNickname.value
-    let Phone = schoolPhone.value
-    let Whatsapp = schoolWhatsapp.value
-    let Facebook = schoolFacebook.value
+// WRITE FOR DEPARTMENTAL PRESIDENT
+async function writeForDepartment(){
+    let Deparment = departmentDeparment.value
+    let firstname = departmentfirstname.value
+    let Lastname = departmentLastname.value
+    let Nickname = departmentNickname.value
+    let Phone = departmentPhone.value
+    let Whatsapp = departmentWhatsapp.value
+    let Facebook = departmentFacebook.value
     if(Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == ''){
         alert('please fill all empty spaces')
     }else{
-        var ref = doc(db, "SCHOOL-PRESIDENT", Deparment)
+        var ref = doc(db, "DEPARTMENT-PRESIDENT", Deparment)
         const docRef = await setDoc(ref, {
             Deparment : Deparment,
             Firstname : firstname,
@@ -668,30 +687,30 @@ async function writeForSchool(){
         .catch(error => {
             console.error(error);
         })
-        schoolDeparment.value = ''
-        schoolfirstname.value = ''
-        schoolLastname.value = ''
-        schoolNickname.value = ''
-        schoolPhone.value = ''
-        schoolWhatsapp.value = ''
-        schoolFacebook.value = ''
+        departmentDeparment.value = ''
+        departmentfirstname.value = ''
+        departmentLastname.value = ''
+        departmentNickname.value = ''
+        departmentPhone.value = ''
+        departmentWhatsapp.value = ''
+        departmentFacebook.value = ''
     }
 }
-schoolwrite.addEventListener('click', writeForSchool)
+departmentwrite.addEventListener('click', writeForDepartment)
 
 
-// UPDATE FOR SCHOOL PRESIDENT
-async function updateForSchool(){
+// UPDATE FOR DEPARTMENTAL PRESIDENT
+async function updateForDepartment(){
 
-    let Deparment = schoolDeparment.value
-    let firstname = schoolfirstname.value
-    let Lastname = schoolLastname.value
-    let Nickname = schoolNickname.value
-    let Phone = schoolPhone.value
-    let Whatsapp = schoolWhatsapp.value
-    let Facebook = schoolFacebook.value
+    let Deparment = departmentDeparment.value
+    let firstname = departmentfirstname.value
+    let Lastname = departmentLastname.value
+    let Nickname = departmentNickname.value
+    let Phone = departmentPhone.value
+    let Whatsapp = departmentWhatsapp.value
+    let Facebook = departmentFacebook.value
 
-    var ref = doc(db, "SCHOOL-PRESIDENT", Deparment)
+    var ref = doc(db, "DEPARTMENT-PRESIDENT", Deparment)
     await updateDoc(ref, {
         Deparment : Deparment,
         Firstname : firstname,
@@ -707,43 +726,43 @@ async function updateForSchool(){
     .catch(error => {
         alert(error.message)
     })
-    schoolDeparment.value = ''
-    schoolfirstname.value = ''
-    schoolLastname.value = ''
-    schoolNickname.value = ''
-    schoolPhone.value = ''
-    schoolWhatsapp.value = ''
-    schoolFacebook.value = ''
+    departmentDeparment.value = ''
+    departmentfirstname.value = ''
+    departmentLastname.value = ''
+    departmentNickname.value = ''
+    departmentPhone.value = ''
+    departmentWhatsapp.value = ''
+    departmentFacebook.value = ''
 }
-schoolUpdate.addEventListener('click', updateForSchool)
+departmentUpdate.addEventListener('click', updateForDepartment)
 
 
-// READ FOR SCHOOL PRESIDENT
-async function readForSchool(){
+// READ FOR DEPARTMENTAL PRESIDENT
+async function readForDepartment(){
 
-    let Deparment = schoolDeparment.value
+    let Deparment = departmentDeparment.value
 
-    var ref = doc(db, "SCHOOL-PRESIDENT", Deparment)
+    var ref = doc(db, "DEPARTMENT-PRESIDENT", Deparment)
     const docSnap = await getDoc(ref)
     if(docSnap.exists()){
-        console.log(docSnap.data())
-        schoolDeparment.value = docSnap.data().Deparment
-        schoolfirstname.value = docSnap.data().Firstname
-        schoolLastname.value = docSnap.data().Lastname
-        schoolNickname.value = docSnap.data().Nickname
-        schoolPhone.value = docSnap.data().Phone
-        schoolWhatsapp.value = docSnap.data().Whatsapp
-        schoolFacebook.value = docSnap.data().Facebook
+        // console.log(docSnap.data())
+        departmentDeparment.value = docSnap.data().Deparment
+        departmentfirstname.value = docSnap.data().Firstname
+        departmentLastname.value = docSnap.data().Lastname
+        departmentNickname.value = docSnap.data().Nickname
+        departmentPhone.value = docSnap.data().Phone
+        departmentWhatsapp.value = docSnap.data().Whatsapp
+        departmentFacebook.value = docSnap.data().Facebook
     }else{
         alert('data does not exist')
     }
 }
-schoolRead.addEventListener('click', readForSchool)
+departmentRead.addEventListener('click', readForDepartment)
 
-// DELETE FOR SCHOOL PRESIDENT
-    async function deleteForSchool(){
-        let Deparment = proDeparment.value
-        var ref = doc(db, "SCHOOL-PRESIDENT", Deparment)
+// DELETE FOR DEPARTMENTAL PRESIDENT
+    async function deleteForDepartment(){
+        let Deparment = departmentDeparment.value
+        var ref = doc(db, "DEPARTMENT-PRESIDENT", Deparment)
         const docSnap = await getDoc(ref)
         if(!docSnap.exists()){
             alert('No such Document')
@@ -757,24 +776,7 @@ schoolRead.addEventListener('click', readForSchool)
         })
     }
 
-    schoolDelete.addEventListener('click', deleteForSchool)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    departmentDelete.addEventListener('click', deleteForDepartment)
 
 
 // FOR DEPARTMENTAL GOVERNOR
@@ -870,31 +872,31 @@ govUpdate.addEventListener('click', updateForGov)
 
 
 // READ FOR SCHOOL PRESIDENT
-async function readForSchool(){
+async function readForGov(){
 
     let Deparment = schoolDeparment.value
 
-    var ref = doc(db, "SCHOOL-PRESIDENT", Deparment)
+    var ref = doc(db, "GOVERNORS", Deparment)
     const docSnap = await getDoc(ref)
     if(docSnap.exists()){
-        console.log(docSnap.data())
-        schoolDeparment.value = docSnap.data().Deparment
-        schoolfirstname.value = docSnap.data().Firstname
-        schoolLastname.value = docSnap.data().Lastname
-        schoolNickname.value = docSnap.data().Nickname
-        schoolPhone.value = docSnap.data().Phone
-        schoolWhatsapp.value = docSnap.data().Whatsapp
-        schoolFacebook.value = docSnap.data().Facebook
+        // console.log(docSnap.data())
+        govDeparment.value = docSnap.data().Deparment
+        govfirstname.value = docSnap.data().Firstname
+        govLastname.value = docSnap.data().Lastname
+        govNickname.value = docSnap.data().Nickname
+        govPhone.value = docSnap.data().Phone
+        govWhatsapp.value = docSnap.data().Whatsapp
+        govFacebook.value = docSnap.data().Facebook
     }else{
         alert('data does not exist')
     }
 }
-schoolRead.addEventListener('click', readForSchool)
+govRead.addEventListener('click', readForGov)
 
 // DELETE FOR SCHOOL PRESIDENT
-    async function deleteForSchool(){
-        let Deparment = proDeparment.value
-        var ref = doc(db, "SCHOOL-PRESIDENT", Deparment)
+    async function deleteForGov(){
+        let Deparment = govDeparment.value
+        var ref = doc(db, "GOVERNORS", Deparment)
         const docSnap = await getDoc(ref)
         if(!docSnap.exists()){
             alert('No such Document')
@@ -908,10 +910,129 @@ schoolRead.addEventListener('click', readForSchool)
         })
     }
 
-    schoolDelete.addEventListener('click', deleteForSchool)
+    govDelete.addEventListener('click', deleteForGov)
+
+    // FOR CATALOGUE
+    let projectName = document.getElementById('projectName')
+    let projectAbstract = document.getElementById('projectAbstract')
+    let projectPhone = document.getElementById('projectPhone')
+    let projectAddress = document.getElementById('projectAddress')
+    let projectId = document.getElementById('projectId')
+    let projectWrite = document.getElementById('projectWrite')
+    let projectUpdate = document.getElementById('projectUpdate')
+    let projectRead = document.getElementById('projectRead')
+    let projectDelete = document.getElementById('projectDelete')
 
 
+    // WRITE FOR PROJECT TOPIC
+async function writeForProject(){
+    let ProjectId = projectId.value
+    let ProjectTopic = projectName.value
+    let ProjectAbstract = projectAbstract.value
+    let ProjectPhone = projectPhone.value
+    let ProjectAddress = projectAddress.value
+ 
+    if(ProjectId == '' || ProjectTopic == '' || ProjectAbstract == '' || ProjectPhone == '' || ProjectAddress == ''){
+        alert('please fill all empty spaces')
+    }else{
+        var ref = doc(db, "PROJECTS", ProjectId)
+        const docRef = await setDoc(ref, {
+            ID : ProjectId,
+            Topic : ProjectTopic,
+            Abstract : ProjectAbstract,
+            ProjectPhone : ProjectPhone,
+            Address : ProjectAddress
+        })
+        .then(() => {
+            alert("Uploading Successful")
+        })
+        .catch(error => {
+            console.error(error);
+        })
+        projectName.value = ''
+        projectAbstract.value = ''
+        projectPhone.value = ''
+        projectAddress.value = ''
+        projectId.value = ''
+    }
+}
+projectWrite.addEventListener('click', writeForProject)
 
+
+// UPDATE FOR PROJECT TOPIC
+async function updateForProject(){
+
+    let ProjectId = projectId.value
+    let ProjectTopic = projectName.value
+    let ProjectAbstract = projectAbstract.value
+    let ProjectPhone = projectPhone.value
+    let ProjectAddress = projectAddress.value
+
+    var ref = doc(db, "PROJECTS", ProjectId)
+    await updateDoc(ref, {
+        Topic : ProjectTopic,
+        Abstract : ProjectAbstract,
+        ProjectPhone : ProjectPhone,
+        Address : ProjectAddress
+    })
+    .then(() => {
+        alert('Updated Successfully')
+    })
+    .catch(error => {
+        alert(error.message)
+    })
+    projectName.value = ''
+    projectAbstract.value = ''
+    projectPhone.value = ''
+    projectAddress.value = ''
+    projectId.value = ''
+}
+projectUpdate.addEventListener('click', updateForProject)
+
+
+// READ FOR SCHOOL PRESIDENT
+async function readForProject(){
+
+    let ProjectId = projectId.value
+
+    var ref = doc(db, "PROJECTS", ProjectId)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+        // console.log(docSnap.data())
+        projectName.value = docSnap.data().Topic
+        projectAbstract.value = docSnap.data().Abstract 
+        projectPhone.value = docSnap.data().ProjectPhone
+        projectAddress.value = docSnap.data().Address
+        projectId.value = docSnap.data().ID
+    }else{
+        alert('data does not exist')
+    }
+}
+projectRead.addEventListener('click', readForProject)
+
+// DELETE FOR SCHOOL PRESIDENT
+    async function deleteForProject(){
+        let ProjectId = projectId.value
+        var ref = doc(db, "PROJECTS", ProjectId)
+        const docSnap = await getDoc(ref)
+        if(!docSnap.exists()){
+            alert('No such Document')
+        }
+        await deleteDoc(ref)
+        .then(() => {
+            alert('Document Deleted')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+        projectName.value = ''
+        projectAbstract.value = ''
+        projectPhone.value = ''
+        projectAddress.value = ''
+        projectId.value = ''
+    }
+
+    projectDelete.addEventListener('click', deleteForProject)
 
 
 

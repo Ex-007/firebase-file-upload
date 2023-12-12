@@ -42,11 +42,33 @@
     color: #931cbb;
 }
 
-
-
-
-
-
+#signOut{
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.searchBox{
+    margin: 10px;
+    display: flex;
+    justify-content: end;
+}
+.searchBox input{
+    height: 30px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.searchBox i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -25px;
+}
+#projectAbstract{
+    border-radius: 10px;
+    padding: 10px;
+}
 
 .secondRow{
     display: flex;
@@ -63,7 +85,13 @@
     font-size: 20px;
     margin: 20px;
 }
-
+.toTop{
+    position: fixed;
+    right: 0;
+    top: 200px;
+    width: 35px;
+    height: 35px;
+}
 
 
 .schoolPresident{
