@@ -953,7 +953,7 @@ async function updateForGov(){
 govUpdate.addEventListener('click', updateForGov)
 
 
-// READ FOR SCHOOL PRESIDENT
+// READ FOR DEPARTMENTAL GOVERNOR
 async function readForGov(){
 
     let Deparment = schoolDeparment.value
@@ -975,7 +975,7 @@ async function readForGov(){
 }
 govRead.addEventListener('click', readForGov)
 
-// DELETE FOR SCHOOL PRESIDENT
+// DELETE FOR DEPARTMENTAL GOVERNOR
     async function deleteForGov(){
         let Deparment = govDeparment.value
         var ref = doc(db, "GOVERNORS", Deparment)
@@ -1006,7 +1006,7 @@ govRead.addEventListener('click', readForGov)
     let projectDelete = document.getElementById('projectDelete')
 
 
-    // WRITE FOR PROJECT TOPIC
+    // WRITE FOR CATALOGUE
 async function writeForProject(){
     let ProjectId = projectId.value
     let ProjectTopic = projectName.value
@@ -1041,7 +1041,7 @@ async function writeForProject(){
 projectWrite.addEventListener('click', writeForProject)
 
 
-// UPDATE FOR PROJECT TOPIC
+// UPDATE FOR CATALOGUE
 async function updateForProject(){
 
     let ProjectId = projectId.value
@@ -1072,7 +1072,7 @@ async function updateForProject(){
 projectUpdate.addEventListener('click', updateForProject)
 
 
-// READ FOR SCHOOL PRESIDENT
+// READ FOR CATALOGUE
 async function readForProject(){
 
     let ProjectId = projectId.value
@@ -1092,7 +1092,7 @@ async function readForProject(){
 }
 projectRead.addEventListener('click', readForProject)
 
-// DELETE FOR SCHOOL PRESIDENT
+// DELETE FOR CATALOGUE
     async function deleteForProject(){
         let ProjectId = projectId.value
         var ref = doc(db, "PROJECTS", ProjectId)
@@ -1116,7 +1116,299 @@ projectRead.addEventListener('click', readForProject)
 
     projectDelete.addEventListener('click', deleteForProject)
 
+    // FOR MARKET
+    let marketId = document.getElementById('marketId')
+    let shopName = document.getElementById('shopName')
+    let shopAddress = document.getElementById('shopAddress')
+    let item1 = document.getElementById('item1')
+    let item2 = document.getElementById('item2')
+    let item3 = document.getElementById('item3')
+    let item4 = document.getElementById('item4')
+    let item5 = document.getElementById('item5')
+    let item6 = document.getElementById('item6')
+    let item7 = document.getElementById('item7')
+    let markphoneNumber = document.getElementById('markphoneNumber')
+    let markwhatsapp = document.getElementById('markwhatsapp')
+    let markfacebook = document.getElementById('markfacebook')
+    let marketWrite = document.getElementById('marketWrite')
+    let marketUpdate = document.getElementById('marketUpdate')
+    let marketRead = document.getElementById('marketRead')
+    let marketDelete = document.getElementById('marketDelete')
+
+        // WRITE FOR MARKET
+async function writeForMarket(){
+    let Id = marketId.value
+    let Name = shopName.value
+    let Address = shopAddress.value
+    let itemOne = item1.value
+    let itemTwo = item2.value
+    let itemThree = item3.value
+    let itemFour = item4.value
+    let itemFive = item5.value
+    let itemSix = item6.value
+    let phoneNumber = markphoneNumber.value
+    let whatsapp = markwhatsapp.value
+    let facebook = markfacebook.value
+    let itemSeven = item7.value
+    
+    if(Id == '' || Name == '' || Address == '' || itemOne == '' || phoneNumber == '' || whatsapp == '' || facebook == ''){
+        alert('please fill all empty Item 1 and Others')
+    }else{
+        var ref = doc(db, "MARKET", Id)
+        const docRef = await setDoc(ref, {
+            ID : Id,
+            Name : Name,
+            Address : Address,
+            itemOne : itemOne,
+            itemThree : itemThree,
+            itemFour : itemFour,
+            itemTwo : itemTwo,
+            itemFive : itemFive,
+            itemSix : itemSix,
+            itemSeven : itemSeven,
+            phoneNumber : phoneNumber,
+            whatsapp : whatsapp,
+            facebook : facebook,
+        })
+        .then(() => {
+            alert("Uploading Successful")
+        })
+        .catch(error => {
+            console.error(error);
+        })
+        marketId.value = ''
+        shopName.value = ''
+        shopAddress.value = ''
+        item1.value = ''
+        item2.value = ''
+        item3.value = ''
+        item4.value = ''
+        item5.value = ''
+        item6.value = ''
+        item7.value = ''
+        markphoneNumber.value = ''
+        markwhatsapp.value = ''
+        markfacebook.value = ''
+    }
+}
+marketWrite.addEventListener('click', writeForMarket)
 
 
+// UPDATE FOR MARKET
+async function updateForMarket(){
+
+    let Id = marketId.value
+    let Name = shopName.value
+    let Address = shopAddress.value
+    let itemOne = item1.value
+    let itemTwo = item2.value
+    let itemThree = item3.value
+    let itemFour = item4.value
+    let itemFive = item5.value
+    let itemSix = item6.value
+    let phoneNumber = markphoneNumber.value
+    let whatsapp = markwhatsapp.value
+    let facebook = markfacebook.value
+    let itemSeven = item7.value
+
+    var ref = doc(db, "MARKET", Id)
+    await updateDoc(ref, {
+        Name : Name,
+        Address : Address,
+        itemOne : itemOne,
+        itemThree : itemThree,
+        itemFour : itemFour,
+        itemTwo : itemTwo,
+        itemFive : itemFive,
+        itemSix : itemSix,
+        itemSeven : itemSeven,
+        phoneNumber : phoneNumber,
+        whatsapp : whatsapp,
+        facebook : facebook,
+    })
+    .then(() => {
+        alert('Updated Successfully')
+    })
+    .catch(error => {
+        alert(error.message)
+    })
+        marketId.value = ''
+        shopName.value = ''
+        shopAddress.value = ''
+        item1.value = ''
+        item2.value = ''
+        item3.value = ''
+        item4.value = ''
+        item5.value = ''
+        item6.value = ''
+        item7.value = ''
+        markphoneNumber.value = ''
+        markwhatsapp.value = ''
+        markfacebook.value = ''
+}
+marketUpdate.addEventListener('click', updateForMarket)
 
 
+// READ FOR MARKET
+async function readForMarket(){
+
+    let Id = marketId.value
+
+    var ref = doc(db, "MARKET", Id)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+        // console.log(docSnap.data())
+        Id.value = docSnap.data().ID
+        Name.value = docSnap.data().Name 
+        Address.value = docSnap.data().Address
+        itemOne.value = docSnap.data().itemOne
+        itemThree.value = docSnap.data().itemThree
+        itemFour.value = docSnap.data().itemFour
+        itemTwo.value = docSnap.data().itemTwo
+        itemFive.value = docSnap.data().itemFive
+        itemSix.value = docSnap.data().itemSix
+        itemSeven.value = docSnap.data().itemSeven
+        phoneNumber.value = docSnap.data().phoneNumber
+        whatsapp.value = docSnap.data().whatsapp
+        facebook.value = docSnap.data().facebook
+    }else{
+        alert('data does not exist')
+    }
+}
+marketRead.addEventListener('click', readForMarket)
+
+// DELETE FOR MARKET
+    async function deleteForMarket(){
+        let Id = marketId.value
+        var ref = doc(db, "MARKET", Id)
+        const docSnap = await getDoc(ref)
+        if(!docSnap.exists()){
+            alert('No such Document')
+        }
+        await deleteDoc(ref)
+        .then(() => {
+            alert('Document Deleted')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+        marketId.value = ''
+        shopName.value = ''
+        shopAddress.value = ''
+        item1.value = ''
+        item2.value = ''
+        item3.value = ''
+        item4.value = ''
+        item5.value = ''
+        item6.value = ''
+        item7.value = ''
+        markphoneNumber.value = ''
+        markwhatsapp.value = ''
+        markfacebook.value = ''
+    }
+
+    marketDelete.addEventListener('click', deleteForMarket)
+
+        // FOR NEWS
+        let newId = document.getElementById('newId')
+        let newsPreview = document.getElementById('newsPreview')
+        let newContent = document.getElementById('newContent')
+        let newstWrite = document.getElementById('newstWrite')
+        let newsUpdate = document.getElementById('newsUpdate')
+        let newsRead = document.getElementById('newsRead')
+        let newsDelete = document.getElementById('newsDelete')
+    
+    
+        // WRITE FOR NEWS
+    async function writeForNews(){
+        let Id = newId.value
+        let Content = newContent.value
+        let Preview = newsPreview.value
+     
+        if(Id == '' || Content == '' || Preview == ''){
+            alert('please fill all empty spaces')
+        }else{
+            var ref = doc(db, "NEWS", Id)
+            const docRef = await setDoc(ref, {
+                Id : Id,
+                Content : Content,
+                Preview : Preview,
+            })
+            .then(() => {
+                alert("Uploading Successful")
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            newId.value = ''
+            newContent.value = ''
+            newsPreview.value = ''
+        }
+    }
+    newstWrite.addEventListener('click', writeForNews)
+    
+    
+    // UPDATE FOR NEWS
+    async function updateForNews(){
+    
+        let Id = newId.value
+        let Content = newContent.value
+        let Preview = newsPreview.value
+    
+        var ref = doc(db, "NEWS", Id)
+        await updateDoc(ref, {
+            Content : Content,
+            Preview : Preview,
+        })
+        .then(() => {
+            alert('Updated Successfully')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+        newId.value = ''
+        newContent.value = ''
+        newsPreview.value = ''
+    }
+    newsUpdate.addEventListener('click', updateForNews)
+    
+    
+    // READ FOR CATALOGUE
+    async function readForNews(){
+    
+        let Id = newId.value
+    
+        var ref = doc(db, "NEWS", Id)
+        const docSnap = await getDoc(ref)
+        if(docSnap.exists()){
+            // console.log(docSnap.data())
+            newId.value = docSnap.data().Id
+            newContent.value = docSnap.data().Content 
+            newsPreview.value = docSnap.data().Preview
+        }else{
+            alert('data does not exist')
+        }
+    }
+    newsRead.addEventListener('click', readForNews)
+    
+    // DELETE FOR CATALOGUE
+        async function deleteForNews(){
+            let Id = newId.value
+            var ref = doc(db, "NEWS", Id)
+            const docSnap = await getDoc(ref)
+            if(!docSnap.exists()){
+                alert('No such Document')
+            }
+            await deleteDoc(ref)
+            .then(() => {
+                alert('Document Deleted')
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+            newId.value = ''
+            newContent.value = ''
+            newsPreview.value = ''
+        }
+    
+        newsDelete.addEventListener('click', deleteForNews)
