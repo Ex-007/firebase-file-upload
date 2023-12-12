@@ -59,24 +59,6 @@ let signOutBtn = document.getElementById('signOut')
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //   FUNTION TO CHECK IF USER IS LOGGED IN OR OUT
 function stateChanged(){
     onAuthStateChanged(auth, (user) => {
@@ -90,3 +72,103 @@ function stateChanged(){
     })
   }
   stateChanged()
+
+//   GETTING THE BUTTONS AND INPUT
+// ALL INPUTS
+
+// FOR SUG PPRESIDENT
+let sugDeparment = document.getElementById('sugDeparment')
+let sugfirstname = document.getElementById('sugfirstname')
+let sugLastname = document.getElementById('sugLastname')
+let sugNickname = document.getElementById('sugNickname')
+let sugPhone = document.getElementById('sugPhone')
+let sugWhatsapp = document.getElementById('sugWhatsapp')
+let sugFacebook = document.getElementById('sugFacebook')
+let sugwrite = document.getElementById('sugwrite')
+let sugUpdate = document.getElementById('sugUpdate')
+let sugRead = document.getElementById('sugRead')
+let sugDelete = document.getElementById('sugDelete')
+
+// WRITE FOR SUG
+
+// UPDATE FOR SUG
+
+// READ FOR SUG
+
+// UPDATE FOR SUG
+
+// FOR SUG SECRETARY
+let genDeparment = document.getElementById('genDeparment')
+let genfirstname = document.getElementById('genfirstname')
+let genLastname = document.getElementById('genLastname')
+let genNickname = document.getElementById('genNickname')
+let genPhone = document.getElementById('genPhone')
+let genWhatsapp = document.getElementById('genWhatsapp')
+let genFacebook = document.getElementById('genFacebook')
+let genwrite = document.getElementById('genwrite')
+let genUpdate = document.getElementById('genUpdate')
+let genRead = document.getElementById('genRead')
+let genDelete = document.getElementById('genDelete')
+
+// FOR SUG PUBLIC RELATION OFFICER
+let proDeparment = document.getElementById('proDeparment')
+let profirstname = document.getElementById('profirstname')
+let proLastname = document.getElementById('proLastname')
+let proNickname = document.getElementById('proNickname')
+let proPhone = document.getElementById('proPhone')
+let proWhatsapp = document.getElementById('proWhatsapp')
+let proFacebook = document.getElementById('proFacebook')
+let prowrite = document.getElementById('prowrite')
+let proUpdate = document.getElementById('proUpdate')
+let proRead = document.getElementById('proRead')
+let proDelete = document.getElementById('proDelete')
+
+// FOR SCHOOL PRESIDENT
+let schoolDeparment = document.getElementById('schoolDeparment')
+let schoolfirstname = document.getElementById('schoolfirstname')
+let schoolLastname = document.getElementById('schoolLastname')
+let schoolNickname = document.getElementById('schoolNickname')
+let schoolPhone = document.getElementById('schoolPhone')
+let schoolWhatsapp = document.getElementById('schoolWhatsapp')
+let schoolFacebook = document.getElementById('schoolFacebook')
+let schoolwrite = document.getElementById('schoolwrite')
+let schoolUpdate = document.getElementById('schoolUpdate')
+let schoolRead = document.getElementById('schoolRead')
+let schoolDelete = document.getElementById('schoolDelete')
+
+// FOR DEPARTMENTAL PRESIDENT
+let departmentDeparment = document.getElementById('departmentDeparment')
+let departmentfirstname = document.getElementById('departmentfirstname')
+let departmentLastname = document.getElementById('departmentLastname')
+let departmentNickname = document.getElementById('departmentNickname')
+let departmentPhone = document.getElementById('departmentPhone')
+let departmentWhatsapp = document.getElementById('departmentWhatsapp')
+let departmentFacebook = document.getElementById('departmentFacebook')
+let departmentwrite = document.getElementById('departmentwrite')
+let departmentUpdate = document.getElementById('departmentUpdate')
+let departmentRead = document.getElementById('departmentRead')
+let departmentDelete = document.getElementById('departmentDelete')
+
+// FOR DEPARTMENTAL GOVERNOR
+let govDeparment = document.getElementById('govDeparment')
+let govfirstname = document.getElementById('govfirstname')
+let govLastname = document.getElementById('govLastname')
+let govNickname = document.getElementById('govNickname')
+let govPhone = document.getElementById('govPhone')
+let govWhatsapp = document.getElementById('govWhatsapp')
+let govFacebook = document.getElementById('govFacebook')
+let govwrite = document.getElementById('govwrite')
+let govUpdate = document.getElementById('govUpdate')
+let govRead = document.getElementById('govRead')
+let govDelete = document.getElementById('govDelete')
+
+
+
+
+
+
+
+
+
+
+

@@ -49,6 +49,60 @@
 
 
 .secondRow{
+    display: flex;
+    flex-direction: column;
     background-color:  #a677b6;
     width: 66.66%;
+}
+
+.sectionName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+}
+
+
+
+.schoolPresident{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.InputDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.InputDiv input{
+    width: 200px;
+    height: 30px;
+    padding: 0 4px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+.InputDiv label{
+    color: white;
+    font-size: 17px;
+}
+.buttonDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.buttonDiv button{
+    background-color: #947C9C;
+    color: white;
+    padding: 2px;
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    cursor: pointer;
 }
