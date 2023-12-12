@@ -1,0 +1,71 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #947C9C;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.projectName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.abstractAndContent{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.abstract{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 20px;
+}
+p{
+    font-size: 17px;
+}
+.contactInfo{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #9977C9;
+}
+.contactMap{
+    margin: 10px;
+}
+.contactMap ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+.contactMap ul li{
+   list-style-type: none;
+   padding: 5px;
+}
+.searchBox{
+    margin: 10px;
+    display: flex;
+    justify-content: end;
+}
+.searchBox input{
+    height: 30px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.searchBox i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -25px;
+}

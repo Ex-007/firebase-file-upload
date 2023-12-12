@@ -30,6 +30,10 @@
     justify-content: center;
     align-items: center;
 }
+.navigation ul li a:active{
+    color: gold;
+}
+
 /* SEARCH IN */
 
 
@@ -116,8 +120,12 @@
     color: white;
   }
 
-
-
+.formToUs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

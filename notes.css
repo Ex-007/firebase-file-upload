@@ -1,0 +1,209 @@
+
+
+
+
+@media screen and (max-width : 475px){
+    .headerFirst{
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border-radius: 5px;
+        padding: 0 10px;
+    }
+
+    .headerFirst p{
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: black;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+    #changeThemeColor{
+        padding-top: 20px;
+    }
+    .inputDiv{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .headTitle{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    #headTitle{
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    /* .title{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    
+    #title{
+        width: 40vw;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 16px;
+        overflow: hidden;
+    } */
+    
+    .striker{
+        text-decoration: line-through;
+    }
+
+    #textAreaText{
+        width: 80vw;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 16px;
+        overflow: hidden;
+        resize: none;
+    }
+    #textAreaText::-webkit-scrollbar{
+        display: none;
+    }
+   .change{
+    height: 10px;
+   }
+
+    #textAreaText::placeholder{
+        color: black;
+        font-size: 20px;
+    }
+    .logBtn{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #logBtn{
+        border-radius: 10px;
+        width: 100px;
+        height: 30px;
+    }
+    
+    
+    #newListing li{
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        font-size: 20px;
+        background-color: green;
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+        margin-bottom: 10px;
+        margin-left: -45px;
+    }
+    
+    .spanEdit{
+        color: red;
+        font-size: 30px;
+        cursor: pointer;
+    }
+}
+
+/* FOR MEDIA SCREENS ABOVE 475PX */
+@media screen and (min-width : 475px){
+    .headerFirst{
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border-radius: 5px;
+        padding: 0 10px;
+    }
+    .headerFirst p{
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: black;
+        cursor: pointer;
+        font-size: 17px;
+    }
+    #changeThemeColor{
+        padding-top: 20px;
+    }
+    
+    .inputDiv{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    
+    #textAreaText{
+        width: 80vw;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 16px;
+        overflow: hidden;
+        resize: none;
+    }
+
+    .headTitle{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    #headTitle{
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #textAreaText::-webkit-scrollbar{
+        display: none;
+    }
+    
+    #textAreaText::placeholder{
+        color: black;
+        font-size: 20px;
+    }
+    .logBtn{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #logBtn{
+        border-radius: 10px;
+        width: 100px;
+        height: 30px;
+    }
+    
+    
+    #newListing li{
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        font-size: 20px;
+        background-color: #947C9C;;
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+        margin-bottom: 10px;
+        margin-left: -30px;
+    }
+    
+    .spanEdit{
+        color: red;
+        font-size: 30px;
+        cursor: pointer;
+    }
+}

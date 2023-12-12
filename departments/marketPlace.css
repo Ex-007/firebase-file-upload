@@ -1,4 +1,84 @@
-.marketImage{
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    background-color: #947C9C;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+}
+.shopName{
+    font-size: 35px;
+    color: black;
+}
+.headTitle{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.services{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.workList{
+    display: flex;
+    margin-top: 20px;
+}
+.workList ul li{
+    list-style-type: none;
+    padding: 5px 30px;
+    font-size: 20px;
+}
+
+.contact{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact ul{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.contact ul li{
+    list-style-type: none;
+    padding: 5px 20px;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .marketImage{
     display: flex;
     height: 20rem;
     gap: 1rem;
@@ -21,7 +101,6 @@
     font-size: 35px;
     font-family: cursive;
     text-align: center;
-    /* height: 150px; */
 }
 .links{
     text-align: center;
@@ -55,12 +134,4 @@
 
 
 
-
-
-
-/* .marketImage{
-    float: left;
-}
-.link{
-    float: left;
-} */
+ */

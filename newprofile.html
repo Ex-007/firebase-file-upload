@@ -17,9 +17,9 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="chat.html">Chat</a></li>
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">Note</a></li>
-                <li><a href="#">Market Place</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="notes.html">Note</a></li>
+                <li><a href="./departments/marketPlace.html">Market Place</a></li>
                 <li><a href="#">About us</a></li>
                 <li id="signOut">Sign Out</li>
             </ul>
@@ -76,13 +76,13 @@
         </div>
         <hr>
         <p>
-            <a href="#">Check Admission Status</a>
+            <a href="https://students.fedpolyado.edu.ng/Applicant/Admission/CheckStatus">Check Admission Status</a>
         </p>
         <p>
-            <a href="#">Student's Login</a>
+            <a href="https://students.fedpolyado.edu.ng/">Student's Login</a>
         </p>
         <p>
-            <a href="#">FPASU payments</a>
+            <a href="https://fasupay.com/">FPASU payments</a>
         </p>
         <p>
             <a href="#">Online polls</a>
@@ -199,14 +199,15 @@
             <h1>Send Us a Message</h1>
         </div>
         <hr>
-        <div class="inputArea">
-            <textarea id="sendAmessageText" placeholder="Please Type Your Message"></textarea>
-            <input type="email" id="sendUsTextEmail" placeholder="Your email">
-        </div>
-        <div class="sencMessageBtn">
-            <button type="submit" class="sendUsTextButton" class="sendUsTextButton">Submit</button>
-        </div>
-
+        <form action="https://formspree.io/f/meqbayad" method="POST" class="formToUs">
+            <div class="inputArea">
+                <textarea name="message" id="sendAmessageText" placeholder="Please Type Your Message"></textarea>
+                <input name="email" type="email" id="sendUsTextEmail" placeholder="Your email">
+            </div>
+            <div class="sencMessageBtn">
+                <button type="submit" class="sendUsTextButton" class="sendUsTextButton">Submit</button>
+            </div>
+            </form>
     </div>
 
     <!-- THE FOOTER -->
