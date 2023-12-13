@@ -305,3 +305,71 @@
     cursor: pointer;
     color: red;
 }
+
+/* READ MORE AND LESS */
+#ch{
+    display: none;
+}
+#ch:checked ~ .content {
+    display: block;
+}
+#ch:checked ~ label {
+    display: none;
+}
+#ch:checked ~ p {
+    display: none;
+}
+.content{
+    display: none;
+}
+
+
+#ch1{
+    display: none;
+}
+#ch1:checked ~ .content1 {
+    display: block;
+}
+#ch1:checked ~ label {
+    display: none;
+}
+#ch1:checked ~ p {
+    display: none;
+}
+.conten1t{
+    display: none;
+}
+
+#ch2{
+    display: none;
+}
+#ch2:checked ~ .content2 {
+    display: block;
+}
+#ch2:checked ~ label {
+    display: none;
+}
+#ch2:checked ~ p {
+    display: none;
+}
+.content2{
+    display: none;
+}
+
+
+
+#ch3{
+    display: none;
+}
+#ch3:checked ~ .content3 {
+    display: block;
+}
+#ch3:checked ~ label {
+    display: none;
+}
+#ch3:checked ~ p {
+    display: none;
+}
+.content3{
+    display: none;
+}

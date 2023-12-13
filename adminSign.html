@@ -55,17 +55,17 @@
         </div>
     </div>
 
-    <!-- <div>
+    <div>
         <p>Have an account? sign in below</p>
     </div>
     <div>
         <label for="inemail">Email</label>
-        <input type="email" id="email" placeholder="email"><br><br>
+        <input type="email" id="signemail" placeholder="email"><br><br>
 
         <label for="inpassword">Email</label>
-        <input type="password" id="inpassword" placeholder="password"><br><br>
+        <input type="password" id="signinpassword" placeholder="password"><br><br>
         <button id="signIn">Sign In</button>
-    </div> -->
+    </div>
 
     <script type="module">
         
@@ -133,7 +133,7 @@ openedEye.addEventListener('click', revealPassword)
   const app = initializeApp(firebaseConfig);
 
     // IMPORTING THE NEEDED FIREBASE FUNCTION
-  import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+  import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
   import{getFirestore, doc, getDoc, getDocs, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, query, where} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
   const db = getFirestore()
   const auth = getAuth()
@@ -226,6 +226,21 @@ openedEye.addEventListener('click', revealPassword)
         }
 
 
+        function signInUser(){
+            var password = document.getElementById('signinpassword').value
+            var email = document.getElementById('signemail').value
+
+            signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                alert('login Successfully')
+                setTimeout(() => {
+                        window.location.href =  'Admin.html'
+                    }, 3000);
+            })
+            .catch((error) => {
+                    alert(error.message);
+                });
+        }
 
 
 
@@ -236,8 +251,8 @@ openedEye.addEventListener('click', revealPassword)
 
 
 
-
-
+        let signIn = document.getElementById('signIn')
+        signIn.addEventListener('click', signInUser)
 
 
     // ADDING THE EVENT TO THE BUTTON

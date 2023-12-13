@@ -32,16 +32,15 @@ let signOutBtn = document.getElementById('signOut')
   function signOutUser(){
     signOut(auth)
     .then(response => {
-        alert("You've signed out")
-        window.location.href = 'account.html'
+        alert('you logged out')
+        window.location.href = 'adminsign.html'
         console.log(response)
     })
     .catch(error => {
         console.error(error);
     })
   }
-
-  
+  signOutBtn.addEventListener('click', signOutUser)
 
 //   FUNCTION TO GET DATA FROM DATABASE AND DISPLAY IT
 
@@ -75,6 +74,7 @@ function stateChanged(){
   }
   stateChanged()
 
+//   MjqDe2CrfSMxllUseOWWVA266is2
 //   GETTING THE BUTTONS AND INPUT
 
 // FOR SUG PPRESIDENT
@@ -1412,3 +1412,359 @@ marketRead.addEventListener('click', readForMarket)
         }
     
         newsDelete.addEventListener('click', deleteForNews)
+
+
+
+
+
+        // FOR DEAN 
+let deanId = document.getElementById('deanId')
+let deanName = document.getElementById('deanName')
+let deanImage = document.getElementById('deanImage')
+let deanWrite = document.getElementById('deanWrite')
+let deanUpdate = document.getElementById('deanUpdate')
+let deanRead = document.getElementById('deanRead')
+let deanDelete = document.getElementById('deanDelete')
+
+// WRITE FOR DEAN
+
+
+async function writeForDean() {
+    let Id = deanId.value
+    let Name = deanName.value
+    let Image = deanImage.value
+
+
+    if (Id == '' || Name == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = Image.files[0];
+        const fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "DEAN", Id);
+            await setDoc(ref, {
+                Id : Id,
+                Name : Name,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            deanId.value = ''
+            deanImage.value = ''
+        });
+    }
+}
+deanWrite.addEventListener('click', writeForDean)
+
+// UPDATE FOR SUG
+async function updateForDean(){
+
+    let Id = deanId.value
+    let Name = deanName.value
+    let Image = deanImage.value
+
+    let photoUURL = document.createElement('li')
+
+    var ref = doc(db, "DEAN", Id)
+    await updateDoc(ref, {
+        Id : Id,
+        Name : Name,
+        PhotoURL: downloadURL,
+
+    })
+    .then(() => {
+        alert('Updated Successfully')
+    })
+    .catch(error => {
+        alert(error.message)
+    })
+    deanId.value = ''
+    deanImage.value = ''
+}
+deanUpdate.addEventListener('click', updateForDean)
+
+async function readForDean(){
+
+    let Id = deanId.value
+
+    var ref = doc(db, "DEAN", Id)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+        // console.log(docSnap.data())
+        deanId.value = docSnap.data().Id
+        deanImage.value = docSnap.data().Name
+        let photoSee = docSnap.data().PhotoURL
+
+        console.log(photoSee)
+    }else{
+        alert('data does not exist')
+    }
+}
+deanRead.addEventListener('click', readForDean)
+
+// DELETE FOR SUG
+async function deleteForDean(){
+    let Id = deanId.value
+    var ref = doc(db, "DEAN", Id)
+    const docSnap = await getDoc(ref)
+    if(!docSnap.exists()){
+        alert('No such Document')
+    }
+    await deleteDoc(ref)
+    .then(() => {
+        alert('Document Deleted')
+    })
+    .catch(error => {
+        alert(error.message)
+    })
+}
+
+deanDelete.addEventListener('click', deleteForDean)
+
+        // FOR HOD 
+        let HODId = document.getElementById('HODId')
+        let HODName = document.getElementById('HODName')
+        let HODImage = document.getElementById('HODImage')
+        let HODWrite = document.getElementById('HODWrite')
+        let HODUpdate = document.getElementById('HODUpdate')
+        let HODRead = document.getElementById('HODRead')
+        let HODDelete = document.getElementById('HODDelete')
+        
+        // WRITE FOR HOD
+        
+        
+        async function writeForhod() {
+            let Id = HODId.value
+            let Name = HODName.value
+            let Image = HODImage.value
+    
+            if (Id == '' || Name == '' ){
+                alert('Please fill all empty spaces');
+            } else {
+                let file = Image.files[0];
+                const fileName = file.name;
+        
+                const storageRef = ref(storage, 'images/' + fileName);
+                const uploadTask = uploadBytesResumable(storageRef, file);
+        
+                uploadTask.on('state_changed', (snapshot) => {
+                    console.log(snapshot);
+                }, (error) => {
+                    console.log(error);
+                }, async () => {
+                    const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+        
+                    const ref = doc(db, "HOD", Id);
+                    await setDoc(ref, {
+                        Id : Id,
+                        Name : Name,
+                        PhotoURL: downloadURL,  
+                    });
+        
+                    alert("Uploading Successful");
+                    HODId.value = ''
+                    HODName.value = ''
+                });
+            }
+        }
+        HODWrite.addEventListener('click', writeForhod)
+        
+        // UPDATE FOR HOD
+        async function updateForHOD(){
+        
+            let Id = HODId.value
+            let Name = HODName.value
+            let Image = HODImage.value
+        
+            let photoUURL = document.createElement('li')
+        
+            var ref = doc(db, "HOD", Id)
+            await updateDoc(ref, {
+                Id : Id,
+                Name : Name,
+                PhotoURL: downloadURL,
+        
+            })
+            .then(() => {
+                alert('Updated Successfully')
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+            HODId.value = ''
+            HODName.value = ''
+        }
+        HODUpdate.addEventListener('click', updateForHOD)
+
+        // READ FOR HOD
+        async function readForHOD(){
+        
+            let Id = HODId.value
+        
+            var ref = doc(db, "HOD", Id)
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                // console.log(docSnap.data())
+                HODId.value = docSnap.data().Id
+                HODName.value = docSnap.data().Name
+                let photoSee = docSnap.data().PhotoURL
+        
+                console.log(photoSee)
+            }else{
+                alert('data does not exist')
+            }
+        }
+        HODRead.addEventListener('click', readForHOD)
+        
+        // DELETE FOR HOD
+        async function deleteForHOD(){
+            let Id = HODId.value
+            var ref = doc(db, "HOD", Id)
+            const docSnap = await getDoc(ref)
+            if(!docSnap.exists()){
+                alert('No such Document')
+            }
+            await deleteDoc(ref)
+            .then(() => {
+                alert('Document Deleted')
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+        }
+        
+HODDelete.addEventListener('click', deleteForHOD)
+
+
+     // FOR HOD 
+     let bookId = document.getElementById('bookId')
+     let bookName = document.getElementById('bookName')
+     let book = document.getElementById('book')
+     let bookwrite = document.getElementById('bookwrite')
+     let bookUpdate = document.getElementById('bookUpdate')
+     let bookRead = document.getElementById('bookRead')
+     let bookDelete = document.getElementById('bookDelete')
+     
+     // WRITE FOR HOD
+     
+     
+     async function writeForbook() {
+         let Id = bookId.value
+         let Name = bookName.value
+         let Image = book.value
+ 
+         if (Id == '' || Name == '' ){
+             alert('Please fill all empty spaces');
+         } else {
+             let file = Image.files[0];
+             const fileName = file.name;
+     
+             const storageRef = ref(storage, 'images/' + fileName);
+             const uploadTask = uploadBytesResumable(storageRef, file);
+     
+             uploadTask.on('state_changed', (snapshot) => {
+                 console.log(snapshot);
+             }, (error) => {
+                 console.log(error);
+             }, async () => {
+                 const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+     
+                 const ref = doc(db, "BOOK", Id);
+                 await setDoc(ref, {
+                     Id : Id,
+                     Name : Name,
+                     PhotoURL: downloadURL,  
+                 });
+     
+                 alert("Uploading Successful");
+                 bookId.value = ''
+                 bookName.value = ''
+             });
+         }
+     }
+     bookwrite.addEventListener('click', writeForbook)
+     
+     // UPDATE FOR BOOK
+     async function updateForBook(){
+     
+         let Id = bookId.value
+     
+         let photoUURL = document.createElement('li')
+     
+         var ref = doc(db, "BOOK", Id)
+         await updateDoc(ref, {
+             Id : Id,
+             Name : Name,
+             PhotoURL: downloadURL,
+     
+         })
+         .then(() => {
+             alert('Updated Successfully')
+         })
+         .catch(error => {
+             alert(error.message)
+         })
+         bookId.value = ''
+         bookName.value = ''
+     }
+     bookUpdate.addEventListener('click', updateForBook)
+
+     // READ FOR BOOK
+     async function readForBOOK(){
+     
+         let Id = bookId.value
+     
+         var ref = doc(db, "BOOK", Id)
+         const docSnap = await getDoc(ref)
+         if(docSnap.exists()){
+             // console.log(docSnap.data())
+             bookId.value = docSnap.data().Id
+             bookName.value = docSnap.data().Name
+             let photoSee = docSnap.data().PhotoURL
+     
+             console.log(photoSee)
+         }else{
+             alert('data does not exist')
+         }
+     }
+     bookRead.addEventListener('click', readForBOOK)
+     
+     // DELETE FOR HOD
+     async function deleteForBOOK(){
+         let Id = bookId.value
+         var ref = doc(db, "BOOK", Id)
+         const docSnap = await getDoc(ref)
+         if(!docSnap.exists()){
+             alert('No such Document')
+         }
+         await deleteDoc(ref)
+         .then(() => {
+             alert('Document Deleted')
+         })
+         .catch(error => {
+             alert(error.message)
+         })
+     }
+     
+     bookDelete.addEventListener('click', deleteForBOOK)
+
+
+
+
+
+
+
+
+
+
+

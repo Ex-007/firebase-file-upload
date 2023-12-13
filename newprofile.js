@@ -55,6 +55,7 @@ let signOutBtn = document.getElementById('signOut')
         console.log(docSnap.data())
     }else{
         alert('data does not exist')
+        window.location.href = 'account.html'
     }
 }
 
@@ -70,7 +71,7 @@ let signOutBtn = document.getElementById('signOut')
             logUserDetails(userId)
             console.log(userId)
         }else{
-            window.location.href = 'signIn.html'
+            window.location.href = 'account.html'
         }
     })
   }
