@@ -74,12 +74,15 @@
 
 <!-- THE CONTENT AND LINK -->
 
-    <div class="contentAndLink">
+    <!-- <div class="contentAndLink">
         <h2 id="name">Differentiation Quotient Rule</h2>
         <a href="">Download</a> 
     </div>
-    <hr>
+    <hr> -->
 
+    <div id="displayTutorial">
+
+    </div>
 
 
 
@@ -112,11 +115,66 @@
                 return; // Stop searching after finding the first match
             }
         }
-
         alert("No matching section found!");
     }
 
     searchBtn.addEventListener('click', searchAndNavigate)
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+  authDomain: "school-newusersign.firebaseapp.com",
+  projectId: "school-newusersign",
+  storageBucket: "school-newusersign.appspot.com",
+  messagingSenderId: "382800829354",
+  appId: "1:382800829354:web:145aeb3f8e346c016129d3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+import{getFirestore, doc, collection, getDocs, } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+let db = getFirestore()
+let displayTutorial = document.getElementById('displayTutorial')
+const myCollection = collection(db, 'TUTORIAL');
+
+// Function to read all documents in the collection
+async function readAllDocuments() {
+  try {
+    // Get a snapshot of all documents in the collection
+    const querySnapshot = await getDocs(myCollection);
+
+    // Loop through the documents in the snapshot
+    querySnapshot.forEach((doc) => {
+        let newDiv = document.createElement('div')
+        newDiv.innerHTML = `
+        
+            <div class="contentAndLink">
+            <h2 id="name">${doc.data().Name}</h2>
+            <a href="${doc.data().Link}">Download</a> 
+        </div>
+        <hr>
+        
+        `
+      // doc.data() is the data of the document
+      displayTutorial.appendChild(newDiv)
+      console.log(doc.id, ' => ', doc.data());
+    });
+  } catch (error) {
+    console.error('Error reading documents: ', error);
+  }
+}
+
+// Call the function to read all documents
+readAllDocuments();
+
+
+
+
+
+
+
 </script>
 </body>
 </html>

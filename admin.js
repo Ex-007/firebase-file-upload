@@ -1760,13 +1760,13 @@ HODDelete.addEventListener('click', deleteForHOD)
      bookDelete.addEventListener('click', deleteForBOOK)
 
    // FOR NEWS
-   let tutorialId = document.getElementById('newId')
-   let tutorialName = document.getElementById('newsPreview')
-   let tutorialLink = document.getElementById('newContent')
-   let tutotialwrite = document.getElementById('newstWrite')
-   let tutotialUpdate = document.getElementById('newsUpdate')
-   let tutotialRead = document.getElementById('newsRead')
-   let tutotialDelete = document.getElementById('newsDelete')
+   let tutorialId = document.getElementById('tutorialId')
+   let tutorialName = document.getElementById('tutorialName')
+   let tutorialLink = document.getElementById('tutorialLink')
+   let tutorialwrite = document.getElementById('tutorialwrite')
+   let tutorialUpdate = document.getElementById('tutorialUpdate')
+   let tutorialRead = document.getElementById('tutorialRead')
+   let tutorialDelete = document.getElementById('tutorialDelete')
 
 
    // WRITE FOR TUTORIAL
@@ -1795,7 +1795,7 @@ async function writeForTutorial(){
        tutorialLink.value = ''
    }
 }
-tutotialwrite.addEventListener('click', writeForTutorial)
+tutorialwrite.addEventListener('click', writeForTutorial)
 
 
 // UPDATE FOR TUTORIAL
@@ -1820,7 +1820,7 @@ async function updateForTutorial(){
    tutorialName.value = ''
    tutorialLink.value = ''
 }
-tutotialUpdate.addEventListener('click', updateForTutorial)
+tutorialUpdate.addEventListener('click', updateForTutorial)
 
 
 // READ FOR TUTORIAL
@@ -1839,7 +1839,7 @@ async function readForTutorial(){
        alert('data does not exist')
    }
 }
-tutotialRead.addEventListener('click', readForTutorial)
+tutorialRead.addEventListener('click', readForTutorial)
 
 // DELETE FOR TUTORIAL
    async function deleteForTutorial(){
@@ -1861,7 +1861,7 @@ tutotialRead.addEventListener('click', readForTutorial)
        tutorialLink.value = ''
    }
 
-   tutotialDelete.addEventListener('click', deleteForTutorial)
+   tutorialDelete.addEventListener('click', deleteForTutorial)
 
 
 
