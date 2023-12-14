@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>SUG</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+                margin-top: 20px;
+                padding: 5px;
+                background-color: #947C9C;
+                color: white;
+                /* display: flex;
+                flex-direction: column;
+                justify-content: center; */
+            }
+            .schoolName{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 22px;
+            }
+            .profileImage{
+                width: 100px;
+            }
+            .otherDetails{
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .contactsss{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .otherss{
+                margin: 0 20px;
+            }
+            .otherss ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .otherss ul li{
+                list-style-type: none;
+                padding: 10px;
+            }
+    </style>
+</head>
+<body>
+        <!-- THE NAVIGATION BAR -->
+   <div class="header">
+    <div class="logo">
+        <h3>STUDENT SUPPORT</h3>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="newprofile.html">Home</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="notes.html">Note</a></li>
+            <li><a href="./departments/marketPlace.html">Market Place</a></li>
+            <li><a href="#">About us</a></li>
+            <li id="signOut">Sign Out</li>
+        </ul>
+        <div class="userImageAndName">
+            <img src="images/profile image.png" alt="profile picture" width="50px">
+            <h3  id="usernamed"></h3>
+        </div>
+    </div>
+</div>
+
+<!-- SUG PRESIDENT -->
+<section id="sugPresident">
+    <div class="container">
+        <div class="schoolName">
+            <h2>SUG PRESIDENT</h2>
+        </div>
+        <div>
+            <div class="otherDetails">
+                <div class="profileImageDiv">
+                    <img src="images/profile image.png" alt="profile image" class="profileImage" id="profileImage">
+                    <h3>Comr. <span id="name"></span></h3>
+                </div>
+                <div class="contactsss">
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                            <li id="phone">09020563110</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                            <li id="whatsapp">09020563110</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-facebook" style="font-size: 25px; color: blue;"></i></li>
+                            <li id="facebook">facebook.com/JohnDoe</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SUG GENERAL SECRETARY -->
+<section id="sugGenSec">
+    <div class="container">
+        <div class="schoolName">
+            <h2>SUG GENERAL SECRETARY</h2>
+        </div>
+        <div>
+            <div class="otherDetails">
+                <div class="profileImageDiv">
+                    <img src="images/profile image.png" alt="profile image" class="profileImage" id="genSecprofileImage">
+                    <h3>Comr. <span id="genSecname"></span></h3>
+                </div>
+                <div class="contactsss">
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                            <li id="genSecphone">09020563110</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                            <li id="genSecwhatsapp">09020563110</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-facebook" style="font-size: 25px; color: blue;"></i></li>
+                            <li id="genSecfacebook">facebook.com/JohnDoe</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SUG GENERAL SECRETARY -->
+<section id="sugpro">
+    <div class="container">
+        <div class="schoolName">
+            <h2>SUG GENERAL SECRETARY</h2>
+        </div>
+        <div>
+            <div class="otherDetails">
+                <div class="profileImageDiv">
+                    <img src="images/profile image.png" alt="profile image" class="profileImage" id="proprofileImage">
+                    <h3>Comr. <span id="proname"></span></h3>
+                </div>
+                <div class="contactsss">
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                            <li id="prophone">09020563110</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                            <li id="prowhatsapp">09020563110</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-facebook" style="font-size: 25px; color: blue;"></i></li>
+                            <li id="profacebook">facebook.com/JohnDoe</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<script type="module" src="newprofile.js"></script>
+<script type="module">
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+  authDomain: "school-newusersign.firebaseapp.com",
+  projectId: "school-newusersign",
+  storageBucket: "school-newusersign.appspot.com",
+  messagingSenderId: "382800829354",
+  appId: "1:382800829354:web:145aeb3f8e346c016129d3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+import{getFirestore, doc, getDoc, getDocs, setDoc, collection} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+let db = getFirestore()
+
+let profileImage = document.getElementById('profileImage')
+let name = document.getElementById('name')
+let phone = document.getElementById('phone')
+let whatsapp = document.getElementById('whatsapp')
+let facebook = document.getElementById('facebook')
+
+let proprofileImage = document.getElementById('proprofileImage')
+let proname = document.getElementById('proname')
+let prophone = document.getElementById('prophone')
+let prowhatsapp = document.getElementById('prowhatsapp')
+let profacebook = document.getElementById('profacebook')
+
+let genSecprofileImage = document.getElementById('genSecprofileImage')
+let genSecname = document.getElementById('genSecname')
+let genSecphone = document.getElementById('genSecphone')
+let genSecwhatsapp = document.getElementById('genSecwhatsapp')
+let genSecfacebook = document.getElementById('genSecfacebook')
+
+
+
+    // FOR SUG PRESIDENT
+
+    async function readForSugPres(){
+
+        var ref = doc(db, "SUGPRESIDENT", "sugPresident")
+        const docSnap = await getDoc(ref)
+        if(docSnap.exists()){
+            console.log(docSnap.data())
+            // sugDeparment.value = docSnap.data().Deparment
+            let Firstname = docSnap.data().FirstName
+            let Lastname = docSnap.data().LastName
+            let Nickname = docSnap.data().Nickname
+            let Phone = docSnap.data().Phone
+            let Whatsapp = docSnap.data().Whatsapp
+            let Facebook = docSnap.data().Facebook
+            let photoSee = docSnap.data().PhotoURL
+
+            name.textContent = Firstname + " " + Lastname
+            phone.textContent = Phone
+            whatsapp.textContent = Whatsapp
+            facebook.textContent = Facebook
+            profileImage.src = photoSee
+
+
+            console.log(photoSee)
+        }else{
+            alert('data does not exist')
+        }
+    }
+
+
+    readForSugPres()
+
+        // FOR SUG GENERAL SECRETARY
+
+    async function readForSuggenSec(){
+
+        var ref = doc(db, "SUG-GEN-SEC", "sugGenSec")
+        const docSnap = await getDoc(ref)
+        if(docSnap.exists()){
+            console.log(docSnap.data())
+            // sugDeparment.value = docSnap.data().Deparment
+            let Firstname = docSnap.data().Firstname
+            let Lastname = docSnap.data().Lastname
+            let Nickname = docSnap.data().Nickname
+            let Phone = docSnap.data().Phone
+            let Whatsapp = docSnap.data().Whatsapp
+            let Facebook = docSnap.data().Facebook
+            let photoSee = docSnap.data().PhotoURL
+
+            genSecname.textContent = Firstname + " " + Lastname
+            genSecphone.textContent = Phone
+            genSecwhatsapp.textContent = Whatsapp
+            genSecfacebook.textContent = Facebook
+            genSecprofileImage.src = photoSee
+
+
+            console.log(photoSee)
+        }else{
+            alert('data does not exist')
+        }
+    }
+
+
+readForSuggenSec()
+
+        // FOR SUG PUBLIC RELATION OFFICER
+
+    async function readForSugPro(){
+
+        var ref = doc(db, "SUG-PRO", "sugPro")
+        const docSnap = await getDoc(ref)
+        if(docSnap.exists()){
+            console.log(docSnap.data())
+            // sugDeparment.value = docSnap.data().Deparment
+            let Firstname = docSnap.data().Firstname
+            let Lastname = docSnap.data().Lastname
+            let Nickname = docSnap.data().Nickname
+            let Phone = docSnap.data().Phone
+            let Whatsapp = docSnap.data().Whatsapp
+            let Facebook = docSnap.data().Facebook
+            let photoSee = docSnap.data().PhotoURL
+
+            proname.textContent = Firstname + " " + Lastname
+            prophone.textContent = Phone
+            prowhatsapp.textContent = Whatsapp
+            profacebook.textContent = Facebook
+            proprofileImage.src = photoSee
+
+
+            console.log(photoSee)
+        }else{
+            alert('data does not exist')
+        }
+    }
+
+
+    readForSugPro()
+
+
+
+</script>
+</body>
+</html>

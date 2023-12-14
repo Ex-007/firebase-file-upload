@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Tutorial</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .searchBox{
+            margin: 10px;
+            display: flex;
+            justify-content: end;
+        }
+        .searchBox input{
+            height: 30px;
+            width: 300px;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .searchBox i{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -25px;
+        }
+        .contentAndLink{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+        .contentAndLink a{
+            text-decoration: none;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+            <!-- THE NAVIGATION BAR -->
+   <div class="header">
+    <div class="logo">
+        <h3>STUDENT SUPPORT</h3>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="newprofile.html">Home</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="notes.html">Note</a></li>
+            <li><a href="./departments/marketPlace.html">Market Place</a></li>
+            <li><a href="#">About us</a></li>
+            <li id="signOut">Sign Out</li>
+        </ul>
+        <div class="userImageAndName">
+            <img src="images/profile image.png" alt="profile picture" width="50px">
+            <h3  id="usernamed"></h3>
+        </div>
+    </div>
+</div>
+
+    <!-- SEARCH BOX -->
+<div class="searchBox">
+    <input type="text" id="searchInput" placeholder="Type here...">
+    <i class="fa fa-search" id="searchThrough"></i>
+</div>
+<hr>
+
+<!-- THE CONTENT AND LINK -->
+
+    <div class="contentAndLink">
+        <h2 id="name">Differentiation Quotient Rule</h2>
+        <a href="">Download</a> 
+    </div>
+    <hr>
+
+
+
+
+
+
+
+
+
+<script type="module" src="newprofile.js"></script>
+<script type="module">
+        let searchBtn = document.getElementById('searchThrough')
+
+    // searchBtn.addEventListener('click', searchAndNavigate)
+    function searchAndNavigate() {
+        // Get the search input value
+        var searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+        // Find all h2 elements
+        var h2Elements = document.querySelectorAll('h2');
+
+        // Loop through h2 elements
+        for (var i = 0; i < h2Elements.length; i++) {
+            var h2Content = h2Elements[i].textContent.toLowerCase();
+
+            // Check if the search term is included in h2 content
+            if (h2Content.includes(searchTerm)) {
+                // Scroll to the corresponding section
+                var section = h2Elements[i].closest('div');
+                section.scrollIntoView({ behavior: 'smooth' });
+                return; // Stop searching after finding the first match
+            }
+        }
+
+        alert("No matching section found!");
+    }
+
+    searchBtn.addEventListener('click', searchAndNavigate)
+</script>
+</body>
+</html>

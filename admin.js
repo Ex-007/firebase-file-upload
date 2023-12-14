@@ -68,7 +68,7 @@ function stateChanged(){
             logUserDetails(userId)
             console.log(userId)
         }else{
-            window.location.href = 'signIn.html'
+            window.location.href = 'adminSign.html'
         }
     })
   }
@@ -104,7 +104,7 @@ async function writeForSug() {
         alert('Please fill all empty spaces');
     } else {
         let file = photoImage.files[0];
-        const fileName = file.name;
+        var fileName = file.name;
 
         const storageRef = ref(storage, 'images/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -263,7 +263,8 @@ async function writeForGen() {
         alert('Please fill all empty spaces');
     } else {
         let file = genphotoImage.files[0];
-        const fileName = file.name;
+        console.log(file)
+        var fileName = file.name;
 
         const storageRef = ref(storage, 'images/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -422,7 +423,7 @@ async function writeForPro() {
         alert('Please fill all empty spaces');
     } else {
         let file = prophotoImage.files[0];
-        const fileName = file.name;
+        var fileName = file.name;
 
         const storageRef = ref(storage, 'images/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -576,7 +577,7 @@ async function writeForSchool() {
         alert('Please fill all empty spaces');
     } else {
         let file = schoolphotoImage.files[0];
-        const fileName = file.name;
+        var fileName = file.name;
 
         const storageRef = ref(storage, 'images/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -727,7 +728,7 @@ async function writeForDepartment() {
         alert('Please fill all empty spaces');
     } else {
         let file = departmentphotoImage.files[0];
-        const fileName = file.name;
+        var fileName = file.name;
 
         const storageRef = ref(storage, 'images/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -877,7 +878,7 @@ async function writeForGov() {
         alert('Please fill all empty spaces');
     } else {
         let file = govphotoImage.files[0];
-        const fileName = file.name;
+        var fileName = file.name;
 
         const storageRef = ref(storage, 'images/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -1439,7 +1440,7 @@ async function writeForDean() {
         alert('Please fill all empty spaces');
     } else {
         let file = Image.files[0];
-        const fileName = file.name;
+        var fileName = file.name;
 
         const storageRef = ref(storage, 'images/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -1552,7 +1553,7 @@ deanDelete.addEventListener('click', deleteForDean)
                 alert('Please fill all empty spaces');
             } else {
                 let file = Image.files[0];
-                const fileName = file.name;
+                var fileName = file.name;
         
                 const storageRef = ref(storage, 'images/' + fileName);
                 const uploadTask = uploadBytesResumable(storageRef, file);
@@ -1667,7 +1668,7 @@ HODDelete.addEventListener('click', deleteForHOD)
              alert('Please fill all empty spaces');
          } else {
              let file = Image.files[0];
-             const fileName = file.name;
+             var fileName = file.name;
      
              const storageRef = ref(storage, 'images/' + fileName);
              const uploadTask = uploadBytesResumable(storageRef, file);
