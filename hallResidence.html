@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Hall</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+                margin-top: 20px;
+                padding: 5px;
+                background-color: #947C9C;
+                color: white;
+                /* display: flex;
+                flex-direction: column;
+                justify-content: center; */
+            }
+            .schoolName{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 22px;
+            }
+            .profileImage{
+                width: 100px;
+            }
+            .otherDetails{
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .contactsss{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .otherss{
+                margin: 0 20px;
+            }
+            .otherss ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .otherss ul li{
+                list-style-type: none;
+                padding: 10px;
+            }
+    </style>
+</head>
+<body>
+                <!-- THE NAVIGATION BAR -->
+   <div class="header">
+    <div class="logo">
+        <h3>STUDENT SUPPORT</h3>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="newprofile.html">Home</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="notes.html">Note</a></li>
+            <li><a href="./departments/marketPlace.html">Market Place</a></li>
+            <li><a href="#">About us</a></li>
+            <li id="signOut">Sign Out</li>
+        </ul>
+        <div class="userImageAndName">
+            <img src="images/profile image.png" alt="profile picture" width="50px">
+            <h3  id="usernamed"></h3>
+        </div>
+    </div>
+</div>
+
+
+<!-- LAGOS HALL OF RESIDENCE -->
+<section id="hallDisplay">
+    <!-- <div class="container">
+        <div class="schoolName">
+            <h2 id="department">LAGOS CHAIRLADY</h2>
+        </div>
+        <div>
+            <div class="otherDetails">
+                <div class="profileImageDiv">
+                    <img src="images/profile image.png" alt="profile image" class="profileImage" id="proprofileImage">
+                    <h3>Comr. <span id="proname"></span></h3>
+                </div>
+                <div class="contactsss">
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                            <li id="prophone">09020563110</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                            <li id="prowhatsapp">09020563110</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-facebook" style="font-size: 25px; color: blue;"></i></li>
+                            <li id="profacebook">facebook.com/JohnDoe</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</section>
+<script type="module" src="newprofile.js"></script>
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+    authDomain: "school-newusersign.firebaseapp.com",
+    projectId: "school-newusersign",
+    storageBucket: "school-newusersign.appspot.com",
+    messagingSenderId: "382800829354",
+    appId: "1:382800829354:web:145aeb3f8e346c016129d3"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    import{getFirestore, doc, collection, getDocs, } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+    let db = getFirestore()
+    let displayTutorial = document.getElementById('hallDisplay')
+    const myCollection = collection(db, 'HALLOFRESIDENCE');
+
+    async function readAllDocuments() {
+    try {
+    const querySnapshot = await getDocs(myCollection);
+
+    querySnapshot.forEach((doc) => {
+        let newDiv = document.createElement('div')
+        newDiv.setAttribute('class', 'container')
+        newDiv.innerHTML = `
+        
+        <div class="schoolName">
+            <h2>${doc.data().Department}</h2>
+        </div>
+        <div>
+            <div class="otherDetails">
+                <div class="profileImageDiv">
+                    <img src="${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="proprofileImage">
+                    <h3>Comr. <span>${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                </div>
+                <div class="contactsss">
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                            <li>${doc.data().Phone}</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                            <li>${doc.data().Whatsapp}</li>
+                        </ul>
+                    </div>
+                    <div class="otherss">
+                        <ul>
+                            <li><i class="fa-brands fa-facebook" style="font-size: 25px; color: blue;"></i></li>
+                            <li>${doc.data().Facebook}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        
+        `
+    displayTutorial.appendChild(newDiv)
+    console.log(doc.id, ' => ', doc.data());
+    });
+    } catch (error) {
+    console.error('Error reading documents: ', error);
+    }
+    }
+
+    readAllDocuments();
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

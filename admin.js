@@ -74,7 +74,6 @@ function stateChanged(){
   }
   stateChanged()
 
-//   MjqDe2CrfSMxllUseOWWVA266is2
 //   GETTING THE BUTTONS AND INPUT
 
 // FOR SUG PPRESIDENT
@@ -1863,9 +1862,279 @@ tutorialRead.addEventListener('click', readForTutorial)
 
    tutorialDelete.addEventListener('click', deleteForTutorial)
 
+// FOR HALL OF RESIDENCE
+let hallDeparment = document.getElementById('hallDeparment')
+let hallfirstname = document.getElementById('hallfirstname')
+let hallLastname = document.getElementById('hallLastname')
+let hallNickname = document.getElementById('hallNickname')
+let hallPhone = document.getElementById('hallPhone')
+let hallWhatsapp = document.getElementById('hallWhatsapp')
+let hallFacebook = document.getElementById('hallFacebook')
+let hallwrite = document.getElementById('hallwrite')
+let hallUpdate = document.getElementById('hallUpdate')
+let hallRead = document.getElementById('hallRead')
+let hallDelete = document.getElementById('hallDelete')
+let hallphotoImage = document.getElementById('hallphotoImage')
+
+async function writeForHall() {
+    let Deparment = hallDeparment.value
+    let firstname = hallfirstname.value
+    let Lastname = hallLastname.value
+    let Nickname = hallNickname.value
+    let Phone = hallPhone.value
+    let Whatsapp = hallWhatsapp.value
+    let Facebook = hallFacebook.value
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = hallphotoImage.files[0];
+        var fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "HALLOFRESIDENCE", Deparment);
+            await setDoc(ref, {
+                Department: Deparment,
+                FirstName: firstname,
+                LastName: Lastname,
+                Nickname: Nickname,
+                Phone: Phone,
+                Whatsapp: Whatsapp,
+                Facebook: Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            clearForm();
+        });
+        hallDeparment.value = ''
+       hallfirstname.value = ''
+        hallLastname.value = ''
+       hallNickname.value = ''
+        hallPhone.value = ''
+       hallWhatsapp.value = ''
+       hallFacebook.value = ''
+    }
+}
 
 
 
+hallwrite.addEventListener('click', writeForHall);
+
+
+// UPDATE FOR SUG
+async function updateForHall(){
+
+    let Deparment = hallDeparment.value
+    let firstname = hallfirstname.value
+    let Lastname = hallLastname.value
+    let Nickname = hallNickname.value
+    let Phone = hallPhone.value
+    let Whatsapp = hallWhatsapp.value
+    let Facebook = hallFacebook.value
+
+    var ref = doc(db, "HALLOFRESIDENCE", Deparment)
+    await updateDoc(ref, {
+        Deparment : Deparment,
+        Firstname : firstname,
+        Lastname : Lastname,
+        Nickname : Nickname,
+        Phone : Phone,
+        Whatsapp : Whatsapp,
+        Facebook : Facebook,
+        PhotoURL : PhotoURL
+    })
+    .then(() => {
+        alert('Updated Successfully')
+    })
+    .catch(error => {
+        alert(error.message)
+    })
+    hallDeparment.value = ''
+    hallfirstname.value = ''
+    hallLastname.value = ''
+    hallNickname.value = ''
+    hallPhone.value = ''
+    sugWhatsapp.value = ''
+    hallFacebook.value = ''
+}
+hallUpdate.addEventListener('click', updateForHall)
+
+
+// READ FOR SUG
+async function readForHall(){
+
+    let Deparment = hallDeparment.value
+
+    var ref = doc(db, "HALLOFRESIDENCE", Deparment)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+        // console.log(docSnap.data())
+        sugDeparment.value = docSnap.data().Deparment
+        sugfirstname.value = docSnap.data().Firstname
+        sugLastname.value = docSnap.data().Lastname
+        sugNickname.value = docSnap.data().Nickname
+        sugPhone.value = docSnap.data().Phone
+        sugWhatsapp.value = docSnap.data().Whatsapp
+        sugFacebook.value = docSnap.data().Facebook
+        let photoSee = docSnap.data().downloadURL
+
+        console.log(photoSee)
+    }else{
+        alert('data does not exist')
+    }
+}
+hallRead.addEventListener('click', readForHall)
+
+// DELETE FOR SUG
+    async function deleteForHall(){
+        let Deparment = hallDeparment.value
+        var ref = doc(db, "HALLOFRESIDENCE", Deparment)
+        const docSnap = await getDoc(ref)
+        if(!docSnap.exists()){
+            alert('No such Document')
+        }
+        await deleteDoc(ref)
+        .then(() => {
+            alert('Document Deleted')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+    }
+
+    hallDelete.addEventListener('click', deleteForHall)
+
+    // FOR SIWES
+    let SiwesName = document.getElementById('SiwesName')
+    let SiwesAbstract = document.getElementById('projectAbstract')
+    let SiwesPhone = document.getElementById('projectPhone')
+    let SiwesAddress = document.getElementById('projectAddress')
+    let SiwesId = document.getElementById('SiwesId')
+    let SiwesWrite = document.getElementById('projectWrite')
+    let SiwesUpdate = document.getElementById('projectUpdate')
+    let SiwesRead = document.getElementById('projectRead')
+    let SiwesDelete = document.getElementById('projectDelete')
+
+
+    // WRITE FOR SIWES
+async function writeForSiwes(){
+    let siwesId = SiwesId.value
+    let siwesName = SiwesName.value
+    let siwesAbstract = SiwesAbstract.value
+    let siwesPhone = SiwesPhone.value
+    let siwesAddress = SiwesAddress.value
+ 
+    if(siwesId == '' || siwesName == '' || siwesAbstract == '' || siwesPhone == '' || siwesAddress == ''){
+        alert('please fill all empty spaces')
+    }else{
+        var ref = doc(db, "SIWES", siwesId)
+        const docRef = await setDoc(ref, {
+            ID : siwesId,
+            Topic : siwesName,
+            Abstract : siwesAbstract,
+            SiwesPhone : siwesPhone,
+            Address : siwesAddress
+        })
+        .then(() => {
+            alert("Uploading Successful")
+        })
+        .catch(error => {
+            console.error(error);
+        })
+        SiwesId.value = ''
+        SiwesName.value = ''
+        SiwesAbstract.value = ''
+        SiwesPhone.value = ''
+        SiwesAddress.value = ''
+    }
+}
+SiwesWrite.addEventListener('click', writeForSiwes)
+
+
+// UPDATE FOR SIWES
+async function updateForSiwes(){
+
+    let siwesId = SiwesId.value
+    let siwesName = SiwesName.value
+    let siwesAbstract = SiwesAbstract.value
+    let siwesPhone = SiwesPhone.value
+    let siwesAddress = SiwesAddress.value
+
+    var ref = doc(db, "SIWES", siwesId)
+    await updateDoc(ref, {
+        Topic : siwesName,
+        Abstract : siwesAbstract,
+        ProjectPhone : siwesPhone,
+        Address : siwesAddress
+    })
+    .then(() => {
+        alert('Updated Successfully')
+    })
+    .catch(error => {
+        alert(error.message)
+    })
+    SiwesId.value = ''
+    SiwesName.value = ''
+    SiwesAbstract.value = ''
+    SiwesPhone.value = ''
+    SiwesAddress.value = ''
+}
+SiwesUpdate.addEventListener('click', updateForSiwes)
+
+
+// READ FOR CATALOGUE
+async function readForSiwes(){
+
+    let siwesId = SiwesId.value
+
+    var ref = doc(db, "SIWES", siwesId)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+        // console.log(docSnap.data())
+        SiwesName.value = docSnap.data().Topic
+        SiwesAbstract.value = docSnap.data().Abstract 
+        SiwesPhone.value = docSnap.data().SiwesPhone
+        SiwesAddress.value = docSnap.data().Address
+        SiwesId.value = docSnap.data().ID
+    }else{
+        alert('data does not exist')
+    }
+}
+SiwesRead.addEventListener('click', readForSiwes)
+
+// DELETE FOR CATALOGUE
+    async function deleteForSiwes(){
+        let siwesId = SiwesId.value
+        var ref = doc(db, "SIWES", siwesId)
+        const docSnap = await getDoc(ref)
+        if(!docSnap.exists()){
+            alert('No such Document')
+        }
+        await deleteDoc(ref)
+        .then(() => {
+            alert('Document Deleted')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+        SiwesId.value = ''
+        SiwesName.value = ''
+        SiwesAbstract.value = ''
+        SiwesPhone.value = ''
+        SiwesAddress.value = ''
+    }
+
+    SiwesDelete.addEventListener('click', deleteForSiwes)
 
 
 

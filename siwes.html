@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Siwes</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin-top: 20px;
+            padding: 5px;
+            background-color: #947C9C;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .projectName{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .abstractAndContent{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .abstract{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        p{
+            font-size: 17px;
+        }
+        .contactInfo{
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #9977C9;
+        }
+        .contactMap{
+            margin: 10px;
+        }
+        .contactMap ul{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px;
+        }
+        .contactMap ul li{
+        list-style-type: none;
+        padding: 5px;
+        }
+        .searchBox{
+            margin: 10px;
+            display: flex;
+            justify-content: end;
+        }
+        .searchBox input{
+            height: 30px;
+            width: 300px;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .searchBox i{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -25px;
+        }
+        .siwes{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .siwes p{
+            margin: 10px;
+        }
+
+        .values{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .listValues ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .listValues ul li{
+            list-style-type: none;
+            padding: 10px;
+        }
+
+        .contactUs{
+            display: flex;
+        }
+        .middleOne{
+            margin: 10px;
+        }
+        .middleOne ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .middleOne ul li{
+            list-style-type: none;
+            padding: 10px;
+        }
+        .contactUs{
+            display: flex;
+            justify-content: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+        <!-- THE NAVIGATION BAR -->
+    <div class="header">
+        <div class="logo">
+            <h3>STUDENT SUPPORT</h3>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="newprofile.html">Home</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="#">Catalogue</a></li>
+                <li><a href="notes.html">Note</a></li>
+                <li><a href="./departments/marketPlace.html">Market Place</a></li>
+                <li><a href="#">About us</a></li>
+                <li id="signOut">Sign Out</li>
+            </ul>
+            <div class="userImageAndName">
+                <img src="images/profile image.png" alt="profile picture" width="50px">
+                <h3  id="usernamed"></h3>
+            </div>
+        </div>
+    </div>
+    <!-- THE SEARCH DIV -->
+    <div class="searchBox">
+        <input type="text" id="searchInput" placeholder="Type here...">
+        <i class="fa fa-search" id="searchThrough"></i>
+    </div>
+
+    <!-- SIWES OBJECTIVE -->
+    <div class="siwes">
+        <h3>SIWES Objectives</h3>
+        <p>
+            The Scheme is designed to bridge the gap between employers’ 
+            expectations and actual performance of Nigerian graduates.
+        </p>
+    </div>
+
+    <!-- SKILL DEVELOPMENT -->
+    <div class="siwes">
+        <h3>Skills Development</h3>
+        <p>
+            Provide an avenue for students in institutions of higher 
+            learning to acquire industrial skills and experience in their course of study.
+        </p>
+    </div>
+
+    <!-- PRACTICAL KNOWLEDGE -->
+    <div class="siwes">
+        <h3>Practical Knowledge</h3>
+        <p>
+            Expose students to work methods and techniques in handling equipment and machines 
+            that may not be available in their institutions.
+        </p>
+    </div>
+
+    <!--Corporate Environment -->
+    <div class="siwes">
+        <h3>Corporate Environment</h3>
+        <p>
+            Prepare students for Industrial Work situation they are to meet after graduation.
+        </p>
+    </div>
+
+    <!--Networking -->
+    <div class="siwes">
+        <h3>Networking</h3>
+        <p>
+            Make transition from school to the world of work easier and enhance students’ contacts for later job placement.
+        </p>
+    </div>
+
+    <!--Field Experience -->
+    <div class="siwes">
+        <h3>Field Experience</h3>
+        <p>
+            Provide Students with an opportunity to apply their knowledge in real work situation, thereby bridging the gap between theory and practice.
+        </p>
+    </div>
+
+    <!--Synergy -->
+    <div class="siwes">
+        <h3>Synergy</h3>
+        <p>
+            Enlist and strengthen employers’ involvement in the entire educational process.
+        </p>
+    </div>
+
+    <!-- THE VISION STATEMENT -->
+    <div class="siwes">
+        <h3>Vision Statement</h3>
+        <p>
+            To Set, Regulate Training Standards And Provide Need-Based Human Capital Development 
+            Interventions Using A Corps Of Highly Competent Professionals In Line With Global Best Practices.
+        </p>
+    </div>
+
+    <!-- THE MISSION STATEMENT -->
+    <div class="siwes">
+        <h3>Mission Statement</h3>
+        <p>
+            To Be The Leading Skills Training Organisation In Nigeria And One Of The Best In The World.
+            To Be The Leading Human Capital Development Organisation In Nigeria And One Of The Best In The World.
+        </p>
+    </div>
+
+    <!-- VALUES -->
+    <div class="values">
+        <h3>Values</h3>
+        <div class="listValues">
+            <ul>
+                <li>Commitment</li>
+                <li>Loyalty</li>
+                <li>Integrity</li>
+                <li>Professionalism & Creativity</li>
+                <li>Efficiency & Effectiveness</li>
+                <li>Team Work</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contactUs">
+        <div class="middleOne">
+            <ul>
+                <li><i class="fa-solid fa-house"></i></li>
+                <li>Headquarters: Along Miango Road, P.M.B 2199 Jos, Plateau State.</li>
+            </ul>
+        </div>
+        <div class="middleOne">
+            <ul>
+                <li><i class="fa-solid fa-phone"></i></li>
+                <li>07031786051</li>
+            </ul>
+        </div>
+        <div class="middleOne">
+            <ul>
+                <li><i class="fa-regular fa-envelope"></i></i></li>
+                <li>dgitf@itf.gov.ng</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!-- FIRST CATALOGUE -->
+
+    <div class="container">
+        <div class="projectName">
+            <h2 id="projectName">THE CONSTRUCTION OF A 2KVA AUTOMATIC VOLTAGE REGULATOR (AVR)</h2>
+        </div>
+        <div class="abstractAndContent">
+            <div class="abstract">
+                <h3 >ABSTRACT</h3>
+            </div>
+            <P id="projectAbstract">
+                The AVR is automatic voltage regulator and it is a device which is used to regulate or stabilize electrical power supply for electrical or electronic appliances
+
+                In this project, therefore, we are interested in the construction of this all important device. Furthermore, we shall discuss the techniques, processes, switching stages and then the working principle of the automatic voltage regulator
+
+                Chapter one of this project dwells on the introduction of the project topic. It also talks about the objectives of the project, bringing to mind what we intend to achieve at the end
+
+                Chapter two of the project reviews the research works that have been carried out by some other people in this study area. It also discusses on some of the components used in this project
+
+                Chapter three gives a detailed account of the basic construction and the operation of the AVR. It also highlights on some other components used, discussing their working principles using both the circuit and block diagrams.
+            </P>
+        </div>
+        <div class="contactInfo">
+            <div class="contactMap">
+                <ul>
+                    <li><i class="fa fa-phone" style="font-size: 30px;"></i></li>
+                    <li id="projectPhone">09020563110</li>
+                </ul>
+            </div>
+            <div class="contactMap">
+                <ul>
+                    <li><i class="fa fa-location-dot" style="font-size: 30px;"></i></li>
+                    <li id="projectAddress">Beside DUDAP hostel</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

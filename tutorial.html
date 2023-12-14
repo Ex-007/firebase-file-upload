@@ -74,12 +74,6 @@
 
 <!-- THE CONTENT AND LINK -->
 
-    <!-- <div class="contentAndLink">
-        <h2 id="name">Differentiation Quotient Rule</h2>
-        <a href="">Download</a> 
-    </div>
-    <hr> -->
-
     <div id="displayTutorial">
 
     </div>
@@ -95,24 +89,18 @@
 <script type="module">
         let searchBtn = document.getElementById('searchThrough')
 
-    // searchBtn.addEventListener('click', searchAndNavigate)
     function searchAndNavigate() {
-        // Get the search input value
         var searchTerm = document.getElementById("searchInput").value.toLowerCase();
 
-        // Find all h2 elements
         var h2Elements = document.querySelectorAll('h2');
 
-        // Loop through h2 elements
         for (var i = 0; i < h2Elements.length; i++) {
             var h2Content = h2Elements[i].textContent.toLowerCase();
 
-            // Check if the search term is included in h2 content
             if (h2Content.includes(searchTerm)) {
-                // Scroll to the corresponding section
                 var section = h2Elements[i].closest('div');
                 section.scrollIntoView({ behavior: 'smooth' });
-                return; // Stop searching after finding the first match
+                return; 
             }
         }
         alert("No matching section found!");
@@ -132,20 +120,16 @@ const firebaseConfig = {
   appId: "1:382800829354:web:145aeb3f8e346c016129d3"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 import{getFirestore, doc, collection, getDocs, } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 let db = getFirestore()
 let displayTutorial = document.getElementById('displayTutorial')
 const myCollection = collection(db, 'TUTORIAL');
 
-// Function to read all documents in the collection
 async function readAllDocuments() {
   try {
-    // Get a snapshot of all documents in the collection
     const querySnapshot = await getDocs(myCollection);
 
-    // Loop through the documents in the snapshot
     querySnapshot.forEach((doc) => {
         let newDiv = document.createElement('div')
         newDiv.innerHTML = `
@@ -157,7 +141,6 @@ async function readAllDocuments() {
         <hr>
         
         `
-      // doc.data() is the data of the document
       displayTutorial.appendChild(newDiv)
       console.log(doc.id, ' => ', doc.data());
     });
@@ -166,7 +149,6 @@ async function readAllDocuments() {
   }
 }
 
-// Call the function to read all documents
 readAllDocuments();
 
 
