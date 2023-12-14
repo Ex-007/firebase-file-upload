@@ -1759,7 +1759,109 @@ HODDelete.addEventListener('click', deleteForHOD)
      
      bookDelete.addEventListener('click', deleteForBOOK)
 
+   // FOR NEWS
+   let tutorialId = document.getElementById('newId')
+   let tutorialName = document.getElementById('newsPreview')
+   let tutorialLink = document.getElementById('newContent')
+   let tutotialwrite = document.getElementById('newstWrite')
+   let tutotialUpdate = document.getElementById('newsUpdate')
+   let tutotialRead = document.getElementById('newsRead')
+   let tutotialDelete = document.getElementById('newsDelete')
 
+
+   // WRITE FOR TUTORIAL
+async function writeForTutorial(){
+   let Id = tutorialId.value
+   let Name = tutorialName.value
+   let Link = tutorialLink.value
+
+   if(Id == '' || Name == '' || Link == ''){
+       alert('please fill all empty spaces')
+   }else{
+       var ref = doc(db, "TUTORIAL", Id)
+       const docRef = await setDoc(ref, {
+           Id : Id,
+           Name : Name,
+           Link : Link,
+       })
+       .then(() => {
+           alert("Uploading Successful")
+       })
+       .catch(error => {
+           console.error(error);
+       })
+       tutorialId.value = ''
+       tutorialName.value = ''
+       tutorialLink.value = ''
+   }
+}
+tutotialwrite.addEventListener('click', writeForTutorial)
+
+
+// UPDATE FOR TUTORIAL
+async function updateForTutorial(){
+
+    let Id = tutorialId.value
+    let Name = tutorialName.value
+    let Link = tutorialLink.value
+
+   var ref = doc(db, "TUTORIAL", Id)
+   await updateDoc(ref, {
+    Name : Name,
+    Link : Link,
+   })
+   .then(() => {
+       alert('Updated Successfully')
+   })
+   .catch(error => {
+       alert(error.message)
+   })
+   tutorialId.value = ''
+   tutorialName.value = ''
+   tutorialLink.value = ''
+}
+tutotialUpdate.addEventListener('click', updateForTutorial)
+
+
+// READ FOR TUTORIAL
+async function readForTutorial(){
+
+   let Id = tutorialId.value
+
+   var ref = doc(db, "TUTORIAL", Id)
+   const docSnap = await getDoc(ref)
+   if(docSnap.exists()){
+       // console.log(docSnap.data())
+       tutorialId.value = docSnap.data().Id
+       tutorialName.value = docSnap.data().Name 
+       tutorialLink.value = docSnap.data().Link
+   }else{
+       alert('data does not exist')
+   }
+}
+tutotialRead.addEventListener('click', readForTutorial)
+
+// DELETE FOR TUTORIAL
+   async function deleteForTutorial(){
+    let Id = tutorialId.value
+       var ref = doc(db, "TUTORIAL", Id)
+       const docSnap = await getDoc(ref)
+       if(!docSnap.exists()){
+           alert('No such Document')
+       }
+       await deleteDoc(ref)
+       .then(() => {
+           alert('Document Deleted')
+       })
+       .catch(error => {
+           alert(error.message)
+       })
+       tutorialId.value = ''
+       tutorialName.value = ''
+       tutorialLink.value = ''
+   }
+
+   tutotialDelete.addEventListener('click', deleteForTutorial)
 
 
 
