@@ -1649,7 +1649,7 @@ HODDelete.addEventListener('click', deleteForHOD)
      // FOR HOD 
      let bookId = document.getElementById('bookId')
      let bookName = document.getElementById('bookName')
-     let book = document.getElementById('book')
+     let book = document.getElementById('bookss')
      let bookwrite = document.getElementById('bookwrite')
      let bookUpdate = document.getElementById('bookUpdate')
      let bookRead = document.getElementById('bookRead')
@@ -1661,12 +1661,12 @@ HODDelete.addEventListener('click', deleteForHOD)
      async function writeForbook() {
          let Id = bookId.value
          let Name = bookName.value
-         let Image = book.value
+        //  let Image = book.value
  
          if (Id == '' || Name == '' ){
              alert('Please fill all empty spaces');
          } else {
-             let file = Image.files[0];
+             let file = book.files[0];
              var fileName = file.name;
      
              const storageRef = ref(storage, 'images/' + fileName);
