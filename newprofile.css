@@ -1,375 +1,780 @@
-
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    margin: 0 5px;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-}
-.navigation{
-    display: flex;
-}
-.navigation ul {
-    display: flex;
-    margin: 10px 10px 0 0;
-}
-.navigation ul li{
-    padding: 10px;
-    list-style-type: none;
-}
-.navigation ul li a{
-    text-decoration: none;
-    color: white;
-}
-.userImageAndName{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.navigation ul li a:active{
-    color: gold;
-}
-
-/* SEARCH IN */
-
-
-.wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    text-align: center;
-    height: 50px;
-    padding-bottom: 25px;
-    width: 500px;
-    z-index: 5;
-    position: relative;
-}
-
-.searchInput{
-    display: flex;
-    justify-content: end;
-    width: 200px;
-    height: 20px;
-    border-radius: 20px;
-    padding: 5px;
-    font-size: 17px;
-}
-  
-  .searchInput:focus {
-    outline: none;
-  }
-  
-  .results {
-    padding: 0px;
-    box-sizing: border-box;
-  }
-  
-  .results ul {
-    margin: 0; 
+*{
+    margin: 0;
     padding: 0;
-    height: 200px;
-    width: auto;
-    z-index: 2;
-    overflow-y: scroll;
-    border-radius: 5px;
+}
+@media only screen and (max-width: 475px){
+    .header{
+        display: none;
+    }
+    .headerTwo{
+        height: 50px;
+        font-size: 20px;
+        background-color: black;
+        color: black;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+    .headerTwoNav{
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 2px;
+        background-color: black;
+        width: 200px;
+        padding: 20px;
+        border-radius: 0 0 0 20px;
+    }
+    .navigation ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .navigation ul li{
+        padding: 10px;
+        list-style-type: none;
+        font-size: 17px;
+    }
+    .navigation ul li:hover{
+        background-color: rgb(164, 122, 164);
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .navigation ul li a{
+        color: white;
+        text-decoration: none;
+    }
+    .userImageAndName{
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 50px;
+    }
+    #usernamed{
+        padding: 10px 5px;
+        font-size: 15px;
+        color: white;
+    }
+
+    
+    /* SEARCH IN */
+    
+    
+    .wrapper {
+        /* display: flex; */
+        justify-content: center;
+        margin-top: 20px;
+        text-align: center;
+        height: 50px;
+        padding-bottom: 25px;
+        width: 500px;
+        z-index: 5;
+        /* position: relative; */
+    }
+    .newArea{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .searchInput{
+        width: 200px;
+        height: 20px;
+        border-radius: 20px;
+        padding: 5px;
+        font-size: 15px;
+    }
+      
+      .searchInput:focus {
+        outline: none;
+      }
+      
+      .results {
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      
+      .results ul {
+        margin: 0; 
+        padding: 0;
+        height: 200px;
+        max-width: 200px;
+        z-index: 2;
+        overflow-y: scroll;
+        border-radius: 5px;
+    }
+    
+    .results ul::-webkit-scrollbar{
+        display: none;
+    }
+    .results ul li a{
+        text-decoration: none;
+        font-size: 15px;
+    }
+    
+      .results ul li {
+        list-style-type: none;
+        opacity: 20;
+        display: none;
+        padding: 8px 12px;
+        transition: all 0.5s linear;
+        background-color: rgb(220, 216, 216);
+        z-index: 5;
+      }
+      
+      .show .results ul li {
+        list-style-type: none;
+        opacity: 2;
+        display: block;
+        font-size: 20px;
+        font-family: cursive;
+        border: none;
+      }
+      
+      .show .results {
+        padding: 10px;
+      }
+      
+      .results ul li:hover {
+        background: rgb(164, 122, 164);
+        color: green;
+      }
+      .show .results ul li:hover{
+        background-color: rgb(164, 122, 164);
+        color: white;
+      }
+    
+      .show .results ul li a{
+        color: black;
+      }
+      .show .results ul li a:hover{
+        color: white;
+      }
+    
+    .formToUs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    /* faculty select */
+    
+    .overall-select{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .sectionHead{
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .facultySelect{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+    #slct1{
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .departmentSelect{
+        display: flex;
+        justify-content: center; 
+    }
+    #slct2{
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .selectSubmitDiv{
+        margin-top: -5px;
+        display: flex;
+        justify-content: center; 
+        margin-bottom: 10px;
+    }
+    .selectSubmitDiv button{
+        padding: 5px;
+        width: 80px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .sectionHead{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    /* SCHOOL PORRTALS LINK */
+    .fpaQuick p{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+    .fpaQuick a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    /* OFFCE OF THE STUDENT UNION */
+    .fpasu p {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+    .fpasu a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    /* ALL NEWS BUTTON */
+    #seeMoreBtn{
+        padding: 5px;
+        width: 80px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .anythingBtn{
+        margin: 10px 5px;
+    }
+    /* THE QUICK LINKS */
+    
+    .quickLinks ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .quickLinks ul li{
+        list-style-type: none;
+        padding: 5px;
+    }
+    
+    .quickLinks ul li a{
+        text-decoration: none;
+        color: black;
+    
+    }
+    
+    /* SEND US A MESSAGE */
+    .inputArea{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #sendAmessageText{
+        margin-bottom: 10px;
+        width: 200px;
+        height: 100px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    #sendUsTextEmail{
+        width: 200px;
+        height: 25px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    
+    .sencMessageBtn{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .sencMessageBtn button{
+        padding: 5px;
+        width: 80px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+    /* THE FOOTER */
+    .footerEmmet{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: black;
+        color: white;
+    }
+    .iconDiv{
+        display: flex;
+        padding: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+    .iconDiv i{
+       
+        padding: 10px;
+        margin-right: 5px;
+    }
+    .copyrightAnd{
+        display: flex;
+        padding: 10px;
+        align-items: center;
+    }
+    /* SIGN OUT BTN */
+    #signOut{
+        cursor: pointer;
+        color: red;
+    }
+    
+    /* READ MORE AND LESS */
+    #ch{
+        display: none;
+    }
+    #ch:checked ~ .content {
+        display: block;
+    }
+    #ch:checked ~ label {
+        display: none;
+    }
+    #ch:checked ~ p {
+        display: none;
+    }
+    .content{
+        display: none;
+    }
+    
+    
+    #ch1{
+        display: none;
+    }
+    #ch1:checked ~ .content1 {
+        display: block;
+    }
+    #ch1:checked ~ label {
+        display: none;
+    }
+    #ch1:checked ~ p {
+        display: none;
+    }
+    .conten1t{
+        display: none;
+    }
+    
+    #ch2{
+        display: none;
+    }
+    #ch2:checked ~ .content2 {
+        display: block;
+    }
+    #ch2:checked ~ label {
+        display: none;
+    }
+    #ch2:checked ~ p {
+        display: none;
+    }
+    .content2{
+        display: none;
+    }
+    
+    
+    
+    #ch3{
+        display: none;
+    }
+    #ch3:checked ~ .content3 {
+        display: block;
+    }
+    #ch3:checked ~ label {
+        display: none;
+    }
+    #ch3:checked ~ p {
+        display: none;
+    }
+    .content3{
+        display: none;
+    }
+
+    .card{
+        margin: 10px;
+    }
 }
 
-.results ul::-webkit-scrollbar{
-    display: none;
-}
-
-  .results ul li {
-    list-style: none;
-    opacity: 20;
-    display: none;
-    padding: 8px 12px;
-    transition: all 0.5s linear;
-    background-color: rgb(220, 216, 216);
-    z-index: 5;
-  }
-  
-  .show .results ul li {
-    opacity: 2;
-    display: block;
-    font-size: 20px;
-    font-family: cursive;
-    border: none;
-  }
-  
-  .show .results {
-    padding: 10px;
-  }
-  
-  .results ul li:hover {
-    background: #84737300;
-    color: green;
-  }
-  .show .results ul li:hover{
-    background-color: rgb(164, 122, 164);
-    color: white;
-  }
-
-  .show .results ul li a{
-    color: black;
-  }
-  .show .results ul li a:hover{
-    color: white;
-  }
-
-.formToUs{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* faculty select */
-
-.overall-select{
-    margin-top: 10px;
-}
-.facultySelect{
-    display: flex;
-    justify-content: center;
-}
-#slct1{
-    width: 200px;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.departmentSelect{
-    display: flex;
-    justify-content: center; 
-}
-#slct2{
-    width: 200px;
-    padding: 10px;
-    border-radius: 10px;
-}
-.selectSubmitDiv{
-    margin-top: -10px;
-    display: flex;
-    justify-content: center; 
-}
-.selectSubmitDiv button{
-    padding: 5px;
-    width: 80px;
-    border-radius: 10px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-
-.sectionHead{
-    display: flex;
-    justify-content: center;
-}
-
-/* SCHOOL PORRTALS LINK */
-.fpaQuick p{
-    display: flex;
-    justify-content: center;
-}
-.fpaQuick a{
-    text-decoration: none;
-    color: black;
-}
-
-/* OFFCE OF THE STUDENT UNION */
-.fpasu p {
-    display: flex;
-    justify-content: center;
-}
-.fpasu a{
-    text-decoration: none;
-    color: black;
-}
-
-/* ALL NEWS BUTTON */
-#seeMoreBtn{
-    padding: 5px;
-    width: 80px;
-    border-radius: 10px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-
-/* THE QUICK LINKS */
-
-.quickLinks ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.quickLinks ul li{
-    list-style-type: none;
-    padding: 5px;
-}
-
-.quickLinks ul li a{
-    text-decoration: none;
-    color: black;
-
-}
-
-/* SEND US A MESSAGE */
-.inputArea{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-#sendAmessageText{
-    margin-bottom: 10px;
-    width: 200px;
-    height: 100px;
-    padding: 5px;
-    border-radius: 10px;
-}
-#sendUsTextEmail{
-    width: 200px;
-    height: 25px;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-.sencMessageBtn{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-.sencMessageBtn button{
-    padding: 5px;
-    width: 80px;
-    border-radius: 10px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-/* THE FOOTER */
-.footerEmmet{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 10px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-}
-.iconDiv{
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    font-size: 30px;
-}
-.iconDiv i{
-   
-    padding: 10px;
-    margin-right: 5px;
-}
-.copyrightAnd{
-    display: flex;
-    padding: 10px;
-    align-items: center;
-}
-/* SIGN OUT BTN */
-#signOut{
-    cursor: pointer;
-    color: red;
-}
-
-/* READ MORE AND LESS */
-#ch{
-    display: none;
-}
-#ch:checked ~ .content {
-    display: block;
-}
-#ch:checked ~ label {
-    display: none;
-}
-#ch:checked ~ p {
-    display: none;
-}
-.content{
-    display: none;
-}
-
-
-#ch1{
-    display: none;
-}
-#ch1:checked ~ .content1 {
-    display: block;
-}
-#ch1:checked ~ label {
-    display: none;
-}
-#ch1:checked ~ p {
-    display: none;
-}
-.conten1t{
-    display: none;
-}
-
-#ch2{
-    display: none;
-}
-#ch2:checked ~ .content2 {
-    display: block;
-}
-#ch2:checked ~ label {
-    display: none;
-}
-#ch2:checked ~ p {
-    display: none;
-}
-.content2{
-    display: none;
-}
-
-
-
-#ch3{
-    display: none;
-}
-#ch3:checked ~ .content3 {
-    display: block;
-}
-#ch3:checked ~ label {
-    display: none;
-}
-#ch3:checked ~ p {
-    display: none;
-}
-.content3{
-    display: none;
+@media only screen and (min-width: 475px){
+    .headerTwo{
+        display: none;
+    }
+    
+    .headerTwoNav{
+        display: none;
+    }
+    
+    .header{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 5px;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .navigation{
+        display: flex;
+    }
+    .navigation ul {
+        display: flex;
+        margin: 10px 10px 0 0;
+    }
+    .navigation ul li{
+        padding: 10px;
+        list-style-type: none;
+    }
+    .navigation ul li a{
+        text-decoration: none;
+        color: white;
+    }
+    .userImageAndName{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .navigation ul li a:active{
+        color: gold;
+    }
+    
+    /* SEARCH IN */
+    
+    
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        text-align: center;
+        height: 50px;
+        padding-bottom: 25px;
+        width: 500px;
+        z-index: 5;
+        position: relative;
+    }
+    
+    .searchInput{
+        display: flex;
+        justify-content: end;
+        width: 200px;
+        height: 20px;
+        border-radius: 20px;
+        padding: 5px;
+        font-size: 17px;
+    }
+      
+      .searchInput:focus {
+        outline: none;
+      }
+      
+      .results {
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      
+      .results ul {
+        margin: 0; 
+        padding: 0;
+        height: 200px;
+        width: auto;
+        z-index: 2;
+        overflow-y: scroll;
+        border-radius: 5px;
+    }
+    
+    .results ul::-webkit-scrollbar{
+        display: none;
+    }
+    
+      .results ul li {
+        list-style: none;
+        opacity: 20;
+        display: none;
+        padding: 8px 12px;
+        transition: all 0.5s linear;
+        background-color: rgb(220, 216, 216);
+        z-index: 5;
+      }
+      
+      .show .results ul li {
+        opacity: 2;
+        display: block;
+        font-size: 20px;
+        font-family: cursive;
+        border: none;
+      }
+      
+      .show .results {
+        padding: 10px;
+      }
+      
+      .results ul li:hover {
+        background: #84737300;
+        color: green;
+      }
+      .show .results ul li:hover{
+        background-color: rgb(164, 122, 164);
+        color: white;
+      }
+    
+      .show .results ul li a{
+        color: black;
+      }
+      .show .results ul li a:hover{
+        color: white;
+      }
+    
+    .formToUs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    /* faculty select */
+    
+    .overall-select{
+        margin-top: 10px;
+    }
+    .facultySelect{
+        display: flex;
+        justify-content: center;
+    }
+    #slct1{
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .departmentSelect{
+        display: flex;
+        justify-content: center; 
+    }
+    #slct2{
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .selectSubmitDiv{
+        margin-top: -10px;
+        display: flex;
+        justify-content: center; 
+    }
+    .selectSubmitDiv button{
+        padding: 5px;
+        width: 80px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .sectionHead{
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* SCHOOL PORRTALS LINK */
+    .fpaQuick p{
+        display: flex;
+        justify-content: center;
+    }
+    .fpaQuick a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    /* OFFCE OF THE STUDENT UNION */
+    .fpasu p {
+        display: flex;
+        justify-content: center;
+    }
+    .fpasu a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    /* ALL NEWS BUTTON */
+    #seeMoreBtn{
+        padding: 5px;
+        width: 80px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+    
+    /* THE QUICK LINKS */
+    
+    .quickLinks ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .quickLinks ul li{
+        list-style-type: none;
+        padding: 5px;
+    }
+    
+    .quickLinks ul li a{
+        text-decoration: none;
+        color: black;
+    
+    }
+    
+    /* SEND US A MESSAGE */
+    .inputArea{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #sendAmessageText{
+        margin-bottom: 10px;
+        width: 200px;
+        height: 100px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    #sendUsTextEmail{
+        width: 200px;
+        height: 25px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    
+    .sencMessageBtn{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .sencMessageBtn button{
+        padding: 5px;
+        width: 80px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+    /* THE FOOTER */
+    .footerEmmet{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin: 10px;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+    }
+    .iconDiv{
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        font-size: 30px;
+    }
+    .iconDiv i{
+       
+        padding: 10px;
+        margin-right: 5px;
+    }
+    .copyrightAnd{
+        display: flex;
+        padding: 10px;
+        align-items: center;
+    }
+    /* SIGN OUT BTN */
+    #signOut{
+        cursor: pointer;
+        color: red;
+    }
+    
+    /* READ MORE AND LESS */
+    #ch{
+        display: none;
+    }
+    #ch:checked ~ .content {
+        display: block;
+    }
+    #ch:checked ~ label {
+        display: none;
+    }
+    #ch:checked ~ p {
+        display: none;
+    }
+    .content{
+        display: none;
+    }
+    
+    
+    #ch1{
+        display: none;
+    }
+    #ch1:checked ~ .content1 {
+        display: block;
+    }
+    #ch1:checked ~ label {
+        display: none;
+    }
+    #ch1:checked ~ p {
+        display: none;
+    }
+    .conten1t{
+        display: none;
+    }
+    
+    #ch2{
+        display: none;
+    }
+    #ch2:checked ~ .content2 {
+        display: block;
+    }
+    #ch2:checked ~ label {
+        display: none;
+    }
+    #ch2:checked ~ p {
+        display: none;
+    }
+    .content2{
+        display: none;
+    }
+    
+    
+    
+    #ch3{
+        display: none;
+    }
+    #ch3:checked ~ .content3 {
+        display: block;
+    }
+    #ch3:checked ~ label {
+        display: none;
+    }
+    #ch3:checked ~ p {
+        display: none;
+    }
+    .content3{
+        display: none;
+    }
 }

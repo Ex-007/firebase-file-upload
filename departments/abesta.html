@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../newprofile.css">
-    <link rel="stylesheet" href="departments.css">
+    <link rel="stylesheet" href="../departments.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Abesta</title>
 </head>
@@ -19,10 +19,10 @@
     <div class="navigation">
         <ul>
             <li><a href="../newprofile.css">Home</a></li>
-            <li><a href="#">Chat</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">Note</a></li>
-            <li><a href="#">Market Place</a></li>
+            <li><a href="../chat.html">Chat</a></li>
+            <li><a href="../catalogue.html">Catalogue</a></li>
+            <li><a href="../notes.html">Note</a></li>
+            <li><a href="marketPlace.html">Market Place</a></li>
             <li><a href="#">About us</a></li>
             <li id="signOut">Sign Out</li>
         </ul>
@@ -32,6 +32,37 @@
         </div>
     </div>
 </div>
+
+   <!-- MOBILE HEADER -->
+
+   <div class="headerTwo">
+    <div class="logo">
+        <h3>STUDENT SUPPORT</h3>
+    </div>
+    <div class="openMenu">
+        <i class="fa fa-bars" id="openMenu"></i>
+    </div>
+   </div>
+
+
+   <div class="headerTwoNav" id="headerTwoNav">
+        <div class="navigation">
+            <ul>
+                <li><i class="fa fa-xmark" style="color: white; font-size: 20px; cursor: pointer;" id="closeMenu"></i></li>
+                <li><a href="../newprofile.html">Home</a></li>
+                <li><a href="../chat.html">Chat</a></li>
+                <li><a href="../catalogue.html">Catalogue</a></li>
+                <li><a href="../notes.html">Note</a></li>
+                <li><a href="marketPlace.html">Market Place</a></li>
+                <li><a href="#">About us</a></li>
+                <li id="signOut">Sign Out</li>
+            </ul>
+            <div class="userImageAndName">
+                <img src="images/profile image.png" alt="profile picture" width="50px">
+                <h3  id="usernamed"></h3>
+            </div>
+        </div>
+   </div>
 
 
     <div class="School-heading">
@@ -43,15 +74,15 @@
         <h2 id="deanName">ENGR. (DR) E.O ADEOSUN</h2>
     </div>
     <!-- HOD -->
-    <div class="Dean-Picture">
+    <div class="HOD-Picture">
         <img src="../images/profile image.png" alt="Dean of School of Engineering" width="50px" id="HODPicture">
         <h2 id="HODName">ENGR. (DR) E.O ADEOSUN</h2>
     </div>
-    <div>
+    <div class="deanOfficeHead">
         <h2>DEAN'S OFFICE</h2>
     </div>
 
-    <div>
+    <div class="deanOffice">
         <table class="content-table">
             <tbody>
                 <tr>
@@ -108,9 +139,12 @@
 
         </table>
     </div>
+
     <div class="threeOne">
-        <h1>3.2</h1>
-        <h1>General background</h1>
+        <div class="backHead">
+            <h1>3.2</h1>
+            <h1>General background</h1>
+        </div>
         <p>The School of Engineering comprises Agricultural and Bio-Enviromental Engineering, Civil Engineering, Electrical and Elecctronic Engineering, Mechanical Engineering, Mineral and Petroleum
             Resources Engineering. <br>
             The School has about three thousand students studying at both the National Diploma and Higher National Diploma levels. The School prepares Diplomates for employment in the Engineering 
@@ -119,6 +153,7 @@
             The aim and Objectives of the School remain unchanged, while the entry requirements in the Departments are stated below. 
         </p>
     </div>
+
     <div>
         <h1>ENTRY REQUIREMENTS</h1>
         <h3>Agricultural and Bio-Enviromental Engineering</h3>
@@ -1332,5 +1367,6 @@
            </div>
     </footer>
     <script type="module" src="../newprofile.js"></script>
+    <script src="../newProfile2.js"></script>
 </body>
 </html

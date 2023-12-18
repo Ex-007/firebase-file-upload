@@ -1,8 +1,150 @@
 
+
 *{
     margin: 0;
     padding: 0;
 }
+@media only screen and (max-width: 475px){
+    
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8F758E;
+    color: white;
+    font-size: 10px;
+    height: 50px;
+}
+
+#signUpForm{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+#signUpForm input{
+    max-width: 300px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: rgb(226, 222, 222);
+}
+#signUpForm select{
+    max-width: 300px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+
+}
+
+#signUpBtn{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+.alreadySocial{
+    margin-top: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.alreadySocial button{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+
+#signInForm{
+    margin-top: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#signInForm input{
+    max-width: 300px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: rgb(226, 222, 222);
+}
+#signInForm button{
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+#crossedEyeIn{
+    display: none;
+    position: absolute;
+    top: 92px;
+    right: 258px;
+}
+#openedEyeIn{
+    display: block;
+    position: absolute;
+    top: 92px;
+    right: 258px;
+}
+
+#forgotForm{
+    margin-top: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#forgotForm button{
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+.passwordEye{
+    display: flex;
+}
+.passwordEye #openedEye{
+    display: flex;
+    margin-left: -35px;
+    justify-content: center;
+    align-items: center;
+}
+.passwordEye #crossedEye{
+    display: none;
+    margin-left: -35px;
+    justify-content: center;
+    align-items: center;
+}
+}
+@media only screen and (min-width: 475px){
+    
 .header{
     display: flex;
     justify-content: center;
@@ -136,4 +278,5 @@
     margin-left: -35px;
     justify-content: center;
     align-items: center;
+}
 }

@@ -87,76 +87,67 @@
 
 <script type="module" src="newprofile.js"></script>
 <script type="module">
-        let searchBtn = document.getElementById('searchThrough')
-
-    function searchAndNavigate() {
-        var searchTerm = document.getElementById("searchInput").value.toLowerCase();
-
-        var h2Elements = document.querySelectorAll('h2');
-
-        for (var i = 0; i < h2Elements.length; i++) {
-            var h2Content = h2Elements[i].textContent.toLowerCase();
-
-            if (h2Content.includes(searchTerm)) {
-                var section = h2Elements[i].closest('div');
-                section.scrollIntoView({ behavior: 'smooth' });
-                return; 
-            }
-        }
-        alert("No matching section found!");
-    }
-
-    searchBtn.addEventListener('click', searchAndNavigate)
-
+    let searchBtn = document.getElementById('searchInput');
+    let querySnapshot = [];
+    
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
-  authDomain: "school-newusersign.firebaseapp.com",
-  projectId: "school-newusersign",
-  storageBucket: "school-newusersign.appspot.com",
-  messagingSenderId: "382800829354",
-  appId: "1:382800829354:web:145aeb3f8e346c016129d3"
-};
-
-const app = initializeApp(firebaseConfig);
-import{getFirestore, doc, collection, getDocs, } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-let db = getFirestore()
-let displayTutorial = document.getElementById('displayTutorial')
-const myCollection = collection(db, 'TUTORIAL');
-
-async function readAllDocuments() {
-  try {
-    const querySnapshot = await getDocs(myCollection);
-
-    querySnapshot.forEach((doc) => {
-        let newDiv = document.createElement('div')
-        newDiv.innerHTML = `
-        
-            <div class="contentAndLink">
-            <h2 id="name">${doc.data().Name}</h2>
-            <a href="${doc.data().Link}">Download</a> 
-        </div>
-        <hr>
-        
-        `
-      displayTutorial.appendChild(newDiv)
-      console.log(doc.id, ' => ', doc.data());
+    import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+      authDomain: "school-newusersign.firebaseapp.com",
+      projectId: "school-newusersign",
+      storageBucket: "school-newusersign.appspot.com",
+      messagingSenderId: "382800829354",
+      appId: "1:382800829354:web:145aeb3f8e346c016129d3"
+    };
+    
+    const app = initializeApp(firebaseConfig);
+    let db = getFirestore();
+    let displayTutorial = document.getElementById('displayTutorial');
+    const myCollection = collection(db, 'TUTORIAL');
+    
+    searchBtn.addEventListener('keyup', e => {
+        let searchedString = e.target.value.toLowerCase();
+        let returnValue = querySnapshot.docs.filter(newEntry => {
+            return newEntry.data().Name.toLowerCase().includes(searchedString);
+        });
+        displayDataIn(returnValue);
+        // console.log(returnValue);
     });
-  } catch (error) {
-    console.error('Error reading documents: ', error);
-  }
-}
-
-readAllDocuments();
-
-
-
-
-
-
-
-</script>
+    
+    async function readAllDocuments() {
+      try {
+        querySnapshot = await getDocs(myCollection);
+        displayDataIn(querySnapshot);
+      } catch (error) {
+        console.error('Error reading documents: ', error);
+      }
+    }
+    
+    readAllDocuments();
+    
+    function displayDataIn(querySnapshot) {
+        displayTutorial.innerHTML = ''; // Clear previous content
+        querySnapshot.forEach((doc) => {
+            let newDiv = document.createElement('div');
+            newDiv.innerHTML = `
+                <div class="contentAndLink">
+                    <h2 id="name">${doc.data().Name}</h2>
+                    <a href="${doc.data().Link}" target="_blank">Download</a> 
+                </div>
+                <hr>
+            `;
+            displayTutorial.appendChild(newDiv);
+            console.log(doc.id, ' => ', doc.data());
+        });
+    }
+    
+    
+    
+    
+    
+    
+    </script>
 </body>
 </html>

@@ -1,4 +1,25 @@
 let signOutBtn = document.getElementById('signOut')
+let openMenu = document.getElementById('openMenu')
+let closeMenu = document.getElementById('closeMenu')
+let headerTwoNav = document.getElementById('headerTwoNav')
+
+openMenu.addEventListener('click', () => {
+  if(headerTwoNav.style.display == 'none'){
+      headerTwoNav.style.display = 'block'
+  }else{
+    headerTwoNav.style.display = 'none'
+  }
+  // console.log("Open menu is clicked");
+})
+
+closeMenu.addEventListener('click', () => {
+  if(headerTwoNav.style.display == 'block'){
+    headerTwoNav.style.display = 'none'
+}else{
+  headerTwoNav.style.display = 'block'
+}
+})
+
 
   // Import the functions you need from the SDKs you need
   // Import the functions you need from the SDKs you need
