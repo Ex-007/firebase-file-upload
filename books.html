@@ -44,26 +44,33 @@
 </head>
 <body>
     <!-- THE NAVIGATION BAR -->
-   <div class="header">
-    <div class="logo">
-        <h3>STUDENT SUPPORT</h3>
-    </div>
-    <div class="navigation">
-        <ul>
-            <li><a href="newprofile.html">Home</a></li>
-            <li><a href="chat.html">Chat</a></li>
-            <li><a href="catalogue.html">Catalogue</a></li>
-            <li><a href="notes.html">Note</a></li>
-            <li><a href="./departments/marketPlace.html">Market Place</a></li>
-            <li><a href="#">About us</a></li>
-            <li id="signOut">Sign Out</li>
-        </ul>
-        <div class="userImageAndName">
-            <img src="images/profile image.png" alt="profile picture" width="50px">
-            <h3  id="usernamed"></h3>
+    <div class="header">
+        <div class="logo">
+            <h3>STUDENT SUPPORT</h3>
         </div>
-    </div>
-</div>
+        <div class="navigation">
+            <div class="navAndPic">
+                <div class="navBar">
+                    <ul>
+                        <li><a href="newprofile.html">Home</a></li>
+                        <li><a href="chat.html">Chat</a></li>
+                        <li><a href="catalogue.html">Catalogue</a></li>
+                        <li><a href="notes.html">Note</a></li>
+                        <li><a href="./departments/marketPlace.html">Market Place</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li id="signOut">Sign Out</li>
+                    </ul>
+                </div>
+                <div class="nameBar">
+                    <h3  id="usernamed"></h3>
+                </div>
+            </div>
+            <div class="userImageAndName">
+                <img src="images/profile image.png" alt="profile picture" width="50px">
+                <!-- <h3  id="usernamed"></h3> -->
+            </div>
+        </div>
+   </div>
 
 
     <!-- SEARCH BOX -->
@@ -89,7 +96,23 @@
 
 
 
+    <!-- THE FOOTER -->
 
+    <footer class="footerEmmet">
+        <div class="copyrightAnd">
+            <p>&#169; ABTech <span>2023</span></p>
+        </div>
+        <div class="footerMiddle">
+            <h3>STUDENT SUPPORT</h3>
+        </div>
+        <div class="iconDiv">
+            <i class="fa-brands fa-facebook" id="facebook" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-twitter" id="twitter" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-instagram" id="instagram" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-whatsapp" id="whatsapp" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-telegram" id="telegram" style="font-size: 25px; margin: 10px;"></i>
+           </div>
+    </footer>
 
 
 
@@ -117,30 +140,49 @@ let db = getFirestore()
 let displayTutorial = document.getElementById('displayTutorial')
 const myCollection = collection(db, 'BOOK');
 
-async function readAllDocuments() {
-  try {
-    const querySnapshot = await getDocs(myCollection);
-
-    querySnapshot.forEach((doc) => {
-        let newDiv = document.createElement('div')
-        newDiv.innerHTML = `
-        
-            <div class="contentAndLink">
-            <h2 id="name">${doc.data().Name}</h2>
-            <a href="${doc.data().PhotoURL}">Download</a> 
-        </div>
-        <hr>
-        
-        `
-      displayTutorial.appendChild(newDiv)
-      console.log(doc.id, ' => ', doc.data());
+searchBtn.addEventListener('keyup', e => {
+        let searchedString = e.target.value.toLowerCase();
+        let returnValue = querySnapshot.docs.filter(newEntry => {
+            return newEntry.data().Name.toLowerCase().includes(searchedString);
+        });
+        displayDataIn(returnValue);
+        // console.log(returnValue);
     });
-  } catch (error) {
-    console.error('Error reading documents: ', error);
-  }
-}
 
-readAllDocuments();
+async function readAllDocuments() {
+      try {
+        querySnapshot = await getDocs(myCollection);
+        displayDataIn(querySnapshot);
+      } catch (error) {
+        console.error('Error reading documents: ', error);
+      }
+    }
+    
+    readAllDocuments();
+
+
+
+function displayDataIn(querySnapshot) {
+        displayTutorial.innerHTML = ''; // Clear previous content
+        querySnapshot.forEach((doc) => {
+            let newDiv = document.createElement('div');
+            newDiv.innerHTML = `
+                <div class="contentAndLink">
+                    <h2 id="name">${doc.data().Name}</h2>
+                    <a href="${doc.data().PhotoURL}" target="_blank">Download</a> 
+                </div>
+                <hr>
+            `;
+            displayTutorial.appendChild(newDiv);
+            console.log(doc.id, ' => ', doc.data());
+        });
+    }
+
+
+
+
+
+
 </script>
 </body>
 </html>

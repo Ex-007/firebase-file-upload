@@ -3,69 +3,132 @@
     margin: 0;
     padding: 0;
 }
-
-*{
-    margin: 0;
-    padding: 0;
+@media only screen and (max-width: 475px){
+    .searchBox{
+        margin: 10px;
+        display: flex;
+        justify-content: end;
+    }
+    .searchBox input{
+        height: 30px;
+        width: 300px;
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+    .searchBox i{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -25px;
+    }
+    
+    .container{
+        margin-top: 20px;
+        padding: 5px;
+        background-color: #947C9C;
+        color: white;
+    }
+    #displayTutorial{
+        background-color: #947C9C;
+        color: white;
+    }
+    .schoolName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+    }
+    .profileImage{
+        width: 100px;
+    }
+    .otherDetails{
+        margin-top: 10px;
+        display: flex;
+        /* justify-content: space-evenly; */
+        align-items: center;
+    }
+    .contactsss{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .otherss{
+        margin: 0 20px;
+    }
+    .otherss ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .otherss ul li{
+        list-style-type: none;
+        padding: 10px;
+    }
 }
-
-.searchBox{
-    margin: 10px;
-    display: flex;
-    justify-content: end;
-}
-.searchBox input{
-    height: 30px;
-    width: 300px;
-    border-radius: 10px;
-    padding: 5px 10px;
-}
-.searchBox i{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: -25px;
-}
-
-.container{
-    margin-top: 20px;
-    padding: 5px;
-    background-color: #947C9C;
-    color: white;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-}
-.schoolName{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-}
-.profileImage{
-    width: 100px;
-}
-.otherDetails{
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.contactsss{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.otherss{
-    margin: 0 20px;
-}
-.otherss ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.otherss ul li{
-    list-style-type: none;
-    padding: 10px;
+@media only screen and (min-width: 475px){
+    .searchBox{
+        margin: 10px;
+        display: flex;
+        justify-content: end;
+    }
+    .searchBox input{
+        height: 30px;
+        width: 300px;
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+    .searchBox i{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -25px;
+    }
+    
+    .container{
+        margin-top: 20px;
+        padding: 5px;
+        background-color: #947C9C;
+        color: white;
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center; */
+    }
+    #displayTutorial{
+        background-color: #947C9C;
+        color: white;
+    }
+    .schoolName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+    }
+    .profileImage{
+        width: 100px;
+    }
+    .otherDetails{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .contactsss{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .otherss{
+        margin: 0 20px;
+    }
+    .otherss ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .otherss ul li{
+        list-style-type: none;
+        padding: 10px;
+    }
 }

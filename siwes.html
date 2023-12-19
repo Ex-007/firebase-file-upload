@@ -136,26 +136,34 @@
 <body>
     
         <!-- THE NAVIGATION BAR -->
+    <!-- THE NAVIGATION BAR -->
     <div class="header">
         <div class="logo">
             <h3>STUDENT SUPPORT</h3>
         </div>
         <div class="navigation">
-            <ul>
-                <li><a href="newprofile.html">Home</a></li>
-                <li><a href="chat.html">Chat</a></li>
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="notes.html">Note</a></li>
-                <li><a href="./departments/marketPlace.html">Market Place</a></li>
-                <li><a href="#">About us</a></li>
-                <li id="signOut">Sign Out</li>
-            </ul>
+            <div class="navAndPic">
+                <div class="navBar">
+                    <ul>
+                        <li><a href="newprofile.html">Home</a></li>
+                        <li><a href="chat.html">Chat</a></li>
+                        <li><a href="catalogue.html">Catalogue</a></li>
+                        <li><a href="notes.html">Note</a></li>
+                        <li><a href="./departments/marketPlace.html">Market Place</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li id="signOut">Sign Out</li>
+                    </ul>
+                </div>
+                <div class="nameBar">
+                    <h3  id="usernamed"></h3>
+                </div>
+            </div>
             <div class="userImageAndName">
                 <img src="images/profile image.png" alt="profile picture" width="50px">
-                <h3  id="usernamed"></h3>
+                <!-- <h3  id="usernamed"></h3> -->
             </div>
         </div>
-    </div>
+   </div>
     <!-- THE SEARCH DIV -->
     <div class="searchBox">
         <input type="text" id="searchInput" placeholder="Type here...">
@@ -277,43 +285,113 @@
     </div>
 
 
-
-    <!-- FIRST CATALOGUE -->
-
-    <div class="container">
-        <div class="projectName">
-            <h2 id="projectName">THE CONSTRUCTION OF A 2KVA AUTOMATIC VOLTAGE REGULATOR (AVR)</h2>
-        </div>
-        <div class="abstractAndContent">
-            <div class="abstract">
-                <h3 >ABSTRACT</h3>
-            </div>
-            <P id="projectAbstract">
-                The AVR is automatic voltage regulator and it is a device which is used to regulate or stabilize electrical power supply for electrical or electronic appliances
-
-                In this project, therefore, we are interested in the construction of this all important device. Furthermore, we shall discuss the techniques, processes, switching stages and then the working principle of the automatic voltage regulator
-
-                Chapter one of this project dwells on the introduction of the project topic. It also talks about the objectives of the project, bringing to mind what we intend to achieve at the end
-
-                Chapter two of the project reviews the research works that have been carried out by some other people in this study area. It also discusses on some of the components used in this project
-
-                Chapter three gives a detailed account of the basic construction and the operation of the AVR. It also highlights on some other components used, discussing their working principles using both the circuit and block diagrams.
-            </P>
-        </div>
-        <div class="contactInfo">
-            <div class="contactMap">
-                <ul>
-                    <li><i class="fa fa-phone" style="font-size: 30px;"></i></li>
-                    <li id="projectPhone">09020563110</li>
-                </ul>
-            </div>
-            <div class="contactMap">
-                <ul>
-                    <li><i class="fa fa-location-dot" style="font-size: 30px;"></i></li>
-                    <li id="projectAddress">Beside DUDAP hostel</li>
-                </ul>
-            </div>
-        </div>
+    <div class="searchBox">
+        <input type="text" id="searchInput" placeholder="Type here...">
     </div>
+
+
+    <section id="mainDisplay"></section>
+
+
+        <!-- THE FOOTER -->
+
+        <footer class="footerEmmet">
+            <div class="copyrightAnd">
+                <p>&#169; ABTech <span>2023</span></p>
+            </div>
+            <div class="footerMiddle">
+                <h3>STUDENT SUPPORT</h3>
+            </div>
+            <div class="iconDiv">
+                <i class="fa-brands fa-facebook" id="facebook" style="font-size: 25px; margin: 10px;"></i>
+                <i class="fa-brands fa-twitter" id="twitter" style="font-size: 25px; margin: 10px;"></i>
+                <i class="fa-brands fa-instagram" id="instagram" style="font-size: 25px; margin: 10px;"></i>
+                <i class="fa-brands fa-whatsapp" id="whatsapp" style="font-size: 25px; margin: 10px;"></i>
+                <i class="fa-brands fa-telegram" id="telegram" style="font-size: 25px; margin: 10px;"></i>
+               </div>
+        </footer>
+    <script type="module" src="newprofile.js"></script>
+    <script type="module">
+        let searchBtn = document.getElementById('searchInput');
+        let querySnapshot = [];
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+          authDomain: "school-newusersign.firebaseapp.com",
+          projectId: "school-newusersign",
+          storageBucket: "school-newusersign.appspot.com",
+          messagingSenderId: "382800829354",
+          appId: "1:382800829354:web:145aeb3f8e346c016129d3"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        let db = getFirestore();
+        let displayTutorial = document.getElementById('mainDisplay');
+        const myCollection = collection(db, 'PROJECTS');
+        
+        searchBtn.addEventListener('keyup', e => {
+            let searchedString = e.target.value.toLowerCase();
+            console.log(searchedString);
+            let returnValue = querySnapshot.docs.filter(newEntry => {
+                return newEntry.data().Topic.toLowerCase().includes(searchedString);
+            });
+            displayDataIn(returnValue);
+            // console.log(returnValue);
+        });
+        
+        async function readAllDocuments() {
+          try {
+            querySnapshot = await getDocs(myCollection);
+            displayDataIn(querySnapshot);
+          } catch (error) {
+            console.error('Error reading documents: ', error);
+          }
+        }
+        
+        readAllDocuments();
+        
+        function displayDataIn(querySnapshot) {
+            displayTutorial.innerHTML = ''; // Clear previous content
+            querySnapshot.forEach((doc) => {
+                let newDiv = document.createElement('div')
+                newDiv.setAttribute('class', 'container')
+                newDiv.innerHTML = `
+                
+                    <div class="projectName">
+                    <h2 id="projectName">${doc.data().Topic}</h2>
+                </div>
+                <div class="abstractAndContent">
+                    <div class="abstract">
+                        <h3 >ABSTRACT</h3>
+                    </div>
+                    <P id="projectAbstract">${doc.data().Abstract}</P>
+                </div>
+                <div class="contactInfo">
+                    <div class="contactMap">
+                        <ul>
+                            <li><i class="fa fa-phone" style="font-size: 30px;"></i></li>
+                            <li id="projectPhone">${doc.data().ProjectPhone}</li>
+                        </ul>
+                    </div>
+                    <div class="contactMap">
+                        <ul>
+                            <li><i class="fa fa-location-dot" style="font-size: 30px;"></i></li>
+                            <li id="projectAddress">${doc.data().Address}</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                
+                `
+            displayTutorial.appendChild(newDiv)
+            console.log(doc.id, ' => ', doc.data());
+            });
+        }
+        
+        
+        </script>
 </body>
 </html>

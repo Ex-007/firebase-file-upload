@@ -4,79 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="newprofile.css">
+    <link rel="stylesheet" href="departmentGovernor.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>SUG</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        .container{
-                margin-top: 20px;
-                padding: 5px;
-                background-color: #947C9C;
-                color: white;
-                /* display: flex;
-                flex-direction: column;
-                justify-content: center; */
-            }
-            .schoolName{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 22px;
-            }
-            .profileImage{
-                width: 100px;
-            }
-            .otherDetails{
-                margin-top: 10px;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-            }
-            .contactsss{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .otherss{
-                margin: 0 20px;
-            }
-            .otherss ul{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-            .otherss ul li{
-                list-style-type: none;
-                padding: 10px;
-            }
-    </style>
 </head>
 <body>
-        <!-- THE NAVIGATION BAR -->
-   <div class="header">
-    <div class="logo">
-        <h3>STUDENT SUPPORT</h3>
-    </div>
-    <div class="navigation">
-        <ul>
-            <li><a href="newprofile.html">Home</a></li>
-            <li><a href="chat.html">Chat</a></li>
-            <li><a href="catalogue.html">Catalogue</a></li>
-            <li><a href="notes.html">Note</a></li>
-            <li><a href="./departments/marketPlace.html">Market Place</a></li>
-            <li><a href="#">About us</a></li>
-            <li id="signOut">Sign Out</li>
-        </ul>
-        <div class="userImageAndName">
-            <img src="images/profile image.png" alt="profile picture" width="50px">
-            <h3  id="usernamed"></h3>
+    <!-- THE NAVIGATION BAR -->
+    <div class="header">
+        <div class="logo">
+            <h3>STUDENT SUPPORT</h3>
         </div>
-    </div>
-</div>
+        <div class="navigation">
+            <div class="navAndPic">
+                <div class="navBar">
+                    <ul>
+                        <li><a href="newprofile.html">Home</a></li>
+                        <li><a href="chat.html">Chat</a></li>
+                        <li><a href="catalogue.html">Catalogue</a></li>
+                        <li><a href="notes.html">Note</a></li>
+                        <li><a href="./departments/marketPlace.html">Market Place</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li id="signOut">Sign Out</li>
+                    </ul>
+                </div>
+                <div class="nameBar">
+                    <h3  id="usernamed"></h3>
+                </div>
+            </div>
+            <div class="userImageAndName">
+                <img src="images/profile image.png" alt="profile picture" width="50px">
+                <!-- <h3  id="usernamed"></h3> -->
+            </div>
+        </div>
+   </div>
 
 <!-- SUG PRESIDENT -->
 <section id="sugPresident">
@@ -199,7 +159,23 @@
 
 
 
+    <!-- THE FOOTER -->
 
+    <footer class="footerEmmet">
+        <div class="copyrightAnd">
+            <p>&#169; ABTech <span>2023</span></p>
+        </div>
+        <div class="footerMiddle">
+            <h3>STUDENT SUPPORT</h3>
+        </div>
+        <div class="iconDiv">
+            <i class="fa-brands fa-facebook" id="facebook" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-twitter" id="twitter" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-instagram" id="instagram" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-whatsapp" id="whatsapp" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-telegram" id="telegram" style="font-size: 25px; margin: 10px;"></i>
+           </div>
+    </footer>
 
 <script type="module" src="newprofile.js"></script>
 <script type="module">

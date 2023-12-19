@@ -889,7 +889,7 @@ async function writeForGov() {
         }, async () => {
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
 
-            const ref = doc(db, "DEPARTMENT-PRESIDENT", Deparment);
+            const ref = doc(db, "GOVERNORS", Deparment);
             await setDoc(ref, {
                 Deparment : Deparment,
                 Firstname : firstname,
