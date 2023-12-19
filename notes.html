@@ -10,42 +10,48 @@
     <title>noteTaking</title>
 </head>
 <body id="bodyColor">
-        <!-- THE NAVIGATION BAR -->
-   <div class="header">
-    <div class="logo">
-        <h3>STUDENT SUPPORT</h3>
-    </div>
-    <div class="navigation">
-        <ul>
-            <li><a href="newprofile.html">Home</a></li>
-            <li><a href="chat.html">Chat</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">Note</a></li>
-            <li><a href="./departments/marketPlace.html">Market Place</a></li>
-            <li><a href="#">About us</a></li>
-            <li id="signOut">Sign Out</li>
-        </ul>
-        <div class="userImageAndName">
-            <img src="images/profile image.png" alt="profile picture" width="50px">
-            <h3  id="usernamed"></h3>
+    <!-- THE NAVIGATION BAR -->
+    <div class="header">
+        <div class="logo">
+            <h3>STUDENT SUPPORT</h3>
         </div>
-    </div>
-</div>
-
-
-        <!-- INPUT DIV -->
-        <div class="inputDiv">
-            <textarea id="textAreaText" placeholder="Your Text Here" rows="1"></textarea>
+        <div class="navigation">
+            <div class="navAndPic">
+                <div class="navBar">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="chat.html">Chat</a></li>
+                        <li><a href="catalogue.html">Catalogue</a></li>
+                        <li><a href="notes.html">Note</a></li>
+                        <li><a href="./departments/marketPlace.html">Market Place</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li id="signOut">Sign Out</li>
+                    </ul>
+                </div>
+                <div class="nameBar">
+                    <h3  id="usernamed"></h3>
+                </div>
+            </div>
+            <div class="userImageAndName">
+                <img src="images/profile image.png" alt="profile picture" width="50px">
+                <!-- <h3  id="usernamed"></h3> -->
+            </div>
         </div>
+   </div>
 
-        <!-- LOG INFO BUTTON DIV -->
-        <div class="logBtn">
-            <button id="logBtn"><i class="fa fa-paper-plane" style="font-size: 20px; color: #947C9C;"></i></button>
-        </div>
-
-        <!-- LOGGING OF TEXTS -->
-        <div id="listing">
+           <!-- LOGGING OF TEXTS -->
+           <div id="listing">
             <ul id="newListing"></ul>
+        </div>
+
+
+
+        <div class="inputAndButtom">
+            <textarea id="textAreaText" placeholder="Your message here"></textarea>
+            <div class="buttonDiv">
+                <!-- <button id="Send">Send</button> -->
+                <button id="logBtn"><i class="fa-regular fa-paper-plane" style="font-size: 20px;"></i></button>
+            </div>
         </div>
 
 

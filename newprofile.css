@@ -3,64 +3,47 @@
     padding: 0;
 }
 @media only screen and (max-width: 475px){
+    .logo{
+        display: none;
+    }
     .header{
-        display: none;
-    }
-    .headerTwo{
-        height: 50px;
-        font-size: 20px;
-        background-color: black;
-        color: black;
-        color: white;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-    }
-    .headerTwoNav{
-        display: none;
-        position: fixed;
-        top: 0;
-        right: 2px;
+        padding: 5px;
         background-color: black;
-        width: 200px;
-        padding: 20px;
-        border-radius: 0 0 0 20px;
+        align-items: center;
     }
-    .navigation ul {
+    .navigation{
+        display: flex;
+    }
+    .navigation ul{
         display: flex;
         justify-content: center;
-        align-items: center;
-        flex-direction: column;
     }
     .navigation ul li{
-        padding: 10px;
+        padding: 5px;
+        font-size: 15px;
         list-style-type: none;
-        font-size: 17px;
-    }
-    .navigation ul li:hover{
-        background-color: rgb(164, 122, 164);
-        width: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
     .navigation ul li a{
-        color: white;
         text-decoration: none;
+        color: white;
     }
     .userImageAndName{
-        margin: 10px 0;
+        margin-right: 10px;
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
-        height: 50px;
+        align-items: center;
+        justify-content: center;
     }
     #usernamed{
-        padding: 10px 5px;
-        font-size: 15px;
         color: white;
+        font-size: 30px;
+    }
+    .navAndPic{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     
@@ -76,7 +59,7 @@
         padding-bottom: 25px;
         width: 500px;
         z-index: 5;
-        /* position: relative; */
+        position: relative;
     }
     .newArea{
         display: flex;
@@ -220,6 +203,9 @@
         justify-content: center;
         margin-bottom: 10px;
     }
+    .sectionHead h1{
+        font-size: 20px;
+    }
     
     /* SCHOOL PORRTALS LINK */
     .fpaQuick p{
@@ -311,30 +297,20 @@
         cursor: pointer;
     }
     /* THE FOOTER */
-    .footerEmmet{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: black;
-        color: white;
-    }
-    .iconDiv{
-        display: flex;
-        padding: 5px;
-        align-items: center;
-        justify-content: center;
-    }
-    .iconDiv i{
-       
-        padding: 10px;
-        margin-right: 5px;
-    }
-    .copyrightAnd{
-        display: flex;
-        padding: 10px;
-        align-items: center;
-    }
+        .footerEmmet{
+            margin-top: 20px;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        .footerMiddle{
+            margin: 10px 0;
+        }
+
     /* SIGN OUT BTN */
     #signOut{
         cursor: pointer;
@@ -455,6 +431,17 @@
     }
     .navigation ul li a:active{
         color: gold;
+    }
+
+    #usernamed{
+        color: white;
+        font-size: 30px;
+    }
+    .navAndPic{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
     /* SEARCH IN */

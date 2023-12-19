@@ -1,6 +1,9 @@
 
 
-
+*{
+    margin: 0;
+    padding: 0;
+}
 
 @media screen and (max-width : 475px){
     .headerFirst{
@@ -11,58 +14,46 @@
         border-radius: 5px;
         padding: 0 10px;
     }
-
-    .headerFirst p{
-        border: 1px solid black;
-        padding: 5px;
-        border-radius: 10px;
+    .inputAndButtom{
         background-color: black;
-        cursor: pointer;
-        font-size: 17px;
-    }
-
-    #changeThemeColor{
-        padding-top: 20px;
-    }
-    .inputDiv{
-        margin-top: 10px;
-        margin-bottom: 10px;
+        position: fixed;
+        width: 100vw;
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        box-sizing: border-box;
+        bottom: 1px;
     }
-
-    .headTitle{
-        margin-top: 10px;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: center;
-        box-sizing: border-box;
-    }
-    #headTitle{
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 16px;
-    }
-
-    /* .title{
-        margin-top: 10px;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: center;
-        box-sizing: border-box;
-    }
-    
-    #title{
-        width: 40vw;
-        padding: 5px;
+    #textArea{
+        width: 92vw;
+        border: 2px solid white;
+        outline: 2px solid black;
         border-radius: 10px;
-        font-size: 16px;
-        overflow: hidden;
-    } */
+        padding: 10px;
+        font-size: 20px;
+        color: black;
+    }
     
-    .striker{
-        text-decoration: line-through;
+    .buttonDiv{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    #Send{
+        background-color: black;
+        padding: 10px;
+        border: 2px solid white;
+        outline: 2px solid black;
+        color: white;
+        border-radius: 10px;
+        width: 100px;
+        margin: 10px 0;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    #Send:hover{
+        background-color: green;
     }
 
     #textAreaText{
@@ -95,18 +86,27 @@
         height: 30px;
     }
     
+    #newListing{
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        margin-left: 40px;
+        margin-bottom: 110px;
+        flex-direction: column;
+    }
     
     #newListing li{
         display: flex;
         justify-content: space-between;
         list-style-type: none;
-        font-size: 20px;
+        font-size: 15px;
         background-color: green;
         padding: 10px;
         border-radius: 10px;
         color: white;
-        margin-bottom: 10px;
         margin-left: -45px;
+        margin-bottom: 2px;
     }
     
     .spanEdit{
@@ -118,55 +118,47 @@
 
 /* FOR MEDIA SCREENS ABOVE 475PX */
 @media screen and (min-width : 475px){
-    .headerFirst{
-        display: flex;
-        justify-content: space-between;
-        background-color: rgb(0, 0, 0);
-        color: white;
-        border-radius: 5px;
-        padding: 0 10px;
-    }
-    .headerFirst p{
-        border: 1px solid black;
-        padding: 5px;
-        border-radius: 10px;
+    .inputAndButtom{
         background-color: black;
-        cursor: pointer;
-        font-size: 17px;
-    }
-    #changeThemeColor{
-        padding-top: 20px;
-    }
-    
-    .inputDiv{
-        margin-top: 10px;
-        margin-bottom: 10px;
+        position: fixed;
+        width: 100vw;
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        box-sizing: border-box;
+        bottom: 1px;
     }
-    
     #textAreaText{
-        width: 80vw;
-        padding: 5px;
+        width: 92vw;
+        border: 2px solid white;
+        outline: 2px solid black;
         border-radius: 10px;
-        font-size: 16px;
-        overflow: hidden;
-        resize: none;
+        padding: 10px;
+        font-size: 20px;
+        color: black;
     }
-
-    .headTitle{
-        margin-top: 10px;
-        margin-bottom: 10px;
+    
+    .buttonDiv{
         display: flex;
         justify-content: center;
-        box-sizing: border-box;
     }
-    #headTitle{
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 16px;
+    
+    
+    #logBtn{
+        background-color: black;
+        padding: 10px;
+        border: 2px solid white;
+        outline: 2px solid black;
+        color: white;
+        border-radius: 10px;
+        width: 100px;
+        margin: 10px 0;
+        font-size: 20px;
+        cursor: pointer;
     }
+    #logBtn:hover{
+        background-color: green;
+    }    
 
     #textAreaText::-webkit-scrollbar{
         display: none;
@@ -176,17 +168,16 @@
         color: black;
         font-size: 20px;
     }
-    .logBtn{
+    
+    #newListing{
+        padding: 10px;
         display: flex;
         justify-content: center;
+        /* align-items: center; */
+        margin-left: 20px;
+        margin-bottom: 110px;
+        flex-direction: column;
     }
-    
-    #logBtn{
-        border-radius: 10px;
-        width: 100px;
-        height: 30px;
-    }
-    
     
     #newListing li{
         display: flex;
