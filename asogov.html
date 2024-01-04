@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="departmentGovernor.css">
+    <link rel="stylesheet" href="newprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>FPASUBAR</title>
+</head>
+<body>
+ <!-- THE NAVIGATION BAR -->
+ <div class="header">
+    <div class="logo">
+        <h3>STUDENT SUPPORT</h3>
+    </div>
+    <div class="navigation">
+        <div class="navAndPic">
+            <div class="navBar">
+                <ul>
+                    <li><a href="newprofile.html">Home</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="catalogue.html">Catalogue</a></li>
+                    <li><a href="notes.html">Note</a></li>
+                    <li><a href="./departments/marketPlace.html">Market Place</a></li>
+                    <li><a href="aboutTwo.html">About us</a></li>
+                    <li id="signOut">Sign Out</li>
+                </ul>
+            </div>
+            <div class="nameBar">
+                <h3  id="usernamed"></h3>
+            </div>
+        </div>
+        <div class="userImageAndName">
+            <img src="images/profile image.png" alt="profile picture" width="50px">
+            <!-- <h3  id="usernamed"></h3> -->
+        </div>
+    </div>
+</div>
+
+    <div class="searchBox">
+        <input type="text" id="searchInput" placeholder="Type here...">
+        <i class="fa fa-search" id="searchThrough"></i>
+    </div>
+
+
+
+
+    <div id="displayTutorial">
+
+    </div>
+
+
+
+
+    <!-- THE FOOTER -->
+
+    <footer class="footerEmmet">
+        <div class="copyrightAnd">
+            <p>&#169; ABTech <span>2023</span></p>
+        </div>
+        <div class="footerMiddle">
+            <h3>STUDENT SUPPORT</h3>
+        </div>
+        <div class="iconDiv">
+            <i class="fa-brands fa-facebook" id="facebook" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-twitter" id="twitter" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-instagram" id="instagram" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-whatsapp" id="whatsapp" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-telegram" id="telegram" style="font-size: 25px; margin: 10px;"></i>
+           </div>
+    </footer>
+
+
+    <script type="module" src="newprofile.js"></script>
+    <script type="module">
+        let searchBtn = document.getElementById('searchInput');
+        let querySnapshot = [];
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+          authDomain: "school-newusersign.firebaseapp.com",
+          projectId: "school-newusersign",
+          storageBucket: "school-newusersign.appspot.com",
+          messagingSenderId: "382800829354",
+          appId: "1:382800829354:web:145aeb3f8e346c016129d3"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        let db = getFirestore();
+        let displayTutorial = document.getElementById('displayTutorial');
+        const myCollection = collection(db, 'FPASUBAR');
+        
+        searchBtn.addEventListener('keyup', e => {
+            let searchedString = e.target.value.toLowerCase();
+            let returnValue = querySnapshot.docs.filter(newEntry => {
+                return newEntry.data().Name.toLowerCase().includes(searchedString);
+            });
+            displayDataIn(returnValue);
+            // console.log(returnValue);
+        });
+        
+        async function readAllDocuments() {
+          try {
+            querySnapshot = await getDocs(myCollection);
+            displayDataIn(querySnapshot);
+          } catch (error) {
+            console.error('Error reading documents: ', error);
+          }
+        }
+        
+        readAllDocuments();
+        
+        function displayDataIn(querySnapshot) {
+            displayTutorial.innerHTML = ''; // Clear previous content
+            querySnapshot.forEach((doc) => {
+                console.log(doc.data());
+                let newDiv = document.createElement('div');
+                newDiv.innerHTML = `
+                <div class="schoolName">
+                    <h2>${doc.data().Department}</h2>
+                </div>
+                <div>
+                    <div class="otherDetails">
+                        <div class="profileImageDiv">
+                            <img src="${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="proprofileImage">
+                            <h3>Bar. <span>${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                        </div>
+                        <div class="contactsss">
+                            <div class="otherss">
+                                <ul>
+                                    <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                                    <li>${doc.data().Phone}</li>
+                                </ul>
+                            </div>
+                            <div class="otherss">
+                                <ul>
+                                    <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                                    <li>${doc.data().Whatsapp}</li>
+                                </ul>
+                            </div>
+                            <div class="otherss">
+                                <ul>
+                                    <li><i class="fa-brands fa-facebook" style="font-size: 25px; color: blue;"></i></li>
+                                    <li>${doc.data().Facebook}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <hr>
+                    <hr>
+                `;
+                displayTutorial.appendChild(newDiv);
+                console.log(doc.id, ' => ', doc.data());
+            });
+        }
+        
+        
+        </script>
+</body>
+</html>

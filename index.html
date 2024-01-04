@@ -3,26 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
-    <title>firebase file upload</title>
+    <link rel="stylesheet" href="homestyle.css">
+    <title>Home</title>
 </head>
 <body>
-
-    <button><a href="account.html">accounts</a></button><br><br><br>
-    <div>
-        <input type="file" id="fileIn"> <br>
-        <div>
-            <button type="button" id="uploadBtn">Upload</button>
+    <div class="overallHead">
+        <div class="logoName">
+            <h1>STUDENT SUPPORT</h1>
+        </div>
+        <div class="headNav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <p id="hideShow">Accounts</p>
+                    <div id="accountant" style="display: none;">
+                        <ul>
+                            <li><a href="signIn.html">Sign In</a></li>
+                            <li><a href="account.html">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
         </div>
     </div>
 
-    <div id="progressContainer">
-        <div id="progressWidth">
-            <p id="progressDigit"></p>
+    <div class="firstCome">
+        <h3>About</h3>
+        <p>
+            This is a website created by student for other students majorly studying in the Federal Polytechnic Ado-Ekiti and also for aspirants interested in continuing their educational career in the citadel. <br>
+            This website contains varietis of support pages from tutorials, to books, course materials, meet your departmental governors and presidents, the SUG cabinets, ASOGOV cabinets. Also included are pages for SIWES students,
+            Catalogue pages which has series of project topics for students in their project stages, a market place for business and shop owners and above all is a chat page for all students to collaborate and share ideas together.
+        </p>
+    </div>
+
+
+    <!-- catalogu -->
+    <div class="catalogue">
+        <h3>Catalogue</h3>
+        <div class="imageAndContent">
+            <img src="images/dew.png" width="200px" height="200px" alt="catalogue image">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe quas beatae eius omnis perspiciatis cum eaque fugit accusantium, aspernatur voluptatibus provident reiciendis tenetur eveniet ut vel natus quod quisquam ad.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur, cumque repudiandae doloremque possimus, in sit facere rem vel repellendus repellat hic nesciunt nam! Nisi, facilis nemo! Similique, eos eaque.
+            </p>
         </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-    <script src="app.js"></script>
+
+    <!-- tutorial -->
+    <div class="catalogue">
+        <h3>Tutorials</h3>
+        <div class="imageAndContent">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe quas beatae eius omnis perspiciatis cum eaque fugit accusantium, aspernatur voluptatibus provident reiciendis tenetur eveniet ut vel natus quod quisquam ad.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur, cumque repudiandae doloremque possimus, in sit facere rem vel repellendus repellat hic nesciunt nam! Nisi, facilis nemo! Similique, eos eaque.
+            </p>
+            <img src="images/dew.png" width="200px" height="200px" alt="catalogue image">
+        </div>
+    </div>
+    
+    <!-- SIWES -->
+    <div class="catalogue">
+        <h3>SIWES</h3>
+        <div class="imageAndContent">
+            <img src="images/dew.png" width="200px" height="200px" alt="catalogue image">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe quas beatae eius omnis perspiciatis cum eaque fugit accusantium, aspernatur voluptatibus provident reiciendis tenetur eveniet ut vel natus quod quisquam ad.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur, cumque repudiandae doloremque possimus, in sit facere rem vel repellendus repellat hic nesciunt nam! Nisi, facilis nemo! Similique, eos eaque.
+            </p>
+        </div>
+    </div>
+    
+    <!-- CHAT -->
+    <div class="catalogue">
+        <h3>Chat</h3>
+        <div class="imageAndContent">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe quas beatae eius omnis perspiciatis cum eaque fugit accusantium, aspernatur voluptatibus provident reiciendis tenetur eveniet ut vel natus quod quisquam ad.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur, cumque repudiandae doloremque possimus, in sit facere rem vel repellendus repellat hic nesciunt nam! Nisi, facilis nemo! Similique, eos eaque.
+            </p>
+            <img src="images/dew.png" width="200px" height="200px" alt="catalogue image">
+        </div>
+    </div>
+
+    <!-- BOOKS -->
+    <div class="catalogue">
+        <h3>Books</h3>
+        <div class="imageAndContent">
+            <img src="images/dew.png" width="200px" height="200px" alt="catalogue image">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe quas beatae eius omnis perspiciatis cum eaque fugit accusantium, aspernatur voluptatibus provident reiciendis tenetur eveniet ut vel natus quod quisquam ad.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur, cumque repudiandae doloremque possimus, in sit facere rem vel repellendus repellat hic nesciunt nam! Nisi, facilis nemo! Similique, eos eaque.
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <p>&#169; ABTech <span>2023</span></p>
+        <p>All rights reserved</p>
+        <p>agbebibidemi02@gmail.com</p>
+    </div>
+
+
+
+
+    <script>
+        let hideShow = document.getElementById('hideShow')
+        let accountant = document.getElementById('accountant')
+
+        hideShow.addEventListener('click', () => {
+            if(accountant.style.display == 'none'){
+                accountant.style.display = 'block'
+            }else{
+                accountant.style.display = 'none'
+            }
+
+
+        })
+    </script>
 </body>
 </html>

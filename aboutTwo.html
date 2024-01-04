@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="homestyle.css">
+    <title>About</title>
+</head>
+<body>
+    
+    <div class="overallHead">
+        <div class="logoName">
+            <h1>STUDENT SUPPORT</h1>
+        </div>
+        <div class="headNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <p id="hideShow">Accounts</p>
+                    <div id="accountant" style="display: none;">
+                        <ul>
+                            <li><a href="signIn.html">Sign In</a></li>
+                            <li><a href="account.html">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="firstCome">
+        <h3>About</h3>
+        <p>
+            This is a website created by student for other students majorly studying in the Federal Polytechnic Ado-Ekiti and also for aspirants interested in continuing their educational career in the citadel. <br>
+            This website contains varietis of support pages from tutorials, to books, course materials, meet your departmental governors and presidents, the SUG cabinets, ASOGOV cabinets. Also included are pages for SIWES students,
+            Catalogue pages which has series of project topics for students in their project stages, a market place for business and shop owners and above all is a chat page for all students to collaborate and share ideas together.
+        </p>
+    </div>
+
+    <div class="firstCome">
+        <h3>Market Place</h3>
+        <p>
+            The market place is made for business and shop owners to display and advertise their services and products for the school community. <br>
+            prices for advertisement ranges from shops to services or products. <br>
+            For more information regarding the advertisement, please contact the Admin on <strong>agbebibidemi02@gmail.com</strong> or whatsapp through <strong>+234 9020563110</strong>
+        </p>
+    </div>
+    
+    <div class="madeBy">
+        <h3>Made By</h3>
+        <div class="madeByDetails">
+            <div class="madeByImade">
+                <img src="images/favorite.jpeg" width="100%" alt="">
+                <p>Agbebi Bidemi Stephen</p>
+            </div>
+            <p>
+                <strong>Agbebi Bidemi Stephen</strong> also knwon as <strong> <em>EX</em> </strong> is a student of the Federal Polytechnic Ado-Ekiti who gained admission into the citadel in 2019. <br>
+                <strong>Agbebi Bidemi Stephen</strong> is an aborigine of Ekiti State. He has been passionate about making the school enviroment conducive for all students by organizing series of tutorials. <br>
+                He then went ahead to build this website keeping in mind the interest of all students (both in the campus and aspiring students) and lecturers.
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="footer">
+        <p>&#169; ABTech <span>2023</span></p>
+        <p>All rights reserved</p>
+        <p>agbebibidemi02@gmail.com</p>
+    </div>
+
+
+
+
+    <script>
+        let hideShow = document.getElementById('hideShow')
+        let accountant = document.getElementById('accountant')
+
+        hideShow.addEventListener('click', () => {
+            if(accountant.style.display == 'none'){
+                accountant.style.display = 'block'
+            }else{
+                accountant.style.display = 'none'
+            }
+
+
+        })
+    </script>
+</body>
+</html>

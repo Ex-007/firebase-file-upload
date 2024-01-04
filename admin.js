@@ -230,6 +230,160 @@ sugRead.addEventListener('click', readForSug)
 
     sugDelete.addEventListener('click', deleteForSug)
 
+// FOR FPASUBAR
+let fpasuBarDeparment = document.getElementById('fpasuBarDeparment')
+let fpasuBarfirstname = document.getElementById('fpasuBarfirstname')
+let fpasuBarLastname = document.getElementById('fpasuBarLastname')
+let fpasuBarNickname = document.getElementById('fpasuBarNickname')
+let fpasuBarPhone = document.getElementById('fpasuBarPhone')
+let fpasuBarWhatsapp = document.getElementById('fpasuBarWhatsapp')
+let fpasuBarFacebook = document.getElementById('fpasuBarFacebook')
+let fpasuBarwrite = document.getElementById('fpasuBarwrite')
+let fpasuBarUpdate = document.getElementById('fpasuBarUpdate')
+let fpasuBarRead = document.getElementById('fpasuBarRead')
+let fpasuBarDelete = document.getElementById('fpasuBarDelete')
+let fpasuBarphotoImage = document.getElementById('fpasuBarphotoImage')
+
+async function writeForFpasu() {
+    let Deparment = fpasuBarDeparment.value
+    let firstname = fpasuBarfirstname.value
+    let Lastname = fpasuBarLastname.value
+    let Nickname = fpasuBarNickname.value
+    let Phone = fpasuBarPhone.value
+    let Whatsapp = fpasuBarWhatsapp.value
+    let Facebook = fpasuBarFacebook.value
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = fpasuBarphotoImage.files[0];
+        var fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "FPASUBAR", Deparment);
+            await setDoc(ref, {
+                Department: Deparment,
+                FirstName: firstname,
+                LastName: Lastname,
+                Nickname: Nickname,
+                Phone: Phone,
+                Whatsapp: Whatsapp,
+                Facebook: Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            clearFormFpasu();
+        });
+    }
+}
+
+function clearFormFpasu() {
+    // Clear form fields after successful upload
+    fpasuBarDeparment.value = ''
+    fpasuBarfirstname.value = ''
+    fpasuBarLastname.value = ''
+    fpasuBarNickname.value = ''
+    fpasuBarPhone.value = ''
+    fpasuBarWhatsapp.value = ''
+    fpasuBarFacebook.value = ''
+}
+
+fpasuBarwrite.addEventListener('click', writeForFpasu);
+
+
+// UPDATE FOR SUG
+async function updateForFpasu(){
+
+    let Deparment = fpasuBarDeparment.value
+    let firstname = fpasuBarfirstname.value
+    let Lastname = fpasuBarLastname.value
+    let Nickname = fpasuBarNickname.value
+    let Phone = fpasuBarPhone.value
+    let Whatsapp = fpasuBarWhatsapp.value
+    let Facebook = fpasuBarFacebook.value
+
+    var ref = doc(db, "FPASUBAR", Deparment)
+    await updateDoc(ref, {
+        Deparment : Deparment,
+        Firstname : firstname,
+        Lastname : Lastname,
+        Nickname : Nickname,
+        Phone : Phone,
+        Whatsapp : Whatsapp,
+        Facebook : Facebook,
+        PhotoURL : PhotoURL
+    })
+    .then(() => {
+        alert('Updated Successfully')
+    })
+    .catch(error => {
+        alert(error.message)
+    })
+    fpasuBarDeparment.value = ''
+    fpasuBarfirstname.value = ''
+    fpasuBarLastname.value = ''
+    fpasuBarNickname.value = ''
+    fpasuBarPhone.value = ''
+    fpasuBarWhatsapp.value = ''
+    fpasuBarFacebook.value = ''
+}
+fpasuBarUpdate.addEventListener('click', updateForFpasu)
+
+
+// READ FOR SUG
+async function readForFpasuBar(){
+
+    let Deparment = fpasuBarDeparment.value
+
+    var ref = doc(db, "FPASUBAR", Deparment)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+        // console.log(docSnap.data())
+        fpasuBarDeparment.value = docSnap.data().Deparment
+        fpasuBarfirstname.value = docSnap.data().Firstname
+        fpasuBarLastname.value = docSnap.data().Lastname
+        fpasuBarNickname.value = docSnap.data().Nickname
+        fpasuBarPhone.value = docSnap.data().Phone
+        fpasuBarWhatsapp.value = docSnap.data().Whatsapp
+        fpasuBarFacebook.value = docSnap.data().Facebook
+        let photoSee = docSnap.data().downloadURL
+
+        console.log(photoSee)
+    }else{
+        alert('data does not exist')
+    }
+}
+fpasuBarRead.addEventListener('click', readForFpasuBar)
+
+// DELETE FOR SUG
+    async function deleteForFpasuBar(){
+        let Deparment = sugDeparment.value
+        var ref = doc(db, "FPASUBAR", Deparment)
+        const docSnap = await getDoc(ref)
+        if(!docSnap.exists()){
+            alert('No such Document')
+        }
+        await deleteDoc(ref)
+        .then(() => {
+            alert('Document Deleted')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+    }
+
+    fpasuBarDelete.addEventListener('click', deleteForFpasuBar)
+
 
 
 // FOR SUG SECRETARY

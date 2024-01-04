@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="homestyle.css">
     <title>Sign In</title>
 </head>
 <body>
+
+    <div class="overallHead">
+        <div class="logoName">
+            <h1>STUDENT SUPPORT</h1>
+        </div>
+        <div class="headNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <p id="hideShow">Accounts</p>
+                    <div id="accountant" style="display: none;">
+                        <ul>
+                            <li><a href="#">Sign In</a></li>
+                            <li><a href="account.html">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+    </div>
+
+
 
     <div id="signInForm">
 
@@ -15,7 +41,14 @@
         <input type="email" id="email" required>
 
         <label for="password">Password : </label>
+        <div class="passwordEye">
         <input type="password" id="password" required>
+        <i class="fa fa-eye" style="font-size: 25px;" id="openedEye"></i>
+        <i class="fa fa-eye-slash" style="font-size: 25px;" id="crossedEye"></i>
+        </div>
+
+        <!-- <label for="password">Password : </label>
+        <input type="password" id="password" required> -->
 
         <div>
             <button id="signInBtn">Sign In</button>
@@ -26,6 +59,36 @@
         <p>Don't have an account? <a href="account.html">Sign Up</a></p>
 
     </div>
+
+
+
+
+
+    <script>
+        let hideShow = document.getElementById('hideShow')
+        let accountant = document.getElementById('accountant')
+
+        hideShow.addEventListener('click', () => {
+            if(accountant.style.display == 'none'){
+                accountant.style.display = 'block'
+            }else{
+                accountant.style.display = 'none'
+            }
+
+
+        })
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
     <script type="module">
 
 
@@ -74,6 +137,32 @@
         }
 
         signInBtn.addEventListener('click', signInUser)
+        // REFERENCE TO THE EYE BUTTONS
+            let crossedEye = document.getElementById('crossedEye') 
+            let openedEye = document.getElementById('openedEye') 
+
+                function revealPassword(){
+            if(passwordinput.type == 'password' ){
+                passwordinput.type = 'text'
+                openedEye.style.display = 'none'
+                crossedEye.style.display = 'block'
+            }else{
+                passwordIn.type = 'password'
+
+            }
+        }
+        function hidePassword(){
+            if(passwordinput.type == 'text'){
+                passwordinput.type = 'password'
+                openedEye.style.display = 'block'
+                crossedEye.style.display = 'none'
+            }else{
+                passwordinput.type = 'password'
+            }
+        }
+
+        crossedEye.addEventListener('click', hidePassword)
+        openedEye.addEventListener('click', revealPassword)
 
         // pR6ReEOfeAOV8a3Jv5rRuG7n4JV2
 
