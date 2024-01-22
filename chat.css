@@ -11,7 +11,7 @@
 
 @media only screen and (min-width: 475px) {
     .inputAndButtom{
-        background-color: black;
+        background-color:  #8F758E;
         position: fixed;
         bottom: 1px;
         border: 2px solid white;
@@ -96,12 +96,15 @@
         outline: 2px solid white;
         border-radius: 10px 10px 0 10px;
     }
+    .heading{
+        background-color:  #8F758E;
+    }
 }
 
 
 @media only screen and (max-width: 475px){
     .inputAndButtom{
-        background-color: black;
+        background-color:  #8F758E;
         position: fixed;
         width: 100vw;
         display: flex;
@@ -200,7 +203,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        background-color: black;
+        background-color:  #8F758E;
         /* margin-left: -10px; */
         padding: 0 5px;
         border: 1px solid white;

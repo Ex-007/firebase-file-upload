@@ -92,7 +92,7 @@
         const app = initializeApp(firebaseConfig);
         let db = getFirestore();
         let displayTutorial = document.getElementById('displayTutorial');
-        const myCollection = collection(db, 'FPASUBAR');
+        const myCollection = collection(db, 'ASOGOV');
         
         searchBtn.addEventListener('keyup', e => {
             let searchedString = e.target.value.toLowerCase();
@@ -127,7 +127,7 @@
                     <div class="otherDetails">
                         <div class="profileImageDiv">
                             <img src="${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="proprofileImage">
-                            <h3>Bar. <span>${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                            <h3>Comr. <span>${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
                         </div>
                         <div class="contactsss">
                             <div class="otherss">

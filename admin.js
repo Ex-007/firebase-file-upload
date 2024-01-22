@@ -301,7 +301,7 @@ function clearFormFpasu() {
 fpasuBarwrite.addEventListener('click', writeForFpasu);
 
 
-// UPDATE FOR SUG
+// UPDATE FOR FPASUBAR
 async function updateForFpasu(){
 
     let Deparment = fpasuBarDeparment.value
@@ -340,7 +340,7 @@ async function updateForFpasu(){
 fpasuBarUpdate.addEventListener('click', updateForFpasu)
 
 
-// READ FOR SUG
+// READ FOR FPASUBAR
 async function readForFpasuBar(){
 
     let Deparment = fpasuBarDeparment.value
@@ -365,9 +365,9 @@ async function readForFpasuBar(){
 }
 fpasuBarRead.addEventListener('click', readForFpasuBar)
 
-// DELETE FOR SUG
+// DELETE FOR FPASUBAR
     async function deleteForFpasuBar(){
-        let Deparment = sugDeparment.value
+        let Deparment = fpasuBarDeparment.value
         var ref = doc(db, "FPASUBAR", Deparment)
         const docSnap = await getDoc(ref)
         if(!docSnap.exists()){
@@ -384,6 +384,161 @@ fpasuBarRead.addEventListener('click', readForFpasuBar)
 
     fpasuBarDelete.addEventListener('click', deleteForFpasuBar)
 
+
+    // FOR ASOGOV
+let asogovDeparment = document.getElementById('asogovDeparment')
+let asogovBarfirstname = document.getElementById('asogovBarfirstname')
+let asogovLastname = document.getElementById('asogovLastname')
+let asogovNickname = document.getElementById('asogovNickname')
+let asogovPhone = document.getElementById('asogovPhone')
+let asogovWhatsapp = document.getElementById('asogovWhatsapp')
+let asogovFacebook = document.getElementById('asogovFacebook')
+let asogovwrite = document.getElementById('asogovwrite')
+let asogovUpdate = document.getElementById('asogovUpdate')
+let asogovRead = document.getElementById('asogovRead')
+let asogovDelete = document.getElementById('asogovDelete')
+let asogovphotoImage = document.getElementById('asogovphotoImage')
+
+async function writeForAsogov() {
+    let Deparment = asogovDeparment.value
+    let firstname = asogovBarfirstname.value
+    let Lastname = asogovLastname.value
+    let Nickname = asogovNickname.value
+    let Phone = asogovPhone.value
+    let Whatsapp = asogovWhatsapp.value
+    let Facebook = asogovFacebook.value
+
+    if (Deparment == '' || firstname == '' || Lastname == '' || Nickname == '' || Phone == '' || Whatsapp == '' || Facebook == '') {
+        alert('Please fill all empty spaces');
+    } else {
+        let file = asogovphotoImage.files[0];
+        var fileName = file.name;
+
+        const storageRef = ref(storage, 'images/' + fileName);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            console.log(snapshot);
+        }, (error) => {
+            console.log(error);
+        }, async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            const ref = doc(db, "ASOGOV", Deparment);
+            await setDoc(ref, {
+                Department: Deparment,
+                FirstName: firstname,
+                LastName: Lastname,
+                Nickname: Nickname,
+                Phone: Phone,
+                Whatsapp: Whatsapp,
+                Facebook: Facebook,
+                PhotoURL: downloadURL,  
+            });
+
+            alert("Uploading Successful");
+            clearFormAsogov()
+               });
+    }
+}
+
+function clearFormAsogov() {
+    // Clear form fields after successful upload
+    asogovDeparment.value = ''
+    asogovBarfirstname.value = ''
+    asogovLastname.value = ''
+    asogovNickname.value = ''
+    asogovPhone.value = ''
+    asogovWhatsapp.value = ''
+    asogovFacebook.value = ''
+}
+
+asogovwrite.addEventListener('click', writeForAsogov);
+
+
+// UPDATE FOR ASOGOV
+async function updateForAsogov(){
+
+    let Deparment = asogovDeparment.value
+    let firstname = asogovBarfirstname.value
+    let Lastname = asogovLastname.value
+    let Nickname = asogovNickname.value
+    let Phone = asogovPhone.value
+    let Whatsapp = asogovWhatsapp.value
+    let Facebook = asogovFacebook.value
+
+    var ref = doc(db, "ASOGOV", Deparment)
+    await updateDoc(ref, {
+        Deparment : Deparment,
+        Firstname : firstname,
+        Lastname : Lastname,
+        Nickname : Nickname,
+        Phone : Phone,
+        Whatsapp : Whatsapp,
+        Facebook : Facebook,
+        PhotoURL : PhotoURL
+    })
+    .then(() => {
+        alert('Updated Successfully')
+    })
+    .catch(error => {
+        alert(error.message)
+    })
+    asogovDeparment.value = ''
+    asogovBarfirstname.value = ''
+    asogovLastname.value = ''
+    asogovNickname.value = ''
+    asogovPhone.value = ''
+    asogovWhatsapp.value = ''
+    asogovFacebook.value = ''
+}
+asogovUpdate.addEventListener('click', updateForAsogov)
+
+
+// READ FOR ASOGOV
+async function readForAsogov(){
+
+    let Deparment = asogovDeparment.value
+
+    var ref = doc(db, "ASOGOV", Deparment)
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+        // console.log(docSnap.data())
+        asogovDeparment.value = docSnap.data().Deparment
+        asogovBarfirstname.value = docSnap.data().Firstname
+        asogovLastname.value = docSnap.data().Lastname
+        asogovNickname.value = docSnap.data().Nickname
+        asogovPhone.value = docSnap.data().Phone
+        asogovWhatsapp.value = docSnap.data().Whatsapp
+        asogovFacebook.value = docSnap.data().Facebook
+        let photoSee = docSnap.data().downloadURL
+
+        console.log(photoSee)
+    }else{
+        alert('data does not exist')
+    }
+}
+asogovRead.addEventListener('click', readForAsogov)
+
+// DELETE FOR FPASUBAR
+    async function deleteForAsogov(){
+        let Deparment = asogovDeparment.value
+
+        var ref = doc(db, "ASOGOV", Deparment)
+        const docSnap = await getDoc(ref)
+        if(!docSnap.exists()){
+            alert('No such Document')
+        }
+        await deleteDoc(ref)
+        .then(() => {
+            alert('Document Deleted')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+    }
+
+    asogovDelete.addEventListener('click', deleteForAsogov)
 
 
 // FOR SUG SECRETARY
