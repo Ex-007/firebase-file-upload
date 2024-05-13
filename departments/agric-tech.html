@@ -40,18 +40,13 @@
 
     <br>
     <div class="School-heading">
-        <h1>SCHOOL OF BUSINESS STUDIES</h1>
+        <h1>SCHOOL OF AGRICULTURAL STUDIES</h1>
     </div>
     <!-- DEAN -->
-    <div class="Dean-Picture">
-        <img src="../images/profile image.png" alt="Dean of School of Engineering" width="50px" id="deanPicture">
-        <h2 id="deanName">Dr. M.O Akinola</h2>
-    </div>
+    <div class="deanDetail" id="deanDetail"></div>
     <!-- HOD -->
-    <div class="HOD-Picture">
-        <img src="../images/profile image.png" alt="Dean of School of Engineering" width="50px" id="HODPicture">
-        <h2 id="HODName">ENGR. (DR) E.O ADEOSUN</h2>
-    </div>
+    <div class="hodDetails" id="hodDetails"></div>
+
     <div class="deanOfficeHead">
         <h2>DEAN'S OFFICE</h2>
     </div>
@@ -130,65 +125,11 @@
         </p>
     </div>
     <section id="sugPresident">
-        <div class="container">
-            <div class="schoolName">
-                <h2>DEPARTMENTAL PRESIDENT</h2>
-            </div>
-            <div>
-                <div class="otherDetails">
-                    <div class="profileImageDiv">
-                        <img src="../images/profile image.png" alt="profile image" class="profileImage" id="profileImage">
-                        <h3>Comr. <span id="name"></span></h3>
-                    </div>
-                    <div class="contactsss">
-                        <div class="otherss">
-                            <ul>
-                                <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
-                                <li id="phone">09020563110</li>
-                            </ul>
-                        </div>
-                        <div class="otherss">
-                            <ul>
-                                <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
-                                <li id="whatsapp">09020563110</li>
-                            </ul>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="container" id="container"></div>
     </section>
     <hr>
     <section id="sugPresident">
-        <div class="container">
-            <div class="schoolName">
-                <h2>ND I GOVERNOR</h2>
-            </div>
-            <div>
-                <div class="otherDetails">
-                    <div class="profileImageDiv">
-                        <img src="../images/profile image.png" alt="profile image" class="profileImage" id="profileImage">
-                        <h3>Comr. <span id="name"></span></h3>
-                    </div>
-                    <div class="contactsss">
-                        <div class="otherss">
-                            <ul>
-                                <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
-                                <li id="phone">09020563110</li>
-                            </ul>
-                        </div>
-                        <div class="otherss">
-                            <ul>
-                                <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
-                                <li id="whatsapp">09020563110</li>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="container" id="containerNDI"></div>
     </section>
     <hr>
     <h1>ND I FIRST SEMESTER</h1>
@@ -201,7 +142,7 @@
                     </tr>
                     <tr>
                         <td>AGT114</td>
-                        <td>Principle of Animal Production</td>
+                        <td>Principles of Animal Production</td>
                         <td>3</td>
                     </tr>
                     <tr>
@@ -216,12 +157,846 @@
                     </tr>
                     <tr>
                         <td>GNS102</td>
-                        <td>lm lo</td>
+                        <td>Communication in English I</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>GNS111</td>
+                        <td>Citizenship Education I</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT111</td>
+                        <td>Principles of Crop Production</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT112</td>
+                        <td>Element of Agric. Economics</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>COM001</td>
+                        <td>Computer Application I</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT115</td>
+                        <td>Introduction to Agric Marketing</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT113</td>
+                        <td>Intro to Soil Science</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>EED116</td>
+                        <td>Intro to Entrepreneurship</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT117</td>
+                        <td>Farm Practice I</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>BCH111</td>
+                        <td>General Physical Chemistry</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>STP113</td>
+                        <td>Mathematics for Scientists</td>
+                        <td>2</td>
                     </tr>
                     <tr class="total">
                         <td></td>
-                        <td>TOTAL</td>
-                        <td>26</td>
+                        <td>Total</td>
+                        <td>30</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h1>ND I SECOND SEMESTER</h1>
+                <tbody>
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>AGT121</td>
+                        <td>Annual Crops</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT122</td>
+                        <td>Crop Protection</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT123</td>
+                        <td>Sheep, Goat and Swine Production</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT124</td>
+                        <td>Principles of Bee Keeping</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT126</td>
+                        <td>Micro Livestock Production</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AGT125</td>
+                        <td>Industrial Crop Production I</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>ABE123</td>
+                        <td>Principles of Irrigation & Drainage</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT129</td>
+                        <td>Farm Practice II</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT128</td>
+                        <td>Post-Harvest Technology & Biology</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>GNS202</td>
+                        <td>Communication in English II</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>GNS121</td>
+                        <td>Citizenship Education II</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>EED126</td>
+                        <td>Skill Acquisition I</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>GNS123</td>
+                        <td>Use of Library</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>STB121</td>
+                        <td>Cell Biology</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>COM122</td>
+                        <td>Intro. to Computer Operation II</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>30</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <section id="sugPresident">
+                <div class="container" id="containerNDII"></div>
+            </section>
+            <h1>ND II FIRST SEMESTER</h1>
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>ABE214</td>
+                        <td>Basic Workshop Practice</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT211</td>
+                        <td>Pasture and Forage Production</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT212</td>
+                        <td>Agro-Climatology</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT213</td>
+                        <td>Poultry Production</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT214</td>
+                        <td>Industrial Crop Production II</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT215</td>
+                        <td>Soil Fertility & Soil Nutrition</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AGT216</td>
+                        <td>Farm Soil Management</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AGT217</td>
+                        <td>Farm Practice III</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>SWS210</td>
+                        <td>SIWES</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>EED216</td>
+                        <td>Practice of Entrepreneurship</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>24</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h1>ND II SECOND SEMESTER</h1>
+            
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>ABE223</td>
+                        <td>Farm Power & Mechanization</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT223</td>
+                        <td>Genetics & Breeding</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>EED226</td>
+                        <td>Skill Acquisition II</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT225</td>
+                        <td>Beef and Dairy Production</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AGT226</td>
+                        <td>Horticultural Crop Production</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT227</td>
+                        <td>Basic Fisheries Technology</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT228</td>
+                        <td>Introduction to Animal Health</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT229</td>
+                        <td>Farm Management</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT230</td>
+                        <td>Agricultural Extension and Rural Sociology</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AGT231</td>
+                        <td>Statistical & Field Experimentation</td>
+                        <table>2</table>
+                    </tr>
+                    <tr>
+                        <td>AGT200</td>
+                        <td>Project</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>AGT230</td>
+                        <td>Farm Practice IV</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>28</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <section id="sugPresident">
+                <div class="container" id="containerHNDI"></div>
+            </section>
+            <h1>AGRICULTURAL EXTENSION AND MANAGEMENT OPTION</h1>
+            <h1>HND I FIRST SEMESTER</h1>
+            
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>AEM311</td>
+                        <td>Agricultural Mathematics</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>CPT313</td>
+                        <td>Agro Climatology</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AEM312</td>
+                        <td>Micro Economics</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM313</td>
+                        <td>Resource Economics</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM314</td>
+                        <td>Extension Methods</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AEM315</td>
+                        <td>Tree Crops</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM316</td>
+                        <td>General Farm Practice I</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CPT315</td>
+                        <td>Agricultural Entomology</td>
+                        <table>3</table>
+                    </tr>
+                    <tr>
+                        <td>AEM317</td>
+                        <td>Non-Ruminant Animals</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GS301</td>
+                        <td>USe of English III</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>EED316</td>
+                        <td>Entrepreneurship Dev. III</td>
+                        <table>2</table>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>28</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h1>HND I SECOND SEMESTER</h1>
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>AGR302</td>
+                        <td>Field Experimentation ad Data Analysis</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AGR303</td>
+                        <td>Farm Management</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGT401</td>
+                        <td>Research Methods</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGR304</td>
+                        <td>Annual Crops</td>
+                            <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM321</td>
+                        <td>Ruminant Animals</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AEM322</td>
+                        <td>General Farm Practice II</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AEM323</td>
+                        <td>Field Trip & Seminar</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>COM311</td>
+                        <td>Computer Programming</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GNS302</td>
+                        <td>English Language & Communication</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GNS</td>
+                        <td>Physical & Health Education</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>EED326</td>
+                        <td>Entrepreneurship Dev. IV</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>28</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <section id="sugPresident">
+                <div class="container" id="containerHNDII"></div>
+            </section>
+            <h1>AGRICULTURAL EXTENSION AND MANAGEMENT OPTION</h1>
+            <h1>HND II FIRST SEMESTER</h1>
+            
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>AGR402</td>
+                        <td>Agric Personnel Management</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM431</td>
+                        <td>Macro Economics</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM432</td>
+                        <td>Agricultural Business Law</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM433</td>
+                        <td>Farm Record & Accounting</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM434</td>
+                        <td>Farm Business Organization</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AEM435</td>
+                        <td>Agricultural Marketing</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM436</td>
+                        <td>Extension Programme Planning & Evaluation</td>
+                        <table>2</table>
+                    </tr>
+                    <tr>
+                        <td>CPT441</td>
+                        <td>Produce/Post-Harvest Mgt.</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>EED416</td>
+                        <td>Entrepreneurship Development I</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h1>HND II SECOND SEMESTER</h1>
+        
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>AEM441</td>
+                        <td>Agricultural Cooperatives</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM422</td>
+                        <td>Agricultural Development Policy</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM443</td>
+                        <td>Farm Planning</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM444</td>
+                        <td>Extension Admin. & Operation</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM445</td>
+                        <td>General Farm Mechanization</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AEM446</td>
+                        <td>Rural Sociology</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM447</td>
+                        <td>Seminar</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AEM448</td>
+                        <td>Project</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>EED426</td>
+                        <td>Entrepreneurship Development</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>22</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <section id="sugPresident">
+                <div class="container" id="animalProductioncontainerHNDI"></div>
+            </section>
+            <h1>ANIMAL PRODUCTION OPTION</h1>
+            <h1>HND I FIRST SEMESTER</h1>
+            
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>STC222</td>
+                        <td>Introduction to Biochemistry</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>STB211</td>
+                        <td>Introductory Microbiology</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AGR312</td>
+                        <td>Animal Crops</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT311</td>
+                        <td>Animal Farm Mechanization/td>
+                            <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT312</td>
+                        <td>Genetics and Animal Breeding</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT313</td>
+                        <td>Animal Anatomy</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT314</td>
+                        <td>Animal Physiology</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT315</td>
+                        <td>Livestock Practice I</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GNS301</td>
+                        <td>Use of English III</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>EED316</td>
+                        <td>Entrepreneurship Development III</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>24</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h1>HND I SECOND SEMESTER</h1>
+        
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>APT320</td>
+                        <td>Agricultural Biochemistry</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AGR302</td>
+                        <td>Field Experimentation and Data Analysis</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>AGR303</td>
+                        <td>Farm Management</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT321</td>
+                        <td>Livestock Practice II</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT322</td>
+                        <td>Animal Nutrition</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT323</td>
+                        <td>Sheep and Goat Production</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT324</td>
+                        <td>Mini-Livestock Production</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>GNS302</td>
+                        <td>English Language and Communication</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM314</td>
+                        <td>Extension Methods</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>EED326</td>
+                        <td>Entrepreneurship Development IV</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>23</td>
+                    </tr>
+                </tbody>
+            </table>
+            <section id="sugPresident">
+                <div class="container" id="animalProductioncontainerHNDII"></div>
+            </section>
+            <h1>ANIMAL PRODUCTION OPTION HNDII</h1>
+            <h1>HND II FIRST SEMESTER</h1>
+            
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>APT431</td>
+                        <td>Farm Animal Parasitology</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT432</td>
+                        <td>Pasture & Range Management</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT433</td>
+                        <td>Poultry Production</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT434</td>
+                        <td>Swine Production</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT435</td>
+                        <td>Hides & Skin Improvement</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>AEM446</td>
+                        <td>Rural Sociology</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>FIT435</td>
+                        <td>Fish Farm Engineering & Mgt. II</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>GNS401</td>
+                        <td>Adv. Communication in English</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>COM311</td>
+                        <td>Computer Appreciation & Application</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>EED416</td>
+                        <td>Entrepreneurship Development I</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>25</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h1>HND II SECOND SEMESTER</h1>
+        
+            <table class="NdOne">
+                <tbody>
+                    <tr class="titleBorder">
+                        <td>Course Code</td>
+                        <td>Course Title</td>
+                        <td>Unit</td>
+                    </tr>
+                    <tr>
+                        <td>APT441</td>
+                        <td>Applied Animal Nutrition</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT442</td>
+                        <td>Beef Cattle Production</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT443</td>
+                        <td>Farm Animal Disease</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>APT444</td>
+                        <td>Animal Products Processing & Hygiene</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT445</td>
+                        <td>Diary Cattle Production</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>APT450</td>
+                        <td>Seminar</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>APT451</td>
+                        <td>Project</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>AGR402</td>
+                        <td>Agricultural Personnel Management</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>EED426</td>
+                        <td>Entrepreneurship Development</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total</td>
+                        <td>25</td>
                     </tr>
                 </tbody>
             </table>
@@ -242,6 +1017,350 @@
             <i class="fa-brands fa-telegram" id="telegram" style="font-size: 25px; margin: 10px;"></i>
            </div>
     </footer>
-                    <script type="module" src="../newprofile.js"></script>
+    <script type="module" src="../newprofile.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+        authDomain: "school-newusersign.firebaseapp.com",
+        projectId: "school-newusersign",
+        storageBucket: "school-newusersign.appspot.com",
+        messagingSenderId: "382800829354",
+        appId: "1:382800829354:web:145aeb3f8e346c016129d3"
+        };
+
+        let deanDetail = document.getElementById('deanDetail')
+        let hodDetails = document.getElementById('hodDetails')
+        let deptPresident = document.getElementById('container')
+        let containerNDI = document.getElementById('containerNDI')
+        let containerNDII = document.getElementById('containerNDII')
+        let containerHNDI = document.getElementById('containerHNDI')
+        let containerHNDII = document.getElementById('containerHNDII')
+        let animalProductioncontainerHNDI = document.getElementById('animalProductioncontainerHNDI')
+        let animalProductioncontainerHNDII = document.getElementById('animalProductioncontainerHNDII')
+
+
+        // FUNCTION TO DISPLAY THE DEAN'S DETAILS
+        async function displayDeanDetails(){
+            var ref = doc(db, "DeanDetails", "AGRICDean")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                    <div class="Dean-Picture">
+                        <img src="${doc.data().PhotoURL}" id="deanImage" alt="Dean of School of Engineering" width="50px" id="deanPicture">
+                        <h2 id="deanName">${docSnap.data().deanName}</h2>
+                    </div>
+                    `
+                deanDetail.appendChild(newDiv)
+            }
+        }
+        displayDeanDetails()
+
+            // FUNCTION TO DISPLAY THE HOD'S DETAILS
+        async function displayHodDetails(){
+            var ref = doc(db, "HodDetails", "agricTechHOD")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                    <div class="Dean-Picture">
+                        <img src="${doc.data().PhotoURL}" id="deanImage" alt="Dean of School of Engineering" width="50px" id="deanPicture">
+                        <h2 id="deanName">${docSnap.data().HODName}</h2>
+                    </div>
+                    `
+                    hodDetails.appendChild(newDiv)
+            }
+        }
+
+        displayHodDetails()
+
+        // FUNCTION TO DISPLAY THE DEPARTMENTAL PRESIDENT'S DETAILS
+        async function displayPresidentDetails(){
+            var ref = doc(db, "DEPARTMENT-PRESIDENT", "agricTechPresident")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                        <div class="schoolName">
+                            <h2>AGRICULTURAL TECHNOLOGY PRESIDENT</h2>
+                        </div>
+                        <div>
+                            <div class="otherDetails">
+                                <div class="profileImageDiv">
+                                    <img src${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="profileImage">
+                                    <h3>Comr. <span id="name">${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                                </div>
+                                <div class="contactsss">
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                                            <li id="phone">${doc.data().Phone}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                                            <li id="whatsapp">${doc.data().Whatsapp}</li>
+                                        </ul>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    `
+                    deptPresident.appendChild(newDiv)
+            }
+        }
+        displayPresidentDetails()
+
+        // FUNCTION TO DISPLAY NDI GOVERNOR'S DETAILS
+        async function displayNdIGovDetails(){
+            var ref = doc(db, "GOVERNORS", "agricTechNDIGovernor")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                        <div class="schoolName">
+                            <h2>AGRIC TECH NDI GOVERNOR</h2>
+                        </div>
+                        <div>
+                            <div class="otherDetails">
+                                <div class="profileImageDiv">
+                                    <img src${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="profileImage">
+                                    <h3>Comr. <span id="name">${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                                </div>
+                                <div class="contactsss">
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                                            <li id="phone">${doc.data().Phone}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                                            <li id="whatsapp">${doc.data().Whatsapp}</li>
+                                        </ul>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    `
+                    containerNDI.appendChild(newDiv)
+            }
+        }
+        displayNdIGovDetails()
+
+
+        // FUNCTION TO DISPLAY NDII GOVERNOR'S DETAILS
+        async function displayNdIIGovDetails(){
+            var ref = doc(db, "GOVERNORS", "agricTechNDIIGovernor")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                        <div class="schoolName">
+                            <h2>AGRIC TECH NDII GOVERNOR</h2>
+                        </div>
+                        <div>
+                            <div class="otherDetails">
+                                <div class="profileImageDiv">
+                                    <img src${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="profileImage">
+                                    <h3>Comr. <span id="name">${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                                </div>
+                                <div class="contactsss">
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                                            <li id="phone">${doc.data().Phone}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                                            <li id="whatsapp">${doc.data().Whatsapp}</li>
+                                        </ul>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    `
+                    containerNDII.appendChild(newDiv)
+            }
+        }
+        displayNdIIGovDetails()
+        
+        // FUNCTION TO DISPLAY HNDI GOVERNOR'S DETAILS
+        async function agricTechExtensionHNDI(){
+            var ref = doc(db, "GOVERNORS", "agricTechExtensionHNDIGovernor")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                        <div class="schoolName">
+                            <h2>AGRICULTURAL EXTENSION HNDI GOVERNOR</h2>
+                        </div>
+                        <div>
+                            <div class="otherDetails">
+                                <div class="profileImageDiv">
+                                    <img src${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="profileImage">
+                                    <h3>Comr. <span id="name">${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                                </div>
+                                <div class="contactsss">
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                                            <li id="phone">${doc.data().Phone}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                                            <li id="whatsapp">${doc.data().Whatsapp}</li>
+                                        </ul>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    `
+                    containerHNDI.appendChild(newDiv)
+            }
+        }
+        agricTechHNDI()
+
+        // FUNCTION TO DISPLAY HNDII GOVERNOR'S DETAILS
+        async function agricTechHNDII(){
+            var ref = doc(db, "GOVERNORS", "agricTechExtensionHNDIIGovernor")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                        <div class="schoolName">
+                            <h2>AGRICULTURAL EXTENSION HNDII GOVERNOR</h2>
+                        </div>
+                        <div>
+                            <div class="otherDetails">
+                                <div class="profileImageDiv">
+                                    <img src${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="profileImage">
+                                    <h3>Comr. <span id="name">${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                                </div>
+                                <div class="contactsss">
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                                            <li id="phone">${doc.data().Phone}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                                            <li id="whatsapp">${doc.data().Whatsapp}</li>
+                                        </ul>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    `
+                    containerHNDII.appendChild(newDiv)
+            }
+        }
+        agricTechHNDII()
+
+
+        // FUNCTION TO DISPLAY HNDI GOVERNOR'S DETAILS
+        async function animalProductionHNDI(){
+            var ref = doc(db, "GOVERNORS", "agricTechAnimalProductionHNDIGovernor")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                        <div class="schoolName">
+                            <h2>ANIMAL PRODUCTION HNDI GOVERNOR</h2>
+                        </div>
+                        <div>
+                            <div class="otherDetails">
+                                <div class="profileImageDiv">
+                                    <img src${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="profileImage">
+                                    <h3>Comr. <span id="name">${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                                </div>
+                                <div class="contactsss">
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                                            <li id="phone">${doc.data().Phone}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                                            <li id="whatsapp">${doc.data().Whatsapp}</li>
+                                        </ul>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    `
+                    animalProductioncontainerHNDI.appendChild(newDiv)
+            }
+        }
+        animalProductionHNDI()
+
+        // FUNCTION TO DISPLAY HNDII GOVERNOR'S DETAILS
+        async function animalProductionHNDII(){
+            var ref = doc(db, "GOVERNORS", "agricTechAnimalProductionHNDIIGovernor")
+            const docSnap = await getDoc(ref)
+            if(docSnap.exists()){
+                console.log(docSnap.data())
+                var newDiv = document.createElement('div')
+                newDiv.innerHTML = `
+                        <div class="schoolName">
+                            <h2>ANIMAL PRODUCTION HNDII GOVERNOR</h2>
+                        </div>
+                        <div>
+                            <div class="otherDetails">
+                                <div class="profileImageDiv">
+                                    <img src${doc.data().PhotoURL}" alt="profile image" class="profileImage" id="profileImage">
+                                    <h3>Comr. <span id="name">${doc.data().FirstName}  ${doc.data().LastName}</span></h3>
+                                </div>
+                                <div class="contactsss">
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa fa-phone" style="font-size: 25px; color: blue;"></i></li>
+                                            <li id="phone">${doc.data().Phone}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="otherss">
+                                        <ul>
+                                            <li><i class="fa-brands fa-whatsapp" style="font-size: 25px; color: green;"></i></li>
+                                            <li id="whatsapp">${doc.data().Whatsapp}</li>
+                                        </ul>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    `
+                    animalProductioncontainerHNDII.appendChild(newDiv)
+            }
+        }
+        animalProductionHNDII()
+</script>
 </body>
 </html>
