@@ -58,7 +58,84 @@
         padding: 5px 20px;
         font-size: 15px;
     }
-    
+
+    /* NEW CHANGES */
+    .marketNav{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .productShop{
+        display: flex;
+        gap: 10px;
+    }
+
+    .productShop p{
+        background-color: #947C9C;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid white;
+        outline: 2px solid  #947C9C;
+        cursor: pointer;
+    }
+    .productShop p a{
+        text-decoration: none;
+        color: white;
+    }
+
+    #products h1{
+        text-align: center;
+        text-align-last: center;
+        background-color: #947C9C;
+        color: white;
+        font-size: 27px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #947C9C;
+        color: white;
+        padding: 5px;
+    }
+    .imageDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .imageDiv img{
+        width: 430px;
+    }
+    .productAndOthers{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    .productAndOthers h3{
+        font-size: 25px;
+    }
+    .productAndOthers p{
+        font-size: 20px;
+    }
+    .productAndOthers .lastLAst{
+        display: block;
+        width: 80vw;
+        background-color: red;
+        padding: 10px;
+    }
 }
 @media only screen and (min-width: 475px){
     .container{
@@ -111,6 +188,84 @@
         list-style-type: none;
         padding: 5px 20px;
         font-size: 20px;
+    }
+
+    .marketNav{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .productShop{
+        display: flex;
+        gap: 10px;
+    }
+
+    .productShop p{
+        background-color: #947C9C;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid white;
+        outline: 2px solid  #947C9C;
+        cursor: pointer;
+    }
+    .productShop p a{
+        text-decoration: none;
+        color: white;
+    }
+
+    #products h1{
+        text-align: center;
+        text-align-last: center;
+        background-color: #947C9C;
+        color: white;
+        font-size: 27px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #947C9C;
+        color: white;
+        padding: 5px;
+        margin: 10px;
+    }
+    .imageDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .imageDiv img{
+        width: 430px;
+    }
+    .productAndOthers{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    .productAndOthers h3{
+        font-size: 25px;
+    }
+    .productAndOthers p{
+        font-size: 20px;
+    }
+    .productAndOthers .lastLAst{
+        display: block;
+        width: 80vw;
+        background-color: red;
+        padding: 10px;
     }
     
 }

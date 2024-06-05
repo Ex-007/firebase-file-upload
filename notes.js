@@ -1,25 +1,23 @@
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    
+        const firebaseConfig = {
+        apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
+        authDomain: "school-newusersign.firebaseapp.com",
+        projectId: "school-newusersign",
+        storageBucket: "school-newusersign.appspot.com",
+        messagingSenderId: "382800829354",
+        appId: "1:382800829354:web:145aeb3f8e346c016129d3"
+        };
+    
+const app = initializeApp(firebaseConfig);
+import{getFirestore, onSnapshot, doc, getDoc, getDocs, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, query, where} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";;
+import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+    let db = getFirestore()
+    let auth = getAuth()
 
-
-
-//CHANGING THE THEME COLOR
-// let bodyColor = document.getElementById('bodyColor')
-// let changeThemeColor = document.getElementById('changeThemeColor')
-// changeThemeColor.addEventListener('click', () => {
-//     if(bodyColor.style.backgroundColor == 'white'){
-//         bodyColor.style.backgroundColor = 'black'
-//         changeThemeColor.textContent = 'white'
-//         changeThemeColor.style.backgroundColor = 'white'
-//         changeThemeColor.style.color = 'black'
-//         saveData()
-//     }else{
-//         bodyColor.style.backgroundColor = 'white'
-//         changeThemeColor.textContent = 'Dark'
-//         changeThemeColor.style.backgroundColor = 'black'
-//         changeThemeColor.style.color = 'white'
-//         saveData()
-//     }
-// })
+    let currentUser = null;
+    let unsubscribe = null;
 
 // THE RESIZING OF THE TEXTAREA
 
@@ -31,95 +29,123 @@ textAreaText.addEventListener('input', () => {
 
 
 // THE LISTING ENVIROMENT
-let headTitle = document.getElementById('headTitle')
-let listing = document.getElementById('listing')
 let logBtn = document.getElementById('logBtn')
-let newListing = document.getElementById('newListing')
+let incomingOne = document.getElementById('incomingOne')
+let noteTitleIn = document.getElementById('noteTitle')
 
-// logBtn.addEventListener('click', () => {
-//     let textInput = textAreaText.value
-//     let headTitleInput = headTitle.value
-//     if(textInput == '' || headTitleInput == ''){
-//         alert('please input a value')
-//     }else{
-//         let div = document.createElement('div')
-
-//         let newLi = document.createElement('li')
-//         let textTitle = document.createElement('li')
-
-//         let span = document.createElement('span')
-//         span.setAttribute('class', 'spanEdit')
-
-//         newLi.textContent = textInput
-//         textTitle.textContent = headTitleInput
-
-//         span.innerHTML = '\u00d7'
-//         newLi.appendChild(span);;
-
-//         div.append(textTitle, newLi)
-//         newListing.appendChild(div)
-
-//         textAreaText.value = ''  
-//         textAreaText.setAttribute('class', 'change')
-//     }
-//     saveData()
-// })
-
-
-logBtn.addEventListener('click', () => {
-    let textInput = textAreaText.value
-    if(textInput == ''){
-        alert('please input a value')
-    }else{
-        let newLi = document.createElement('li')
-        let span = document.createElement('span')
-        span.setAttribute('class', 'spanEdit')
-        newLi.textContent = textInput
-        span.innerHTML = '\u00d7'
-        newLi.appendChild(span);;
-        newListing.appendChild(newLi)
-        textAreaText.value = ''  
-        textAreaText.setAttribute('class', 'change')
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      currentUser = user.uid;
+      startListeningForNotes();
+    //   console.log(currentUser);
+    } else {
+    //   console.log("You're not logged in");
+      stopListeningForNotes()
+      window.location.href = 'index.html'
     }
-    saveData()
-})
+  });
 
-//TARGETTING THE DELETE BUTTON
-// newListing.addEventListener('click', (e) => {
-//     if (e.target.tagName === 'LI'){
-//         // e.target.style.backgroundColor = 'blue'
-//         e.target.style.textDecoration = 'line-through'
-//         saveData()
-//     }else if(e.target.tagName === 'SPAN'){
-//         e.target.parentElement.remove()
-//         saveData()
-//     }
-// })
-
-newListing.addEventListener('click', (e) => {
-    if (e.target.tagName === 'LI'){
-        // e.target.style.backgroundColor = 'blue'
-        e.target.style.backgroundColor = 'blue'
-        saveData()
-    } else{
-        e.target.style.backgroundColor = 'green'
+  const dateAndTimeOfBlog = new Date().toLocaleString('en-NG', {timeZone: 'Africa/Lagos'});
+  
+  async function saveNoteToFirestore() {
+    try {
+      const titleIn = noteTitleIn.value.trim(); // Trim leading/trailing spaces
+      const contentIn = textAreaText.value.trim();
+  
+      if (!titleIn || !contentIn) {
+        alert("Please enter both a title and content for your note!");
+        return;
+      }
+  
+      // Reference to the subcollection "NOTES" under the current user
+      const notesRef = collection(db, "USERS", currentUser, "NOTES");
+  
+      // Add a new document with auto-generated ID
+      await addDoc(notesRef, {
+        title: titleIn,
+        content: contentIn,
+        timeStamp : dateAndTimeOfBlog
+      });
+  
+      noteTitleIn.value = "";
+      textAreaText.value = "";
+  
+    //   console.log("Note saved successfully!");
+    } catch (error) {
+      console.error("Error saving note:", error);
     }
-    
-    if(e.target.tagName === 'SPAN'){
-        e.target.parentElement.remove()
-        saveData()
+  }
+
+  logBtn.addEventListener('click', saveNoteToFirestore)
+
+
+
+
+
+
+
+
+
+
+//   FUNCTION TO RETRIEVE AND DISPLAT NOTES WITH REAL-TIME UPDATE
+function startListeningForNotes() {
+    if (!currentUser) {
+      console.error("User not logged in, cannot listen for notes.");
+      return;
     }
-})
+  
+    const notesRef = collection(db, "USERS", currentUser, "NOTES");
+    unsubscribe = onSnapshot(notesRef, (querySnapshot) => {
+        incomingOne.innerHTML = ""; // Clear existing content (optional)
+  
+      querySnapshot.forEach((docume) => {
+        const noteData = docume.data();
+        const noteElement = document.createElement('div');
+        noteElement.classList.add('incomingTwo');
+  
+        // Display title and content (modify based on your UI needs)
+        noteElement.innerHTML = `
 
-//SAVING TO LOCAL STORAGE
-function saveData(){
-    localStorage.setItem('myData', newListing.innerHTML)
-    localStorage.setItem('myColor', bodyColor.style.backgroundColor)
-}
+        <div class="innerOne">
+            <h3>${noteData.title}</h3>
+            <p>${noteData.content}</p>
+        </div>
+        <div class="innerTwo">
+            <p>${noteData.timeStamp}</p>
+            <span data-doc-id="${docume.id}" class="delete">delete</span>
+        </div>
 
-//SHOWING LOCAL STORAGE DATA
-function showData(){
-    newListing.innerHTML = localStorage.getItem('myData')
-    bodyColor.style.backgroundColor = localStorage.getItem('myColor')
-}
-showData()
+        `;
+        //   <h2>${noteData.title}</h2>
+        //   <p>${noteData.content}</p>
+        //   <div class="note-buttons">
+        //     <button data-doc-id="${docume.id}" class="delete">Delete</button>
+        //   </div>
+  
+        incomingOne.appendChild(noteElement);
+  
+        // Add event listener for delete button
+        noteElement.querySelector('.delete').addEventListener('click', async (event) => {
+          const docId = event.target.dataset.docId;
+          console.log("Delete note:", docId);
+  
+          try {
+            // Create a reference to the specific note document
+            const noteRef = doc(db, "USERS", currentUser, "NOTES", docId);
+            await deleteDoc(noteRef);
+            alert("Note deleted successfully!");
+          } catch (error) {
+            console.error("Error deleting note:", error);
+            alert("Error deleting note!");
+          }
+        });
+      });
+    });
+  }
+  
+  function stopListeningForNotes() {
+    if (unsubscribe) {
+      unsubscribe(); // Unsubscribe from the snapshot listener
+      unsubscribe = null;
+    }
+  }

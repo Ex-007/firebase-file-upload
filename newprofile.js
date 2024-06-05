@@ -67,9 +67,13 @@ let headerTwoNav = document.getElementById('headerTwoNav')
     const docSnap = await getDoc(ref)
     if(docSnap.exists()){
       let usernamed = document.getElementById('usernamed')
+      let profilePicture = document.getElementById('userImage')
+
       let FirstName = docSnap.data().Firstname
       let Lastname = docSnap.data().Lastname
+      let profilePictureData = docSnap.data().profilePicture
 
+      profilePicture.src = profilePictureData
       usernamed.textContent = FirstName + " " + Lastname
 
         console.log(docSnap.data())

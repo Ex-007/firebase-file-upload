@@ -2446,6 +2446,352 @@ SiwesRead.addEventListener('click', readForSiwes)
     SiwesDelete.addEventListener('click', deleteForSiwes)
 
 
+        // FOR UPCOMING EVENTS
+        let eventName = document.getElementById('eventName')
+        let eventDate = document.getElementById('eventDate')
+        let eventDescription = document.getElementById('eventDescription')
+        let eventWrite = document.getElementById('eventWrite')
+        let eventUpdate = document.getElementById('eventUpdate')
+        let eventRead = document.getElementById('eventRead')
+        let eventDelete = document.getElementById('eventDelete')
+    
+    
+        // WRITE FOR UPCOMING EVENTS
+    async function writeForEvents(){
+        let eventNameIn = eventName.value
+        let eventDateIn = eventDate.value
+        let eventDescriptipnIn = eventDescription.value
+     
+        if(eventNameIn == '' || eventDateIn == '' || eventDescriptipnIn == ''){
+            alert('please fill all empty spaces')
+        }else{
+            var ref = doc(db, "upcomingEvent", eventNameIn)
+            const docRef = await setDoc(ref, {
+                eventNameIn : eventNameIn,
+                eventDateIn : eventDateIn,
+                eventDescriptipnIn : eventDescriptipnIn,
+            })
+            .then(() => {
+                alert("Uploading Successful")
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            eventNameIn.value = ''
+            eventDateIn.value = ''
+            eventDescriptipnIn.value = ''
+        }
+    }
+    eventWrite.addEventListener('click', writeForEvents)
+    
+    
+    // UPDATE FOR UPCOMING EVENTS
+    async function updateForEvents(){
+    
+        let eventNameIn = eventName.value
+        let eventDateIn = eventDate.value
+        let eventDescriptipnIn = eventDescription.value
+    
+        var ref = doc(db, "upcomingEvent", eventNameIn)
+        await updateDoc(ref, {
+            eventNameIn : eventNameIn,
+            eventDateIn : eventDateIn,
+            eventDescriptipnIn : eventDescriptipnIn,
+        })
+        .then(() => {
+            alert('Updated Successfully')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+        eventNameIn.value = ''
+        eventDateIn.value = ''
+        eventDescriptipnIn.value = ''
+    }
+    eventUpdate.addEventListener('click', updateForEvents)
+    
+    
+    // READ FOR UPCOMING EVENTS
+    async function readForEvent(){
+    
+        let eventNameIn = eventName.value
+    
+        var ref = doc(db, "upcomingEvent", eventNameIn)
+        const docSnap = await getDoc(ref)
+        if(docSnap.exists()){
+            // console.log(docSnap.data())
+            eventName.value = docSnap.data().eventNameIn,
+            eventDate.value = docSnap.data().eventDateIn ,
+            eventDescription.value = docSnap.data().eventDescriptipnIn
+        }else{
+            alert('data does not exist')
+        }
+    }
+    eventRead.addEventListener('click', readForEvent)
+    
+    // DELETE FOR UPCOMING EVENTS
+        async function deleteForEvent(){
+            let eventNameIn = eventName.value
+            var ref = doc(db, "upcomingEvent", eventNameIn)
+            const docSnap = await getDoc(ref)
+            if(!docSnap.exists()){
+                alert('No such Document')
+            }
+            await deleteDoc(ref)
+            .then(() => {
+                alert('Document Deleted')
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+            eventName.value = ''
+            eventDate.value = ''
+            eventDescription.value = ''
+        }
+    
+        eventDelete.addEventListener('click', deleteForEvent)
 
 
+        // FOR SCHOLARSHIP
+        let schorlarshipName = document.getElementById('schorlarshipName')
+        let schorlarshipDate = document.getElementById('schorlarshipDate')
+        let schorlarshipDescription = document.getElementById('schorlarshipDescription')
+        let schorlarshipLink = document.getElementById('schorlarshipLink')
+        let schorlarshipWrite = document.getElementById('schorlarshipWrite')
+        let schorlarshipUpdate = document.getElementById('schorlarshipUpdate')
+        let schorlarshipRead = document.getElementById('schorlarshipRead')
+        let schorlarshipDelete = document.getElementById('schorlarshipDelete')
+    
+    
+        // WRITE FOR SCHOLARSHIP
+    async function writeForSchorlarship(){
+        let schorlarshipNameIn = schorlarshipName.value
+        let schorlarshipDateIn = schorlarshipDate.value
+        let schorlarshipDescriptionIn = schorlarshipDescription.value
+        let schorlarshipLinkIn = schorlarshipLink.value
+     
+        if(schorlarshipNameIn == '' || schorlarshipDateIn == '' || schorlarshipDescriptionIn == '' || schorlarshipLinkIn == ''){
+            alert('please fill all empty spaces')
+        }else{
+            var ref = doc(db, "SCHOLARSHIP", schorlarshipNameIn)
+            const docRef = await setDoc(ref, {
+                schorlarshipNameIn : schorlarshipNameIn,
+                schorlarshipLink : schorlarshipLink,
+                schorlarshipDescriptionIn : schorlarshipDescriptionIn,
+                schorlarshipDate : schorlarshipDate,
+            })
+            .then(() => {
+                alert("Uploading Successful")
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            schorlarshipNameIn.value = ''
+            schorlarshipDateIn.value = ''
+            schorlarshipDescriptionIn.value = ''
+            schorlarshipLinkIn.value = ''
+        }
+    }
+    schorlarshipWrite.addEventListener('click', writeForSchorlarship)
+    
+    
+    // UPDATE FOR SCHOLARSHIP
+    async function updateForScholarship(){
+    
+        let schorlarshipNameIn = schorlarshipName.value
+        let schorlarshipDateIn = schorlarshipDate.value
+        let schorlarshipDescriptionIn = schorlarshipDescription.value
+        let schorlarshipLinkIn = schorlarshipLink.value
+    
+        var ref = doc(db, "SCHOLARSHIP", schorlarshipNameIn)
+        await updateDoc(ref, {
+            schorlarshipNameIn : schorlarshipNameIn,
+            schorlarshipDateIn : schorlarshipDateIn,
+            schorlarshipDescriptionIn : schorlarshipDescriptionIn,
+            schorlarshipLinkIn : schorlarshipLinkIn,
+        })
+        .then(() => {
+            alert('Updated Successfully')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+        schorlarshipNameIn.value = ''
+        schorlarshipDateIn.value = ''
+        schorlarshipDescriptionIn.value = ''
+        schorlarshipLinkIn.value = ''
+    }
+    schorlarshipUpdate.addEventListener('click', updateForScholarship)
+    
+    
+    // READ FOR SCHOLARSHIP
+    async function readForScholarship(){
+    
+        let schorlarshipNameIn = schorlarshipName.value
+    
+        var ref = doc(db, "SCHOLARSHIP", schorlarshipNameIn)
+        const docSnap = await getDoc(ref)
+        if(docSnap.exists()){
+            // console.log(docSnap.data())
+            schorlarshipName.value = docSnap.data().eventNameIn,
+            schorlarshipDate.value = docSnap.data().eventDateIn ,
+            schorlarshipDescription.value = docSnap.data().eventDescriptipnIn
+            schorlarshipLink.value = docSnap.data().schorlarshipLinkIn
+        }else{
+            alert('data does not exist')
+        }
+    }
+    schorlarshipRead.addEventListener('click', readForScholarship)
+    
+    // DELETE FOR SCHOLARSHIP
+        async function deleteForscholarship(){
+            let schorlarshipNameIn = schorlarshipName.value
+            var ref = doc(db, "SCHOLARSHIP", schorlarshipNameIn)
+            const docSnap = await getDoc(ref)
+            if(!docSnap.exists()){
+                alert('No such Document')
+            }
+            await deleteDoc(ref)
+            .then(() => {
+                alert('Document Deleted')
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+            schorlarshipName.value = ''
+            schorlarshipDate.value = ''
+            schorlarshipDescription.value = ''
+            schorlarshipLink.value = ''
+        }
+    
+        schorlarshipDelete.addEventListener('click', deleteForscholarship)
+
+        // FOR PRODUCT PAGE
+    let productNameIn = document.getElementById('productName')
+    let productPriceIn = document.getElementById('productPrice')
+    let productDescriptionIn = document.getElementById('productDescription')
+    let productImageIn = document.getElementById('productImage')
+    let productContactIn = document.getElementById('productContact')
+    let productWrite = document.getElementById('productWrite')
+    let productUpdate = document.getElementById('productUpdate')
+    let productRead = document.getElementById('productRead')
+    let productDelete = document.getElementById('productDelete')
+
+    async function writeForProduct() {
+        let productName = productNameIn.value
+        let productPrice = productPriceIn.value
+        let productDescription = productDescriptionIn.value
+        let productContact = productContactIn.value
+
+        if (productName == '' || productPrice == '' || productDescription == '' || productContact == '') {
+            alert('Please fill all empty spaces');
+        } else {
+            let file = productImageIn.files[0];
+            var fileName = file.name;
+
+            const storageRef = ref(storage, 'PRODUCTS/' + fileName);
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on('state_changed', (snapshot) => {
+                console.log(snapshot);
+            }, (error) => {
+                console.log(error);
+            }, async () => {
+                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+                const ref = doc(db, "PRODUCTS", productName);
+                await setDoc(ref, {
+                    productName: productName,
+                    productPrice: productPrice,
+                    productDescription: productDescription,
+                    productContact: productContact,
+                    productImage: downloadURL,  
+                });
+
+                alert("Uploading Successful");
+                clearFormFpasu();
+            });
+        }
+    }
+
+    function clearFormFpasu() {
+        // Clear form fields after successful upload
+        productNameIn.value = ''
+        productPriceIn.value = ''
+        productDescriptionIn.value = ''
+        productContactIn.value = ''
+    }
+
+    productWrite.addEventListener('click', writeForProduct);
+
+
+    // UPDATE FOR PRODUCT
+    async function updateForProduct(){
+
+        let productName = productNameIn.value
+        let productPrice = productPriceIn.value
+        let productDescription = productDescriptionIn.value
+        let productContact = productContactIn.value
+
+        var ref = doc(db, "PRODUCTS", productName)
+        await updateDoc(ref, {
+            productName: productName,
+            productPrice: productPrice,
+            productDescription: productDescription,
+            productContact: productContact,
+            // productImage: downloadURL,
+        })
+        .then(() => {
+            alert('Updated Successfully')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+        productNameIn.value = ''
+        productPriceIn.value = ''
+        productDescriptionIn.value = ''
+        productContactIn.value = ''
+    }
+    productUpdate.addEventListener('click', updateForProduct)
+
+
+    // READ FOR PRODUCT
+    async function readForProduct(){
+
+        let productName = productNameIn.value
+        var ref = doc(db, "PRODUCTS", productName)
+        const docSnap = await getDoc(ref)
+        if(docSnap.exists()){
+            // console.log(docSnap.data())
+            productNameIn.value = docSnap.data().productName
+            productPriceIn.value = docSnap.data().productPrice
+            productDescriptionIn.value = docSnap.data().productDescription
+            productContactIn.value = docSnap.data().productContact
+            let photoSee = docSnap.data().productImage
+
+            console.log(photoSee)
+        }else{
+            alert('Product does not exist')
+        }
+    }
+    productRead.addEventListener('click', readForProduct)
+
+    // DELETE FOR PRODUCT
+        async function deleteForProduct(){
+            let productName = productNameIn.value
+            var ref = doc(db, "PRODUCTS", productName)
+            const docSnap = await getDoc(ref)
+            if(!docSnap.exists()){
+                alert('No such Document')
+            }
+            await deleteDoc(ref)
+            .then(() => {
+                alert('Product Deleted')
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+        }
+
+        productDelete.addEventListener('click', deleteForProduct)
 

@@ -15,6 +15,11 @@
     .navigation{
         display: flex;
     }
+    #userImage{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+    }
     .navigation ul{
         display: flex;
         justify-content: center;
@@ -399,7 +404,11 @@
     .headerTwoNav{
         display: none;
     }
-    
+    #userImage{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+    }
     .header{
         display: flex;
         justify-content: space-between;

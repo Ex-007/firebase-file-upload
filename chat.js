@@ -37,8 +37,11 @@
     if(docSnap.exists()){
       sender = docSnap.data().Username
       let chatOwner = document.getElementById('chatOwner')
+      let profilePicture = document.getElementById('profileImage')
       chatOwner.textContent = sender
-        console.log(docSnap.data())
+
+      profilePicture.src = docSnap.data().profilePicture
+        // console.log(docSnap.data())
     }else{
         alert('data does not exist')
     }
@@ -50,7 +53,7 @@
         if(user){
             let userId = user.uid
             logUserDetails(userId)
-            console.log(userId)
+            // console.log(userId)
         }else{
             window.location.href = 'signIn.html'
         }
@@ -81,7 +84,7 @@
             })
         }
         textArea.value = ''
-        console.log(messageValue)
+        // console.log(messageValue)
     
     })
 

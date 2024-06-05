@@ -39,26 +39,31 @@
         </div>
    </div>
 
-           <!-- LOGGING OF TEXTS -->
-           <div id="listing">
-            <ul id="newListing"></ul>
+   <div class="searchAndSort">
+        <div class="searchWrite">
+            <p><a href="#inputAndButtom">+</a></p>
+            <input type="search" id="searchBtn" placeholder="Search Note">
+            <h2>+</h2>
         </div>
+   </div>
+   <!-- INCOMING NOTES -->
+   <div class="incomingOne" id="incomingOne"></div>
 
 
 
-        <div class="inputAndButtom">
-            <textarea id="textAreaText" placeholder="Your message here"></textarea>
-            <div class="buttonDiv">
-                <!-- <button id="Send">Send</button> -->
-                <button id="logBtn"><i class="fa-regular fa-paper-plane" style="font-size: 20px;"></i></button>
-            </div>
+    <div class="inputAndButtom" id="inputAndButtom">
+        <input type="text" id="noteTitle" placeholder="Enter Note Title">
+        <textarea id="textAreaText" placeholder="Enter Note Content"></textarea>
+        <div class="buttonDiv">
+            <button id="logBtn"><i class="fa-regular fa-paper-plane" style="font-size: 20px;"></i></button>
         </div>
+    </div>
 
 
 
 
 
-    <script src="notes.js"></script>
+    <script src="notes.js" type="module"></script>
     <script type="module" src="newprofile.js"></script>
 </body>
 </html>

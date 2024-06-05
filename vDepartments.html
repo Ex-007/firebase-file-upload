@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Departments</title>
+    <style>
+        @media screen and (max-width : 475px) {
+            
+            .schools{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 20px 0;
+                background-color: #947C9C;
+                padding: 10px;
+                color: white;
+                gap: 10px;
+            }
+            .schools ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .schools ul li a{
+                color: white;
+                text-decoration: none;
+            }
+            .schools ul li{
+                list-style-type: none;
+                border: 2px solid #947C9C;
+                outline : 2px solid white;
+                padding: 7px;
+                border-radius: 10px;
+            }
+            .departmentss{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin: 10px 0;
+                border: 2px solid #947C9C;
+                padding: 10px;
+                gap: 10px;
+            }
+            .departmentss ul li a{
+                text-decoration: none;
+                color: black;
+            }
+    
+            .departmentss ul li{
+                list-style-type: none;
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .departmentss h1{
+                background-color: #947C9C;
+                color: white;
+                border: 2px solid #ffffff;
+                outline: 4px solid #947C9C;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .departmentss ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                font-size: 18px;
+            }
+        }
+        @media screen and (min-width : 475px){
+            
+            .schools{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 20px 0;
+                background-color: #947C9C;
+                padding: 10px;
+                color: white;
+                gap: 10px;
+            }
+            .schools ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .schools ul li a{
+                color: white;
+                text-decoration: none;
+            }
+            .schools ul li{
+                list-style-type: none;
+                border: 2px solid #947C9C;
+                outline : 2px solid white;
+                padding: 7px;
+                border-radius: 10px;
+            }
+            .departmentss{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin: 10px 0;
+                border: 2px solid #947C9C;
+                padding: 10px;
+                gap: 10px;
+            }
+            .departmentss ul li a{
+                text-decoration: none;
+                color: black;
+            }
+    
+            .departmentss ul li{
+                list-style-type: none;
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .departmentss h1{
+                background-color: #947C9C;
+                color: white;
+                border: 2px solid #ffffff;
+                outline: 4px solid #947C9C;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .departmentss ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+        <!-- THE NAVIGATION BAR -->
+   <div class="header">
+    <div class="logo">
+        <h3>STUDENT SUPPORT</h3>
+    </div>
+    <div class="navigation">
+        <div class="navAndPic">
+            <div class="navBar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="catalogue.html">Catalogue</a></li>
+                    <li><a href="notes.html">Note</a></li>
+                    <li><a href="./departments/marketPlace.html">Market Place</a></li>
+                    <li><a href="aboutTwo.html">About us</a></li>
+                    <li id="signOut">Sign Out</li>
+                </ul>
+            </div>
+            <div class="nameBar">
+                <h3  id="usernamed"></h3>
+            </div>
+        </div>
+        <div class="userImageAndName">
+            <img src="images/profile image.png" alt="profile picture" width="50px">
+            <!-- <h3  id="usernamed"></h3> -->
+        </div>
+    </div>
+</div>
+
+    <div class="schools">
+        <h1>SCHOOLS</h1>
+        <ul>
+            <li><a href="#schoolOfAgric">School of Agric</a></li>
+            <li><a href="#schoolOfBusiness">School of Business</a></li>
+            <li><a href="#schoolOfEngineering">School of Engineering</a></li>
+            <li><a href="#schoolOfEnvironmental">School of Environmental</a></li>
+            <li><a href="#schoolOfScience">School of Science and Computer Studies</a></li>
+        </ul>
+    </div>
+
+    <div class="departmentss" id="schoolOfAgric">
+        <h1>School of Agric</h1>
+        <ul>
+            <li><a href="./departments/agric-tech.html">Agricultural Technology</a></li>
+            <li><a href="./departments/fish-tech.html">Fisheries</a></li>
+            <li><a href="./departments/horticulture.html">Horticulture</a></li>
+        </ul>
+    </div>
+
+    <div class="departmentss" id="schoolOfBusiness">
+        <h1>School of Business</h1>
+        <ul>
+            <li><a href="./departments/accountancy.html">Accountancy</a></li>
+            <li><a href="./departments/banking-finance.html">Banking and Finance</a></li>
+            <li><a href="./departments/business-admin.html">Business Administration</a></li>
+            <li><a href="./departments/marketing.html">Marketing</a></li>
+            <li><a href="./departments/OTM.html">Office Technology Management (OTM)</a></li>
+            <li><a href="./departments/Purchasing.html">Purchasing and Supply</a></li>
+            <li><a href="./departments/taxation.html">Taxation</a></li>
+        </ul>
+    </div>
+
+    <div class="departmentss" id="schoolOEngnieering">
+        <h1>School of Engineering</h1>
+        <ul>
+            <li><a href="./departments/abesta.html">Agric and Bio-Environmental Engineering</a></li>
+            <li><a href="./departments/civil.html">Civil Engineering</a></li>
+            <li><a href="./departments/EEE.html">Electrical Electronics Engineering</a></li>
+            <li><a href="./departments/Mechanical.html">Mechanical Engineering</a></li>
+            <li><a href="./departments/mpret.html">Mineral and Petroleum Resources Technology</a></li>
+        </ul>
+    </div>
+
+    <div class="departmentss" id="schoolOfEnvironmental">
+        <h1>School of Environmental</h1>
+        <ul>
+            <li><a href="./departments/Architectural.html">Architectural</a></li>
+            <li><a href="./departments/building-tech.html">Building Technology</a></li>
+            <li><a href="./departments/estate-management.html">Estate Management</a></li>
+            <li><a href="./departments/quantity-surveying.html">Quantity Survey</a></li>
+            <li><a href="./departments/surveyi-gioinformat.html">Survey and Geo-Informatics</a></li>
+            <li><a href="./departments/Urban-region.html">Urban and Regional Planning</a></li>
+        </ul>
+    </div>
+
+    <div class="departmentss" id="schoolOfScience">
+        <h1>School of Science and Computer Studies</h1>
+        <ul>
+            <li><a href="./departments/art-industrial.html">Art and Industrial Design</a></li>
+            <li><a href="./departments/computer-studies.html">Computer Studies</a></li>
+            <li><a href="./departments/food-tech.html">Food Technology</a></li>
+            <li><a href="./departments/glass-ceramic.html">Glass and Ceramics</a></li>
+            <li><a href="./departments/mass-com.html">Mass Communication</a></li>
+            <li><a href="./departments/math-statistics.html">Mathematics and Statistics</a></li>
+            <li><a href="./departments/science-technology.html">Science Laboratory Technology</a></li>
+        </ul>
+    </div>
+    <footer class="footerEmmet">
+        <div class="copyrightAnd">
+            <p>&#169; ABTech <span>2023</span></p>
+        </div>
+        <div class="footerMiddle">
+            <h3>STUDENT SUPPORT</h3>
+        </div>
+        <div class="iconDiv">
+            <i class="fa-brands fa-facebook" id="facebook" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-twitter" id="twitter" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-instagram" id="instagram" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-whatsapp" id="whatsapp" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-telegram" id="telegram" style="font-size: 25px; margin: 10px;"></i>
+           </div>
+    </footer>
+
+    <script type="module" src="newprofile.js"></script>
+</body>
+</html>

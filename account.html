@@ -34,30 +34,43 @@
 
     <div id="signUpForm">
         <h3>Dont have an account? Sign Up</h3>
+
+        <!-- First Name -->
         <label for="firstName">Firstname : </label>
         <input type="text" id="firstName" required>
 
+                <!-- Last Name -->
         <label for="lastName">Lastname : </label>
         <input type="text" id="lastName" required>
 
+                <!-- UserName -->
         <label for="username">Username : </label>
         <input type="text" id="username" required>
 
+                <!-- Phone Number -->
         <label for="phoneNumber">Phone Number : </label>
         <input type="number" id="phoneNumber" required>
 
+                <!-- Email -->
         <label for="email">Email : </label>
         <input type="email" id="email" required>
 
+                <!-- Date of Birth -->
         <label for="dateOfBirth">Date Of Birth : </label>
         <input type="date" id="dateOfBirth" required>
 
+                <!-- Profile Picture -->
+        <label for="image"><i class="fa fa-image" style="font-size: 50px;"></i></label>
+        <input type="file" id="image">
+
+                <!-- Gender -->
         <label for="gender">Gender : </label>
         <select id="gender">
             <option >Male</option>
             <option >Female</option>
         </select> 
 
+                <!-- Password -->
         <label for="password">Password : </label>
         <div class="passwordEye">
         <input type="password" id="password" required>
@@ -65,13 +78,9 @@
         <i class="fa fa-eye-slash" style="font-size: 25px;" id="crossedEye"></i>
         </div>
 
+                <!-- Confirm Password -->
         <label for="conPassword">Confirm Password : </label>
         <input type="password" id="conPassword" required>
-
-        <!--Image -->
-        <label for="profilePicture"><i class="fa-regular fa-image" style="font-size: 40px; cursor: pointer;"></i></label>
-        <input type="file" id="profilePicture" placeholder="photoImage.." style="display: none;">
-
         <div>
             <button id="signUpBtn">Sign Up</button>
         </div>

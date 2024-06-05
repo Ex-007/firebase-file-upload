@@ -16,6 +16,10 @@
     height: 50px;
 }
 
+#image{
+    display: none;
+}
+
 #signUpForm{
     border: 2px solid black;
     border-radius: 5px;
@@ -143,6 +147,10 @@
     align-items: center;
 }
 }
+
+
+
+
 @media only screen and (min-width: 475px){
     
 .header{
@@ -162,6 +170,10 @@
     /* justify-content: center; */
     align-items: center;
 
+}
+
+#image{
+    display: none;
 }
 
 #signUpForm input{

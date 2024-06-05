@@ -6,122 +6,240 @@
 }
 
 @media screen and (max-width : 475px){
-    .headerFirst{
-        display: flex;
-        justify-content: space-between;
-        background-color: rgb(0, 0, 0);
-        color: white;
-        border-radius: 5px;
-        padding: 0 10px;
+    
+    .incomingOne{
+        margin-top: 10px;
     }
+    .innerOne{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 10px;
+    }
+    .innerOne p{
+        font-size: 20px;
+    }
+    .innerOne h3{
+        display: block;
+        background-color: #947C9C;
+        color: white;
+        width: 200px;
+        text-align: center;
+        height: 30px;
+        border-radius: 20px;
+        border: 2px solid white;
+        outline: 2px solid #947C9C;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .incomingTwo{
+        border: 2px solid #947C9C;
+        border-radius: 20px;
+        display: flex;
+        text-align : center;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .innerTwo{
+        display: flex;
+        background-color: #947C9C;
+        color: white;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    .searchWrite{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin: 10px;
+        gap: 10px;
+    }
+    .searchWrite p{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #947C9C;
+        border: 2px solid white;
+        outline: 2px solid #947C9C;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: white;
+        font-weight: 900;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .searchWrite input{
+        border-radius: 20px;
+        height: 30px;
+        padding: 7px;
+    }
+
     .inputAndButtom{
-        background-color: black;
-        position: fixed;
-        width: 100vw;
+        margin-top: 10px;
+        background-color: #947C9C;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         bottom: 1px;
     }
-    #textArea{
+    #textAreaText{
         width: 92vw;
-        border: 2px solid white;
-        outline: 2px solid black;
+        border: 2px solid #947C9C;
+        outline: 2px solid rgb(255, 255, 255);
         border-radius: 10px;
         padding: 10px;
         font-size: 20px;
-        color: black;
     }
     
     .buttonDiv{
         display: flex;
         justify-content: center;
-    }
-    
-    
-    #Send{
-        background-color: black;
-        padding: 10px;
-        border: 2px solid white;
-        outline: 2px solid black;
-        color: white;
-        border-radius: 10px;
-        width: 100px;
-        margin: 10px 0;
-        font-size: 20px;
-        cursor: pointer;
-    }
-    #Send:hover{
-        background-color: green;
-    }
-
-    #textAreaText{
-        width: 80vw;
-        padding: 10px;
-        border-radius: 10px;
-        font-size: 16px;
-        overflow: hidden;
-        resize: none;
-    }
+    }    
     #textAreaText::-webkit-scrollbar{
         display: none;
     }
-   .change{
-    height: 10px;
-   }
 
     #textAreaText::placeholder{
         color: black;
         font-size: 20px;
     }
-    .logBtn{
-        display: flex;
-        justify-content: center;
-    }
     
     #logBtn{
+        display: flex;
+        justify-content: center;
         border-radius: 10px;
         width: 100px;
         height: 30px;
     }
     
-    #newListing{
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        /* align-items: center; */
-        margin-left: 40px;
-        margin-bottom: 110px;
-        flex-direction: column;
-    }
-    
-    #newListing li{
-        display: flex;
-        justify-content: space-between;
-        list-style-type: none;
-        font-size: 15px;
-        background-color: green;
-        padding: 10px;
-        border-radius: 10px;
-        color: white;
-        margin-left: -45px;
-        margin-bottom: 2px;
-    }
-    
-    .spanEdit{
+    span{
         color: red;
-        font-size: 30px;
+        font-size: 18px;
         cursor: pointer;
+        background-color: red;
+        color: white;
+        margin-left: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        width: 70px;
+        justify-content: center;
+        border: 4px solid  #947C9C;
+        outline: 2px solid red;
+    }
+    .span:hover{
+        transform: scale(1.3);
+    }
+
+    #noteTitle{
+        width: 300px;
+        height: 20px;
+        margin: 10px 0;
+        border-radius: 20px;
+        padding: 10px;
+        font-size: 18px;
     }
 }
 
 /* FOR MEDIA SCREENS ABOVE 475PX */
 @media screen and (min-width : 475px){
+    .incomingOne{
+        margin-top: 10px;
+    }
+    .innerOne{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 20px;
+        /* border: 2px solid blue; */
+        padding: 10px;
+    }
+    .innerOne h3{
+        display: block;
+        background-color: #947C9C;
+        color: white;
+        width: 200px;
+        text-align: center;
+        height: 30px;
+        border-radius: 20px;
+        border: 2px solid white;
+        outline: 2px solid #947C9C;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .incomingTwo{
+        border: 2px solid #947C9C;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .innerTwo{
+        display: flex;
+        background-color: #947C9C;
+        color: white;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    .searchWrite{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin: 10px;
+        gap: 10px;
+    }
+    .searchWrite p{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #947C9C;
+        border: 2px solid white;
+        outline: 2px solid #947C9C;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: white;
+        font-weight: 900;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .searchWrite input{
+        border-radius: 20px;
+        height: 30px;
+        padding: 7px;
+    }
+
     .inputAndButtom{
-        background-color: black;
-        position: fixed;
-        width: 100vw;
+        margin-top: 10px;
+        background-color: #947C9C;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -130,8 +248,8 @@
     }
     #textAreaText{
         width: 92vw;
-        border: 2px solid white;
-        outline: 2px solid black;
+        border: 2px solid #947C9C;
+        outline: 2px solid rgb(255, 255, 255);
         border-radius: 10px;
         padding: 10px;
         font-size: 20px;
@@ -169,32 +287,33 @@
         font-size: 20px;
     }
     
-    #newListing{
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        /* align-items: center; */
-        margin-left: 20px;
-        margin-bottom: 110px;
-        flex-direction: column;
-    }
-    
-    #newListing li{
-        display: flex;
-        justify-content: space-between;
-        list-style-type: none;
-        font-size: 20px;
-        background-color: #947C9C;;
-        padding: 10px;
-        border-radius: 10px;
-        color: white;
-        margin-bottom: 10px;
-        margin-left: -30px;
-    }
-    
-    .spanEdit{
+    span{
         color: red;
-        font-size: 30px;
+        font-size: 18px;
         cursor: pointer;
+        background-color: red;
+        color: white;
+        margin-left: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        width: 70px;
+        justify-content: center;
+        border: 4px solid  #947C9C;
+        outline: 2px solid red;
+    }
+    /* .span:hover{
+        transition: ease-in-out;
+        transform: scale(2.5%);
+    } */
+
+    #noteTitle{
+        width: 300px;
+        height: 20px;
+        margin: 10px 0;
+        border-radius: 20px;
+        padding: 10px;
+        font-size: 18px;
     }
 }

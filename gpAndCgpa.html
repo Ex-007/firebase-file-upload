@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newprofile.css">
+    <title>Calculate GP and CGPA</title>
+    <style>
+        @media only screen and (max-width: 475px){
+
+            .heading{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+                padding: 10px;
+                font-size: 20px;
+            }
+            h3{
+                text-align-last: center;
+            }
+            .gradingSystem{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .gradingSystem tr{
+                display: grid;
+                align-items: center;
+                grid-template-columns: 33.33fr 33.33fr 33.33fr;
+                gap: 50px;
+            }
+            .gradingSystem td{
+                padding-bottom: 5px;
+            }
+            .standardized{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+            .standardized tr{
+                display: grid;
+                align-items: center;
+                grid-template-columns: 50fr 50fr;
+    
+            }
+            .example{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .example table{
+                font-size: 10px;
+                padding: 5px;
+            }
+            .calculateGPA{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .previous{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .previous tr{
+                display: grid;
+                align-items: center;
+                grid-template-columns: 33.33fr 33.33fr 33.33fr;
+                gap: 10px;
+            }
+        }
+        @media only screen and (min-width: 475px){
+
+            .heading{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+                padding: 10px;
+                font-size: 20px;
+            }
+            .gradingSystem{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .gradingSystem tr{
+                display: grid;
+                align-items: center;
+                grid-template-columns: 33.33fr 33.33fr 33.33fr;
+                gap: 50px;
+            }
+            .gradingSystem td{
+                padding-bottom: 5px;
+            }
+            .standardized{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+            .standardized tr{
+                display: grid;
+                align-items: center;
+                grid-template-columns: 50fr 50fr;
+    
+            }
+            .example{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .example table{
+                /* font-size: 10px; */
+                padding: 5px;
+            }
+            .calculateGPA{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .previous{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .previous tr{
+                display: grid;
+                align-items: center;
+                grid-template-columns: 33.33fr 33.33fr 33.33fr;
+                gap: 10px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+     <!-- THE NAVIGATION BAR -->
+   <div class="header">
+    <div class="logo">
+        <h3>STUDENT SUPPORT</h3>
+    </div>
+    <div class="navigation">
+        <div class="navAndPic">
+            <div class="navBar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="catalogue.html">Catalogue</a></li>
+                    <li><a href="notes.html">Note</a></li>
+                    <li><a href="./departments/marketPlace.html">Market Place</a></li>
+                    <li><a href="aboutTwo.html">About us</a></li>
+                    <li id="signOut">Sign Out</li>
+                </ul>
+            </div>
+            <div class="nameBar">
+                <h3  id="usernamed"></h3>
+            </div>
+        </div>
+        <div class="userImageAndName">
+            <img src="images/profile image.png" alt="profile picture" width="50px">
+            <!-- <h3  id="usernamed"></h3> -->
+        </div>
+    </div>
+</div>
+
+    <div class="heading">
+        <h3>Calculate your GP and CGPA</h3>
+        <h3>
+            How To Calculate Your GPA and CGPA on Semester Basis
+        </h3>
+        <p>
+            The CGPA is the cumulative Grade Point Average of all the courses yoou registered for in the polytechnic.
+        </p>
+        <p>
+            It is also referred to as the grade points divided by the total units of the courses registered
+        </p>
+        <p>
+            Nigeria Polytechnics make use of the following grading system in calculation of GPA and the awarding of National Diploma (ND) and Higher National Diplomav(HND)
+        </p>
+    </div>
+
+
+    <div class="gradingSystem">
+        <h3>Polytechnics Grading System Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mark (%)</th>
+                    <th>Letter Grade</th>
+                    <th>Grade Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0 - 39</td>
+                    <td>F</td>
+                    <td>00.00</td>
+                </tr>
+                <tr>
+                    <td>40 -44</td>
+                    <td>E</td>
+                    <td>2.00</td>
+                </tr>
+                <tr>
+                    <td>45 - 49</td>
+                    <td>D</td>
+                    <td>2.25</td>
+                </tr>
+                <tr>
+                    <td>50 - 54</td>
+                    <td>CD</td>
+                    <td>2.50</td>
+                </tr>
+                <tr>
+                    <td>55 -59</td>
+                    <td>C</td>
+                    <td>2.75</td>
+                </tr>
+                <tr>
+                    <td>60 -64</td>
+                    <td>BC</td>
+                    <td>3.00</td>
+                </tr>
+                <tr>
+                    <td>65 - 69</td>
+                    <td>B</td>
+                    <td>3.25</td>
+                </tr>
+                <tr>
+                    <td>70 - 74</td>
+                    <td>AB</td>
+                    <td>3.50</td>
+                </tr>
+                <tr>
+                    <td>75 - 100</td>
+                    <td>A</td>
+                    <td>4.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="standardized">
+        <h3>The Standardized Unified Classification of Diploma is thus:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>FINAL CGPA</th>
+                    <th>Class of Diploma</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3.50 - 4.00</td>
+                    <td>Distinction</td>
+                </tr>
+                <tr>
+                    <td>3.00 - 3.49</td>
+                    <td>Upper Credit</td>
+                </tr>
+                <tr>
+                    <td>2.50 - 2.99</td>
+                    <td>Lower Credit</td>
+                </tr>
+                <tr>
+                    <td>2.00 - 2.49</td>
+                    <td>Pass</td>
+                </tr>
+                <tr>
+                    <td>0.00 - 1.99</td>
+                    <td>Fail</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- EXAMPLE -->
+    <div class="example">
+        <h2>Example</h2>
+        <h3>FIRST SEMESTER NDI (SEMESTER I) GPA CALCULATION</h3>
+        <p>
+            weighted point = course unit * Grade Point
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Course Unit</th>
+                    <th>Score</th>
+                    <th>Grade</th>
+                    <th>Grade Point</th>
+                    <th>Weighted Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>BAM126</td>
+                    <td>Introduction to Entrepreneurship</td>
+                    <td>2</td>
+                    <td>48</td>
+                    <td>D</td>
+                    <td>2.25</td>
+                    <td>4.50</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>GLS101</td>
+                    <td>Use of Library</td>
+                    <td>1</td>
+                    <td>47</td>
+                    <td>D</td>
+                    <td>2.25</td>
+                    <td>2.25</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>GLT111</td>
+                    <td>General Laboratory Techniques</td>
+                    <td>2</td>
+                    <td>70</td>
+                    <td>AB</td>
+                    <td>3.50</td>
+                    <td>7.00</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>GNS101</td>
+                    <td>Use of English</td>
+                    <td>2</td>
+                    <td>50</td>
+                    <td>CD</td>
+                    <td>2.50</td>
+                    <td>5.00</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>GNS111</td>
+                    <td>Citizenship Education</td>
+                    <td>2</td>
+                    <td>40</td>
+                    <td>E</td>
+                    <td>2.00</td>
+                    <td>4.00</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>STB111</td>
+                    <td>Plant and Animal Taxanomy</td>
+                    <td>3</td>
+                    <td>65</td>
+                    <td>B</td>
+                    <td>3.25</td>
+                    <td>9.75</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>STB112</td>
+                    <td>Morphology and Physiology of Living Things</td>
+                    <td>3</td>
+                    <td>54</td>
+                    <td>CD</td>
+                    <td>2.50</td>
+                    <td>7.50</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>STC111</td>
+                    <td>General Principle of Chemistry</td>
+                    <td>3</td>
+                    <td>57</td>
+                    <td>C</td>
+                    <td>2.75</td>
+                    <td>8.25</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>STC112</td>
+                    <td>Inorganic Chemistry I</td>
+                    <td>3</td>
+                    <td>45</td>
+                    <td>D</td>
+                    <td>2.25</td>
+                    <td>6.75</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>STP111</td>
+                    <td>Mechanics</td>
+                    <td>3</td>
+                    <td>46</td>
+                    <td>D</td>
+                    <td>2.25</td>
+                    <td>6.75</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>STP112</td>
+                    <td>Heat Energy</td>
+                    <td>2</td>
+                    <td>56</td>
+                    <td>C</td>
+                    <td>2.75</td>
+                    <td>5.50</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>STP113</td>
+                    <td>Algebra for Science</td>
+                    <td>2</td>
+                    <td>60</td>
+                    <td>BC</td>
+                    <td>3.00</td>
+                    <td>6.00</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>STP114</td>
+                    <td>Electronic Logic for Science</td>
+                    <td>2</td>
+                    <td>59</td>
+                    <td>C</td>
+                    <td>2.75</td>
+                    <td>5.50</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>78.75</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="calculateGPA">
+        <h3>Current Total Course Unit = 30</h3>
+        <h3>Current Total Point = 78.75</h3>
+        <h3>Current GPA = 78.75/30 = 2.63 (to 2 decimal places)</h3>
+    </div>
+    <div class="previous">
+        <table>
+            <thead>
+                <tr>
+                    <th>CURRENT</th>
+                    <th>PREVIOUS</th>
+                    <th>CUMULATIVE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Current Course Unit : 30</td>
+                    <td>Previous Course Unit : 0</td>
+                    <td>Cumulative Course Unit : 30</td>
+                </tr>
+                <tr>
+                    <td>Current Total Point : 78.75</td>
+                    <td>Previous Total Point : 0</td>
+                    <td>Cumulative Total Point : 78.75</td>
+                </tr>
+                <tr>
+                    <td>Current GPA : 2.63</td>
+                    <td>Previous GPA : 0</td>
+                    <td>Cumulative CGPA : 2.63</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECOND SEMESTER -->
+    <div class="example">
+        <h2>Example</h2>
+        <h3>SECOND SEMESTER NDI (SEMESTER I) GPA CALCULATION</h3>
+        <p>
+            weighted point = course unit * Grade Point
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Course Unit</th>
+                    <th>Score</th>
+                    <th>Grade</th>
+                    <th>Grade Point</th>
+                    <th>Weighted Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>COM123</td>
+                    <td>Computer Application Packages</td>
+                    <td>2</td>
+                    <td>45</td>
+                    <td>D</td>
+                    <td>2.25</td>
+                    <td>4.50</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>GLT121</td>
+                    <td>General Lab. Tech.</td>
+                    <td>2</td>
+                    <td>45</td>
+                    <td>D</td>
+                    <td>2.25</td>
+                    <td>4.50</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>GNS102</td>
+                    <td>Communication Skills I</td>
+                    <td>2</td>
+                    <td>40</td>
+                    <td>E</td>
+                    <td>2.00</td>
+                    <td>4.00</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>STB121</td>
+                    <td>Cell Biology</td>
+                    <td>3</td>
+                    <td>40</td>
+                    <td>E</td>
+                    <td>2.00</td>
+                    <td>6.00</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>STC121</td>
+                    <td>Organic Chemistry</td>
+                    <td>3</td>
+                    <td>42</td>
+                    <td>E</td>
+                    <td>2.00</td>
+                    <td>6.00</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>STC122</td>
+                    <td>Physical Chemistry</td>
+                    <td>3</td>
+                    <td>40</td>
+                    <td>E</td>
+                    <td>2.00</td>
+                    <td>6.00</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>STC123</td>
+                    <td>Analytical Chemistry</td>
+                    <td>3</td>
+                    <td>65</td>
+                    <td>B</td>
+                    <td>3.25</td>
+                    <td>9.75</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>STP121</td>
+                    <td>Electricity & Magnetism</td>
+                    <td>2</td>
+                    <td>62</td>
+                    <td>BC</td>
+                    <td>3.00</td>
+                    <td>6.00</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>STP122</td>
+                    <td>Optics & Waves</td>
+                    <td>2</td>
+                    <td>57</td>
+                    <td>C</td>
+                    <td>2.75</td>
+                    <td>5.50</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>52.25</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="previous">
+        <table>
+            <thead>
+                <tr>
+                    <th>CURRENT</th>
+                    <th>PREVIOUS</th>
+                    <th>CUMULATIVE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Current Course Unit : 22</td>
+                    <td>Previous Course Unit :30</td>
+                    <td>Cumulative Course Unit : 52</td>
+                </tr>
+                <tr>
+                    <td>Current Total Point : 52.25</td>
+                    <td>Previous Total Point : 78.75</td>
+                    <td>Cumulative Total Point : 131</td>
+                </tr>
+                <tr>
+                    <td>Current GPA : 2.63</td>
+                    <td>Previous GPA : 0</td>
+                    <td>Cumulative CGPA : 2.63</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="calculateGPA">
+        <h3>Current Total Course Unit = 22</h3>
+        <h3>Current Total Point = 52.25</h3>
+        <!-- <h3>Current GPA = 78.75/30 = 2.63 (to 2 decimal places)</h3> -->
+        <h3>CGPA = cumulative Total point / cumulative Course Unit</h3>
+        <h3> CGPA = 131/52 = 2.52</h3>
+    </div>
+
+    <footer class="footerEmmet">
+        <div class="copyrightAnd">
+            <p>&#169; ABTech <span>2023</span></p>
+        </div>
+        <div class="footerMiddle">
+            <h3>STUDENT SUPPORT</h3>
+        </div>
+        <div class="iconDiv">
+            <i class="fa-brands fa-facebook" id="facebook" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-twitter" id="twitter" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-instagram" id="instagram" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-whatsapp" id="whatsapp" style="font-size: 25px; margin: 10px;"></i>
+            <i class="fa-brands fa-telegram" id="telegram" style="font-size: 25px; margin: 10px;"></i>
+           </div>
+    </footer>
+
+
+
+
+
+    <!-- <button id="signOut">sign out</button> -->
+    <script src="newProfile2.js"></script>
+    <script type="module" src="newprofile.js"></script>
+</body>
+</html>

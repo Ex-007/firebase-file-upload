@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="header">
-        <h3>POLY SUPPORT ADMIN DASHBOARD</h3>
+        <h3>STUDENTS SUPPORT ADMIN DASHBOARD</h3>
         <h3 id="adminName"></h3>
         <button id="signOut">Log Out</button>
     </div>
@@ -69,10 +69,13 @@
                     <a href="#asogov">ASOGOV</a>
                 </li>
                 <li>
-                    <a href="">School President</a>
+                    <a href="#upcomingEvents">Upcoming Events</a>
                 </li>
                 <li>
-                    <a href="">School President</a>
+                    <a href="#schorlarship">Schorlarship</a>
+                </li>
+                <li>
+                    <a href="#products">Schorlarship</a>
                 </li>
             </ul>
         </div>
@@ -421,7 +424,6 @@
                         <button id="asogovDelete">Delete</button>
                     </div>
             </section>
-            ]\]]]ioo]\]kiiuuhh
 
             <!-- CATALOGUE -->
             <section id="catalogue">
@@ -704,6 +706,95 @@
                     <button id="SiwesDelete">Delete</button>
                 </div>
         </section>
+
+        <!-- UPCOMING EVENTS -->
+        <section id="upcomingEvent">
+            <div class="sectionName">
+                <h3>UPCOMING EVENTS</h3>
+            </div>
+            <hr>
+                <div class="InputDiv">
+                    <!-- EVENT NAME -->
+                    <label for="eventName">Event Name</label>
+                    <input type="text" id="eventName" placeholder="Event Name..">
+                    <!-- EVENT DATE -->
+                    <label for="eventDate">Event Date:</label>
+                    <input type="text" id="eventDate" placeholder="Event Date..">
+                    <!-- EVENT DESCRIPTION -->
+                    <label for="eventDescription">Event Description:</label>
+                    <textarea id="eventDescription" placeholder="Event Description........." cols="30" rows="10"></textarea>
+                </div>
+                <div class="buttonDiv">
+                    <button id="eventWrite">Write</button>
+                    <button id="eventUpdate">Update</button>
+                    <button id="eventRead">Read</button>
+                    <button id="eventDelete">Delete</button>
+                </div>
+        </section>
+
+        <!-- SCHORLARSHIPS -->
+        <section id="schorlarship">
+            <div class="sectionName">
+                <h3>SCHORLARSHIPS</h3>
+            </div>
+            <hr>
+                <div class="InputDiv">
+                    <!-- SCHORLARSHIP NAME -->
+                    <label for="schorlarshipName">Schorlarship Name</label>
+                    <input type="text" id="schorlarshipName" placeholder="Schorlarship Name..">
+                    <!-- APPLICATION DATE -->
+                    <label for="schorlarshipDate">Schorlarship Date:</label>
+                    <input type="text" id="schorlarshipDate" placeholder="Schorlarship Date..">
+                    <!-- SCHORLARSHIPS DESCRIPTION -->
+                    <label for="schorlarshipDescription">Schorlarship Description:</label>
+                    <textarea id="schorlarshipDescription" placeholder="Schorlarship Description........." cols="30" rows="10"></textarea>
+                    <!-- SCHORLARSHIPS LINK -->
+                    <label for="schorlarshipLink">Schorlarship Link:</label>
+                    <input type="text" id="schorlarshipLink" placeholder="Schorlarship Link ..">
+                </div>
+                <div class="buttonDiv">
+                    <button id="schorlarshipWrite">Write</button>
+                    <button id="schorlarshipUpdate">Update</button>
+                    <button id="schorlarshipRead">Read</button>
+                    <button id="schorlarshipDelete">Delete</button>
+                </div>
+        </section>
+
+        <!-- PRODUCTS -->
+        <section id="products">
+            <div class="sectionName">
+                <h3>PRODUCTS</h3>
+            </div>
+            <hr>
+                <div class="InputDiv">
+                    <!-- PRODUCTS NAME -->
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" placeholder="Product Name..">
+
+                    <!-- PRODUCTS PRICE -->
+                    <label for="productPrice">Product Price:</label>
+                    <input type="text" id="productPrice" placeholder="Product Price..">
+
+                    <!-- PRODUCTS DESCRIPTION -->
+                    <label for="productDescription">Product Description:</label>
+                    <textarea id="productDescription" placeholder="Product Description........." cols="30" rows="10"></textarea>
+
+                    <!-- PRODUCTS CONTACT -->
+                    <label for="productContact">Product Contact:</label>
+                    <input type="number" id="productContact" placeholder="Product Contact..">
+
+                        <!--PRODUCT IMAGE -->
+                        <label for="productImage"><i class="fa-regular fa-image" style="font-size: 40px; cursor: pointer;"></i></label>
+                        <input type="file" id="productImage" placeholder="photoImage.." style="display: none;">
+                
+                <div class="buttonDiv">
+                    <button id="productWrite">Write</button>
+                    <button id="productUpdate">Update</button>
+                    <button id="productRead">Read</button>
+                    <button id="productDelete">Delete</button>
+                </div>
+        </section>
+
 
 
 
