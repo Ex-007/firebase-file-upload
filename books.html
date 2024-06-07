@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="userImageAndName">
-                <img src="images/profile image.png" alt="profile picture" width="50px">
+                <img src="images/profile image.png" id="userImage" alt="profile picture" width="50px">
                 <!-- <h3  id="usernamed"></h3> -->
             </div>
         </div>
@@ -137,16 +137,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 import{getFirestore, doc, collection, getDocs, } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 let db = getFirestore()
-let displayTutorial = document.getElementById('displayTutorial')
-const myCollection = collection(db, 'BOOK');
 
-searchBtn.addEventListener('keyup', e => {
+
+let displayTutorial = document.getElementById('displayTutorial')
+let searchInput = document.getElementById('searchInput')
+const myCollection = collection(db, 'BOOK');
+let querySnapshot = []
+
+searchInput.addEventListener('keyup', e => {
         let searchedString = e.target.value.toLowerCase();
         let returnValue = querySnapshot.docs.filter(newEntry => {
             return newEntry.data().Name.toLowerCase().includes(searchedString);
         });
         displayDataIn(returnValue);
-        // console.log(returnValue);
     });
 
 async function readAllDocuments() {

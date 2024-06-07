@@ -27,9 +27,22 @@
   const firedb = getFirestore()
   const db = getDatabase()
   const auth = getAuth()
+  
+  //   FUNTION TO CHECK IF USER IS LOGGED IN OR OUT
+  function stateChanged(){
+      onAuthStateChanged(auth, (user) => {
+        if(user){
+            let userId = user.uid
+            logUserDetails(userId)
+        }else{
+            window.location.href = 'signIn.html'
+        }
+    })
+  }
+  stateChanged()
+  
 
   //   FUNCTION TO GET DATA FROM DATABASE AND DISPLAY IT
-
   var sender;
   async function logUserDetails(userId){
     var ref = doc(firedb, "Registered_Users", userId)
@@ -41,25 +54,11 @@
       chatOwner.textContent = sender
 
       profilePicture.src = docSnap.data().profilePicture
-        // console.log(docSnap.data())
     }else{
         alert('data does not exist')
     }
 }
 
-  //   FUNTION TO CHECK IF USER IS LOGGED IN OR OUT
-  function stateChanged(){
-    onAuthStateChanged(auth, (user) => {
-        if(user){
-            let userId = user.uid
-            logUserDetails(userId)
-            // console.log(userId)
-        }else{
-            window.location.href = 'signIn.html'
-        }
-    })
-  }
-  stateChanged()
 
   var sender;
 
@@ -67,6 +66,7 @@
 
         let textArea = document.getElementById('textArea')
         let sendBtn = document.getElementById('Send')
+        const dateAndTimeOfMessage = new Date().toLocaleString('en-NG', {timeZone: 'Africa/Lagos'});
 
 
 
@@ -80,11 +80,11 @@
             let timestamp = new Date().getTime()
             set(ref(db, 'newMessage/' + timestamp), {
                 message: messageValue,
-                sender: sender
+                sender: sender,
+                timestamp : dateAndTimeOfMessage
             })
         }
         textArea.value = ''
-        // console.log(messageValue)
     
     })
 
@@ -108,7 +108,7 @@
                 }
             })
     }
-// notificationIn()
+notificationIn()
 
 
 
@@ -126,13 +126,15 @@ onChildAdded(ref(db, 'newMessage'), snapshot => {
 
         let outgoingText = document.createElement('li');
         let newDiv = document.createElement('div');
+        let dateAndTime = document.createElement('p')
         newDiv.setAttribute('class', 'newDiv')
         newDiv.setAttribute('id', deleteKey); 
 
         outgoingText.setAttribute('id', 'outgoingMessages');
         outgoingText.textContent = 'You : ' + snapshot.val().message;
+        dateAndTime.textContent = snapshot.val().timestamp
         outgoingText.appendChild(deleteBtn);
-        newDiv.appendChild(outgoingText);
+        newDiv.append(outgoingText, dateAndTime);
         incoming.appendChild(newDiv);
 
         let messageOut = snapshot.val().message
