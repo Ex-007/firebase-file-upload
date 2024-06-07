@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="fileUpload.css">
+    <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="newprofile.css">
-    <title>Files</title>
+    <title>Blog</title>
 </head>
 <body>
     <!-- THE NAVIGATION BAR -->
-<div class="header">
+   <div class="header">
     <div class="logo">
         <h3>STUDENT SUPPORT</h3>
     </div>
@@ -23,7 +22,7 @@
                     <li><a href="catalogue.html">Catalogue</a></li>
                     <li><a href="notes.html">Note</a></li>
                     <li><a href="./departments/marketPlace.html">Market Place</a></li>
-                    <li><a href="../aboutTwo.html">About us</a></li>
+                    <li><a href="aboutTwo.html">About us</a></li>
                     <li id="signOut">Sign Out</li>
                 </ul>
             </div>
@@ -32,7 +31,7 @@
             </div>
         </div>
         <div class="userImageAndName">
-            <img src="../images/profile image.png" alt="profile picture" width="50px" id="userImage">
+            <img src="images/profile image.png" alt="profile picture" id="userImage" style="height: 60px; width: 60px; border-radius: 50%;">
             <!-- <h3  id="usernamed"></h3> -->
         </div>
     </div>
@@ -40,27 +39,25 @@
 
 
 
-
-    <div class="container">
-        
-        <div class="uploadSect">
-            <label for="fileToUpload"><i class="fa fa-file" style="font-size: 50px; color: #8F758E; margin: 10px; cursor: pointer;"></i></label>
-            <p class="htfileName" id="htfileName"></p>
-            <input type="file" id="fileToUpload"> <br>
-            <div class="progressDigit" id="progressDigit"></div>
-            <button id="uploadBtn">upload</button>
-        </div>
-        
-        <div class="displayfiles" id="displayfiles"></div>
-
+    <div class="searchBar">
+        <a href="#askAQuestion">Blog</a>
+        <input type="search" id="searchBar">
     </div>
 
+    <div class="questionAndComment"><div class="incomingBlog" id="incomingBlog"></div><div id="newWave"></div></div>
 
+    <hr>
+    <!-- QUESTION TO ASK DIVISION -->
+    <div class="askAQuestion" id="askAQuestion">
+        <h3>BLOG YOUR MIND</h3>
+        <label for="askName">Name:</label>
+        <input type="text" id="askName">
+        <label for="question">Question</label>
+        <textarea id="question" cols="30" rows="10"></textarea>
+        <button id="logQuestion">Blog</button>
+    </div>
 
-
-
-
+    <script type="module" src="blog.js" ></script>
     <script type="module" src="newprofile.js"></script>
-    <script type="module" src="fileUpload.js"></script>
 </body>
 </html>

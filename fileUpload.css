@@ -1,0 +1,140 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 475px){
+
+    #fileToUpload{
+        display: none;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .uploadSect{
+        margin: 50px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 30px;
+    }
+    .imageMain{
+        width: 300px;
+        height: 300px;
+    }
+    
+    button{
+        cursor: pointer;
+        background-color: #8F758E;
+        color: white;
+        border: 2px solid white;
+        outline: 2px solid #8F758E;
+        border-radius: 20px 0 20px 0;
+        width: 80px;
+        height: 30px;
+        font-size: 18px;
+    }
+    .mainet{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #8F758E;
+        padding: 10px;
+        margin-top: 10px;
+        gap: 10px;
+    }
+    label{
+        font-size: 20px;
+        font-weight: bolder;
+        border-bottom: 5px solid #8F758E;
+    }
+    p{
+        font-size: 20px;
+        font-weight: bolder;
+    }
+    
+    .displayfiles{
+        margin-left: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 475px){
+    #fileToUpload{
+        display: none;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        width: 80vw;
+        /* margin: 20px auto; */
+    }
+    .uploadSect{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid #8F758E;
+        width: 30%;
+        height: 100vh;
+        position: fixed;
+    }
+    .imageMain{
+        width: 300px;
+        height: 300px;
+    }
+    
+    button{
+        cursor: pointer;
+        background-color: #8F758E;
+        color: white;
+        border: 2px solid white;
+        outline: 2px solid #8F758E;
+        border-radius: 20px 0 20px 0;
+        width: 80px;
+        height: 30px;
+        font-size: 18px;
+    }
+    .mainet{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #8F758E;
+        padding: 10px;
+        margin-top: 10px;
+        gap: 10px;
+    }
+    label{
+        font-size: 20px;
+        font-weight: bolder;
+        border-bottom: 5px solid #8F758E;
+    }
+    p{
+        font-size: 20px;
+        font-weight: bolder;
+    }
+    
+    .displayfiles{
+        margin-left: 20px;
+        position: relative;
+        left: 210px;
+    }
+}
+
+

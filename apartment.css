@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media only screen  and (max-width: 425px){
+    .filtering{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    .filterPrice{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    .filterPrice select{
+        height: 30px;
+        width: 100px;
+        border-radius: 20px;
+        padding: 5px 10px;
+        text-align: center;
+    }
+    .filterPrice button{
+        background-color: #8F758E;
+        color: white;
+        width: 4rem;
+        height: 1.5rem;
+        border-radius: 20px;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 20px auto;
+        border: 2px solid #8F758E;
+        padding: 10px 0;
+        gap: 10px;
+        /* width: 90vw; */
+    }
+
+    .secondDivision{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 20px;
+    }
+    .secondDivision label{
+        background-color: #8F758E;
+        color: white;
+        display: block;
+        width: 200px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 30px;
+        font-size: 25px;
+    }
+    .secondDivision h3{
+        font-size: 30px;
+        color: white;
+        background-color: #8F758E;
+        width: 300px;
+        justify-content: center;
+        display: flex;
+        height: 40px;
+        border: 2px solid white;
+        outline: 2px solid #8F758E;
+        border-radius: 20px;
+    }
+    .houseImage{
+        width: 350px;
+    }
+}
+
+@media only screen  and (min-width: 425px){
+    .filtering{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    .filterPrice{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    .filterPrice select{
+        height: 30px;
+        width: 100px;
+        border-radius: 20px;
+        padding: 5px 10px;
+        text-align: center;
+    }
+    .filterPrice button{
+        background-color: #8F758E;
+        color: white;
+        width: 4rem;
+        height: 1.5rem;
+        border-radius: 20px;
+    }
+    .houseImage{
+        width: 300px;
+    }
+    .imageDiv{
+        margin-left: 10px;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        border: 2px solid #8F758E;
+        padding: 10px;
+        gap: 20px;
+        /* max-width: 90vw; */
+    }
+    .secondDivision{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 20px;
+        margin-right: 25px;
+    }
+    .secondDivision label{
+        background-color: #8F758E;
+        color: white;
+        display: block;
+        width: 200px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 30px;
+        font-size: 25px;
+    }
+    .secondDivision h3{
+        font-size: 30px;
+        color: white;
+        background-color: #8F758E;
+        width: 300px;
+        justify-content: center;
+        display: flex;
+        height: 40px;
+        border: 2px solid white;
+        outline: 2px solid #8F758E;
+        border-radius: 20px;
+    }
+}

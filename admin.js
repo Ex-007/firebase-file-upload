@@ -2709,12 +2709,12 @@ SiwesRead.addEventListener('click', readForSiwes)
                 });
 
                 alert("Uploading Successful");
-                clearFormFpasu();
+                clearFormProduct();
             });
         }
     }
 
-    function clearFormFpasu() {
+    function clearFormProduct() {
         // Clear form fields after successful upload
         productNameIn.value = ''
         productPriceIn.value = ''
@@ -2794,4 +2794,154 @@ SiwesRead.addEventListener('click', readForSiwes)
         }
 
         productDelete.addEventListener('click', deleteForProduct)
+
+     // FOR PRODUCT PAGE
+     let apartmentNameIn = document.getElementById('apartmentName')
+     let apartmentAddressIn = document.getElementById('apartmentAddress')
+     let apartmentDescriptionIn = document.getElementById('apartmentDescription')
+     let durationIn = document.getElementById('duration')
+     let apartmentPriceIn = document.getElementById('apartmentPrice')
+     let apartmentContactIn = document.getElementById('apartmentContact')
+     let availabilityIn = document.getElementById('availability')
+     let apartmentImageIn = document.getElementById('apartmentImage')
+
+     let apartmentWrite = document.getElementById('apartmentWrite')
+     let apartmentUpdate = document.getElementById('apartmentUpdate')
+     let apartmentRead = document.getElementById('apartmentRead')
+     let apartmentDelete = document.getElementById('apartmentDelete')
+ 
+     async function writeForApartment() {
+         let apartmentName = apartmentNameIn.value
+         let apartmentAddress = apartmentAddressIn.value
+         let apartmentDescription = apartmentDescriptionIn.value
+         let duration = durationIn.value
+         let apartmentPrice = apartmentPriceIn.value
+         let apartmentContact = apartmentContactIn.value
+         let availability = availabilityIn.value
+ 
+         if (apartmentName == '' || apartmentPrice == '' || apartmentContact == '' || apartmentAddress == '' || apartmentDescription == '' || duration == '') {
+             alert('Please fill all empty spaces');
+         } else {
+             let file = apartmentImageIn.files[0];
+             var fileName = file.name;
+ 
+             const storageRef = ref(storage, 'APARTMENT/' + fileName);
+             const uploadTask = uploadBytesResumable(storageRef, file);
+ 
+             uploadTask.on('state_changed', (snapshot) => {
+                 console.log(snapshot);
+             }, (error) => {
+                 console.log(error);
+             }, async () => {
+                 const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+ 
+                 const ref = doc(db, "APARTMENT", apartmentName);
+                 await setDoc(ref, {
+                    apartmentName: apartmentName,
+                    apartmentAddress: apartmentAddress,
+                    apartmentDescription: apartmentDescription,
+                    duration: duration,
+                    apartmentPrice: apartmentPrice,
+                    apartmentContact: apartmentContact,
+                    availability: availability,
+                    apartmentImage: downloadURL,  
+                 });
+ 
+                 alert("Uploading Successful");
+                 clearFormApartment();
+             });
+         }
+     }
+ 
+     function clearFormApartment() {
+         // Clear form fields after successful upload
+         apartmentNameIn.value = ''
+         apartmentAddressIn.value = ''
+         apartmentDescriptionIn.value = ''
+         apartmentPriceIn.value = ''
+         apartmentContactIn.value = ''
+     }
+ 
+     apartmentWrite.addEventListener('click', writeForApartment);
+ 
+ 
+     // UPDATE FOR APARTMENT
+     async function updateForApartment(){
+ 
+        let apartmentName = apartmentNameIn.value
+        let apartmentAddress = apartmentAddressIn.value
+        let apartmentDescription = apartmentDescriptionIn.value
+        let duration = durationIn.value
+        let apartmentPrice = apartmentPriceIn.value
+        let apartmentContact = apartmentContactIn.value
+        let availability = availabilityIn.value
+ 
+         var ref = doc(db, "APARTMENT", apartmentName)
+         await updateDoc(ref, {
+            apartmentName: apartmentName,
+            apartmentAddress: apartmentAddress,
+            apartmentDescription: apartmentDescription,
+            duration: duration,
+            apartmentPrice: apartmentPrice,
+            apartmentContact: apartmentContact,
+            availability: availability,
+             // productImage: downloadURL,
+         })
+         .then(() => {
+             alert('Updated Successfully')
+         })
+         .catch(error => {
+             alert(error.message)
+         })
+         apartmentNameIn.value = ''
+         apartmentAddressIn.value = ''
+         apartmentDescriptionIn.value = ''
+         apartmentPriceIn.value = ''
+         apartmentContactIn.value = ''
+     }
+     apartmentUpdate.addEventListener('click', updateForApartment)
+ 
+ 
+     // READ FOR APARTMENT
+     async function readForApartment(){
+ 
+        let apartmentName = apartmentNameIn.value
+         var ref = doc(db, "APARTMENT", apartmentName)
+         const docSnap = await getDoc(ref)
+         if(docSnap.exists()){
+             // console.log(docSnap.data())
+             apartmentNameIn.value = docSnap.data().apartmentName
+             apartmentAddressIn.value = docSnap.data().apartmentAddress
+             apartmentDescriptionIn.value = docSnap.data().apartmentDescription
+             durationIn.value = docSnap.data().duration
+             apartmentPriceIn.value = docSnap.data().apartmentPrice
+             apartmentContactIn.value = docSnap.data().apartmentContact
+             availabilityIn.value = docSnap.data().availability
+             let photoSee = docSnap.data().apartmentImage
+ 
+             console.log(photoSee)
+         }else{
+             alert('Product does not exist')
+         }
+     }
+     apartmentRead.addEventListener('click', readForApartment)
+ 
+     // DELETE FOR APARTMENT
+         async function deleteForApartment(){
+            let apartmentName = apartmentNameIn.value
+             var ref = doc(db, "APARTMENT", apartmentName)
+             const docSnap = await getDoc(ref)
+             if(!docSnap.exists()){
+                 alert('No such Document')
+             }
+             await deleteDoc(ref)
+             .then(() => {
+                 alert('Product Deleted')
+             })
+             .catch(error => {
+                 alert(error.message)
+             })
+         }
+ 
+         apartmentDelete.addEventListener('click', deleteForApartment)
 

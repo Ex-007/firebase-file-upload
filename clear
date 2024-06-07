@@ -1,0 +1,170 @@
+[33mcommit 640c1d01ac7ab642cf33b4a0e0a1df1a96701672[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Wed Jun 5 14:45:39 2024 +0100
+
+    added some changes with the profile picture for signing up users.
+
+[33mcommit 7e7dafdc85cc9beed524bbdb9d998e1531517c52[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Mon May 13 15:31:04 2024 +0100
+
+    purchasing update
+
+[33mcommit 321c47fa9e862596de66473555e5d1e89c27f91e[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Mon May 13 15:23:15 2024 +0100
+
+    Changes made at  once
+
+[33mcommit d601cd7040c86cff507aa59d9ce26f3de8bfdb7c[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Mar 19 20:22:24 2024 +0100
+
+    new edit
+
+[33mcommit 089ef45e93c9faff08d27ae3769490fc0a81fddc[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Fri Mar 15 22:01:06 2024 +0100
+
+    new
+
+[33mcommit ab761632cf65aa0209a4bcce6f13be4257550a82[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Fri Mar 15 19:36:39 2024 +0100
+
+    latest addo
+
+[33mcommit 301bf374ff5e8755efa9ac5a4791f0be06be567b[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Mon Jan 22 15:10:06 2024 +0100
+
+    departmerntal changes
+
+[33mcommit 2e7f5326016f8d0139d9054b17a69d1e109ec023[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Thu Jan 4 16:04:13 2024 +0100
+
+    Asogov and fpasubar added
+
+[33mcommit 3631c0199a1d692b6ddaa0f8aa0f815c21b7a945[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Dec 19 17:39:09 2023 +0100
+
+    more editing
+
+[33mcommit eb699b9c5be14e785228d010ece3fcc639dd41e9[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Dec 19 16:15:29 2023 +0100
+
+    more changes and responsiveness
+
+[33mcommit b583decdfa7bf9046b29a93ce36afd7d122d8bf0[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Mon Dec 18 14:46:35 2023 +0100
+
+    new updates for departments
+
+[33mcommit 3988e6e798b4c714fa880ba518045a18b18666d0[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Fri Dec 15 14:22:43 2023 +0100
+
+    new commit for book, catalogue and admin
+
+[33mcommit 3ed145d156a7a8200eee42027def3ca87dc80632[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Thu Dec 14 20:40:59 2023 +0100
+
+    more changes made
+
+[33mcommit b91bae1c8dd86262b486c59469e731cf2152951b[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Thu Dec 14 02:33:20 2023 +0100
+
+    tutorial fixed
+
+[33mcommit e8d5115c03c38850b46ba35ae1d126537044e574[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Thu Dec 14 01:50:42 2023 +0100
+
+    functionality for tutorial added
+
+[33mcommit de73b035480587273e0652a9f21c168cd9c7786a[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Thu Dec 14 01:36:12 2023 +0100
+
+    added tutorial
+
+[33mcommit eb76ccb272629235b2e26d20d0fd95cc620ab7bd[m
+Merge: dd4b534 be2179c
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Wed Dec 13 19:13:03 2023 +0100
+
+    Merge branch 'main' of https://github.com/Ex-007/firebase-file-upload
+
+[33mcommit dd4b5348d6e21bc7d2350004a143bec95f188a0a[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Wed Dec 13 19:12:48 2023 +0100
+
+    Added some changes
+
+[33mcommit be2179c76ece64aae7d8c67e927280471229a04b[m
+Author: Ex-007 <121792124+Ex-007@users.noreply.github.com>
+Date:   Wed Dec 13 01:03:51 2023 +0100
+
+    Create README.md
+    
+    README created
+
+[33mcommit c19a0f903b3ac7bce35187e8c3f1fca463fdb49f[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Wed Dec 13 00:59:00 2023 +0100
+
+    edited more  admin functionality.
+
+[33mcommit 7f970e64d741e4a6717709d6d8c652ffc5497594[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Dec 12 23:06:31 2023 +0100
+
+     saving uploading image to html and js for admin
+
+[33mcommit 50d75927b829eec453f9cb4e0efe803605bc83cb[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Dec 12 22:26:36 2023 +0100
+
+    some editing to the js
+
+[33mcommit 5772d1c284e6411502c387d25bac087dce846e1e[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Dec 12 17:17:35 2023 +0100
+
+    updating the JS
+
+[33mcommit 37737a3ca74cecb26f064c472f1c183b66b59398[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Dec 12 14:54:48 2023 +0100
+
+    updating the admin javascript
+
+[33mcommit ed11a2e2d08b45439c5f7a052c63db2a3980c3b3[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Dec 12 13:46:15 2023 +0100
+
+    added admin
+
+[33mcommit 7fdc4a1ad6423993cc04f9c780048723cbc5f5cd[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Tue Dec 12 11:55:09 2023 +0100
+
+    added more changes
+
+[33mcommit 68a28916cf54c9ef34d2a2e85d0a6a29bdaba326[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Mon Dec 11 16:53:25 2023 +0100
+
+    newchanges
+
+[33mcommit 2fb2471884f548f42ecd93676653daeba4aa5eae[m
+Author: Ex-007 <agbebibidemi02@gmail.com>
+Date:   Mon Dec 11 14:28:35 2023 +0100
+
+    changed
