@@ -28,7 +28,7 @@ let photoImage = document.getElementById('image')
   const app = initializeApp(firebaseConfig);
 
     // IMPORTING THE NEEDED FIREBASE FUNCTION
-  import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+  import {getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
   import {getStorage, listAll, ref, uploadBytesResumable, getDownloadURL} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js";
   import{getFirestore, doc, getDoc, getDocs, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, query, where} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";;
   const db = getFirestore()
@@ -183,3 +183,22 @@ openedEye.addEventListener('click', revealPassword)
 
     // ADDING THE EVENT TO THE SIGN UP BUTTON
     signUpBtn.addEventListener('click', signUpUser)
+
+
+
+
+    // SIGNING USERS WITH GOOGLE AUTH
+    // let signWithGoogle = document.getElementById('signWithGoogle')
+
+    // const authProvider = new GoogleAuthProvider()
+    // function signInWithGoogle(){
+    //     signInWithPopup(auth, authProvider)
+    //     .then(result => {
+    //         console.log(result.user);
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //     })
+    // }
+
+    // signWithGoogle.addEventListener('click', signInWithGoogle)
