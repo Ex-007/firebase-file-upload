@@ -20,12 +20,9 @@ let headerTwoNav = document.getElementById('headerTwoNav')
 // })
 
 
-  // Import the functions you need from the SDKs you need
-  // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
 
-  // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyBmY2XtNwXZrHeE5za2cp7sOFYOKjSvdCQ",
     authDomain: "school-newusersign.firebaseapp.com",
@@ -54,7 +51,8 @@ let headerTwoNav = document.getElementById('headerTwoNav')
         console.log(response)
     })
     .catch(error => {
-        console.error(error);
+        // console.error(error);
+        alert(error)
     })
   }
 
@@ -76,7 +74,7 @@ let headerTwoNav = document.getElementById('headerTwoNav')
       profilePicture.src = profilePictureData
       usernamed.textContent = FirstName + " " + Lastname
 
-        console.log(docSnap.data())
+        // console.log(docSnap.data())
     }else{
         alert('data does not exist')
         window.location.href = 'account.html'
@@ -93,7 +91,7 @@ let headerTwoNav = document.getElementById('headerTwoNav')
         if(user){
             let userId = user.uid
             logUserDetails(userId)
-            console.log(userId)
+            // console.log(userId)
         }else{
             window.location.href = 'account.html'
         }
@@ -102,5 +100,29 @@ let headerTwoNav = document.getElementById('headerTwoNav')
   stateChanged()
 
   signOutBtn.addEventListener('click', signOutUser)
+
+
+
+  let mainInfo = document.getElementById('mainInfo')
+
+  async function displayInformation(){
+    var ref = doc(db, "NOTIFICATION")
+    const docSnap = await getDoc(ref)
+    if(docSnap.exists()){
+      var newDiv = document.createElement('div')
+      newDiv.setAttribute('class', 'information')
+      newDiv.innerHTML = `
+        <a href="${docSnap.data().link}">
+          <p>
+              ${docSnap.data().information}
+          </p>
+        </a>
+      `
+      mainInfo.appendChild(newDiv)
+      console.log('no document in this system');
+    }
+  }
+
+  displayInformation()
 
 

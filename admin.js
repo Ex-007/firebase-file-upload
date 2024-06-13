@@ -34,15 +34,15 @@ let signOutBtn = document.getElementById('signOut')
     .then(response => {
         alert('you logged out')
         window.location.href = 'adminsign.html'
-        console.log(response)
+        // console.log(response)
     })
     .catch(error => {
-        console.error(error);
+        alert('the error reads: ' + error);
     })
   }
   signOutBtn.addEventListener('click', signOutUser)
 
-//   FUNCTION TO GET DATA FROM DATABASE AND DISPLAY IT
+//   FUNCTION TO GET USER DATA FROM DATABASE AND DISPLAY IT
 
   async function logUserDetails(userId){
     var ref = doc(db, "Admin", userId)
@@ -105,7 +105,7 @@ async function writeForSug() {
         let file = photoImage.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'SUG/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -259,7 +259,7 @@ async function writeForFpasu() {
         let file = fpasuBarphotoImage.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'FPASUBAR/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -414,7 +414,7 @@ async function writeForAsogov() {
         let file = asogovphotoImage.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'ASOGOV/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -574,7 +574,7 @@ async function writeForGen() {
         console.log(file)
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'SUGGENSEC/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -733,7 +733,7 @@ async function writeForPro() {
         let file = prophotoImage.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'SUGPRO/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -887,7 +887,7 @@ async function writeForSchool() {
         let file = schoolphotoImage.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'FACULTYPRESIDENT/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -1038,7 +1038,7 @@ async function writeForDepartment() {
         let file = departmentphotoImage.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'DEPARTMENTALPRESIDENT/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -1188,7 +1188,7 @@ async function writeForGov() {
         let file = govphotoImage.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'DEPARTMENTALGOVERNOR/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -1629,6 +1629,7 @@ marketRead.addEventListener('click', readForMarket)
     
     
         // WRITE FOR NEWS
+        const dateAndTimeOfBlog = new Date().toLocaleString('en-NG', {timeZone: 'Africa/Lagos'});
     async function writeForNews(){
         let Id = newId.value
         let Content = newContent.value
@@ -1639,9 +1640,10 @@ marketRead.addEventListener('click', readForMarket)
         }else{
             var ref = doc(db, "NEWS", Id)
             const docRef = await setDoc(ref, {
-                Id : Id,
+                category : Id,
                 Content : Content,
-                Preview : Preview,
+                Title : Preview,
+                timeAndDate : dateAndTimeOfBlog
             })
             .then(() => {
                 alert("Uploading Successful")
@@ -1667,7 +1669,8 @@ marketRead.addEventListener('click', readForMarket)
         var ref = doc(db, "NEWS", Id)
         await updateDoc(ref, {
             Content : Content,
-            Preview : Preview,
+            Title : Preview,
+            timeAndDate : dateAndTimeOfBlog
         })
         .then(() => {
             alert('Updated Successfully')
@@ -1685,9 +1688,9 @@ marketRead.addEventListener('click', readForMarket)
     // READ FOR CATALOGUE
     async function readForNews(){
     
-        let Id = newId.value
+        let id = newId.value
     
-        var ref = doc(db, "NEWS", Id)
+        var ref = doc(db, "NEWS", id)
         const docSnap = await getDoc(ref)
         if(docSnap.exists()){
             // console.log(docSnap.data())
@@ -1750,7 +1753,7 @@ async function writeForDean() {
         let file = Image.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'DEAN/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -1863,7 +1866,7 @@ deanDelete.addEventListener('click', deleteForDean)
                 let file = Image.files[0];
                 var fileName = file.name;
         
-                const storageRef = ref(storage, 'images/' + fileName);
+                const storageRef = ref(storage, 'HOD/' + fileName);
                 const uploadTask = uploadBytesResumable(storageRef, file);
         
                 uploadTask.on('state_changed', (snapshot) => {
@@ -1978,7 +1981,7 @@ HODDelete.addEventListener('click', deleteForHOD)
              let file = book.files[0];
              var fileName = file.name;
      
-             const storageRef = ref(storage, 'images/' + fileName);
+             const storageRef = ref(storage, 'BOOKS/' + fileName);
              const uploadTask = uploadBytesResumable(storageRef, file);
      
              uploadTask.on('state_changed', (snapshot) => {
@@ -2067,7 +2070,7 @@ HODDelete.addEventListener('click', deleteForHOD)
      
      bookDelete.addEventListener('click', deleteForBOOK)
 
-   // FOR NEWS
+   // FOR TUTORIAL
    let tutorialId = document.getElementById('tutorialId')
    let tutorialName = document.getElementById('tutorialName')
    let tutorialLink = document.getElementById('tutorialLink')
@@ -2200,7 +2203,7 @@ async function writeForHall() {
         let file = hallphotoImage.files[0];
         var fileName = file.name;
 
-        const storageRef = ref(storage, 'images/' + fileName);
+        const storageRef = ref(storage, 'HALLOFRESIDENCE/' + fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on('state_changed', (snapshot) => {
@@ -2945,3 +2948,99 @@ SiwesRead.addEventListener('click', readForSiwes)
  
          apartmentDelete.addEventListener('click', deleteForApartment)
 
+
+                 // FOR URGENT INFORMATION
+        let infoId = document.getElementById('infoId')
+        let information = document.getElementById('information')
+        let infowrite = document.getElementById('infowrite')
+        let infoUpdate = document.getElementById('infoUpdate')
+        let infoRead = document.getElementById('infoRead')
+        let infoDelete = document.getElementById('infoDelete')
+    
+    
+        // WRITE FOR URGENT
+    async function writeForInfo(){
+        let Id = infoId.value
+        let Content = information.value
+     
+        if(Id == '' || Content == '' ){
+            alert('please fill all empty spaces')
+        }else{
+            var ref = doc(db, "URGENT", Id)
+            const docRef = await setDoc(ref, {
+                id : Id,
+                Content : Content
+            })
+            .then(() => {
+                alert("Uploading Successful")
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            infoId.value = ''
+            information.value = ''
+        }
+    }
+    infowrite.addEventListener('click', writeForInfo)
+    
+    
+    // UPDATE FOR URGENT
+    async function updateForInfo(){
+    
+        let Id = infoId.value
+        let Content = information.value
+    
+        var ref = doc(db, "URGENT", Id)
+        await updateDoc(ref, {
+            id : Id,
+            Content : Content
+        })
+        .then(() => {
+            alert('Updated Successfully')
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+            infoId.value = ''
+            information.value = ''
+    }
+    infoUpdate.addEventListener('click', updateForInfo)
+    
+    
+    // READ FOR URGENT
+    async function readForInfo(){
+    
+        let id = infoId.value
+    
+        var ref = doc(db, "URGENT", id)
+        const docSnap = await getDoc(ref)
+        if(docSnap.exists()){
+            // console.log(docSnap.data())
+            infoId.value = docSnap.data().Id
+            information.value = docSnap.data().Content 
+        }else{
+            alert('data does not exist')
+        }
+    }
+    infoRead.addEventListener('click', readForInfo)
+    
+    // DELETE FOR URGENT
+        async function deleteForInfo(){
+            let Id = infoId.value
+            var ref = doc(db, "URGENT", Id)
+            const docSnap = await getDoc(ref)
+            if(!docSnap.exists()){
+                alert('No such Document')
+            }
+            await deleteDoc(ref)
+            .then(() => {
+                alert('Document Deleted')
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+            infoId.value = ''
+            information.value = ''
+        }
+    
+        infoDelete.addEventListener('click', deleteForInfo)

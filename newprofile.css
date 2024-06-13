@@ -3,6 +3,31 @@
     padding: 0;
 }
 @media only screen and (max-width: 475px){
+    .information{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* color: green; */
+        color: white;
+        margin: 5px 0;
+        background-color: #8F758E;
+        padding: 10px 0;
+        font-size: 16px;
+        animation: slideInRight 10s ease-in-out infinite;
+    }
+
+    @keyframes slideInRight {
+        from {
+          transform: translateX(100%); /* Start from 100% width outside the right edge */
+        }
+        to {
+          transform: translateX(-100%); /* End at 0% width, showing the text */
+        }
+      }
+    .information a{
+        color: white;
+        text-decoration: none;
+    }
     .logo{
         display: none;
     }
@@ -397,6 +422,32 @@
 }
 
 @media only screen and (min-width: 475px){
+
+    .information{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* color: green; */
+        color: white;
+        margin: 5px 0;
+        background-color: #8F758E;
+        padding: 10px 0;
+        font-size: 16px;
+        animation: slideInRight 10s ease-in-out infinite;
+    }
+
+    @keyframes slideInRight {
+        from {
+          transform: translateX(100%); /* Start from 100% width outside the right edge */
+        }
+        to {
+          transform: translateX(-100%); /* End at 0% width, showing the text */
+        }
+      }
+    .information a{
+        color: white;
+        text-decoration: none;
+    }
     .headerTwo{
         display: none;
     }

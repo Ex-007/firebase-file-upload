@@ -18,6 +18,9 @@
         <div class="firstRow">
             <ul>
                 <li>
+                    <a href="#urgentInfo">Urgent Information</a>
+                </li>
+                <li>
                     <a href="#sugPresident">SUG President</a>
                 </li>
                 <li>
@@ -107,7 +110,35 @@
                 <a href="#"><i class="fa fa-arrow-up-from-bracket" style="font-size: 25px; color: white ;"></i></a>
                 
             </div>
-             <!-- SUG PRESIDENT -->
+
+
+
+             <!-- URGENT INFORMATION -->
+            <section id="urgentInfo">
+                <div class="sectionName">
+                    <h3>URGENT INFORMATION</h3>
+                </div>
+                <hr>
+                    <div class="InputDiv">
+                        <!-- INFO ID -->
+                        <label for="infoId">ID:</label>
+                        <input type="text" id="infoId" placeholder="ID..">
+                        <!-- INFORMATION -->
+                        <label for="information">Information</label>
+                        <textarea id="information" placeholder="Enter Information.."></textarea>
+                    </div>
+                    <div class="buttonDiv">
+                        <button id="infowrite">Write</button>
+                        <button id="infoUpdate">Update</button>
+                        <button id="infoRead">Read</button>
+                        <button id="infoDelete">Delete</button>
+                    </div>
+            </section>
+
+
+
+
+            <!-- SUG PRESIDENT -->
             <section id="sugPresident">
                 <div class="sectionName">
                     <h3>SUG PRESIDENT</h3>
@@ -523,10 +554,10 @@
                 <hr>
                     <div class="InputDiv">
                         <!-- NEWS ID -->
-                        <label for="newId">News ID:</label>
+                        <label for="newId">News Category:</label>
                         <input type="text" id="newId" placeholder="News ID..">
                         <!-- NEWS PREVIEW -->
-                        <label for="newsPreview">News Preview:</label>
+                        <label for="newsPreview">News Title:</label>
                         <input type="text" id="newsPreview" placeholder="News Preview..">
                         <!-- NEWS CONTENT -->
                         <label for="newContent">News Content:</label>

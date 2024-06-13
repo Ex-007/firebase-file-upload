@@ -49,6 +49,7 @@ let searchable = [
     '<a href="blog.html">Blogs</a>',
     '<a href="apartment.html">Apartments</a>',
     '<a href="news.html">News</a>',
+    '<a href="myProfile.html">Profile</a>',
     '<a href="../departments/marketPlace.html">Market Place</a>',
     `Agbebi`
   ];
